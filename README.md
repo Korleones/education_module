@@ -1,99 +1,51 @@
-# 📁 Project Structure Overview
+# 🧩 Arludo SkillTree App (Expo Template)
 
-This document explains the purpose of each main folder and file in the **Arludo Stem Course And Career Recommender For Primary And High School Students(React Native Mobile App)** project.    
-It follows professional React Native + TypeScript architecture for team collaboration and scalability.
+This repository is a **base template** for the Arludo SkillTree mobile application.  
+It includes a ready-to-use **Expo + React Native + TypeScript** setup for both **iOS** and **Android**.
 
----
-
-## 🧭 Root Structure
-
-```
-src/
-├─ components/
-├─ data/
-├─ screens/
-├─ services/
-├─ stores/
-├─ theme/
-├─ types/
-├─ utils/
-└─ App.tsx
-```
-
+> ⚠️ **Important:**  
+> This project is a **template**, not the final product.  
+> Please do **not** modify framework-level files unless necessary —  
+> focus on building your own business logic inside the existing folders (e.g. `app/`, `components/`, `hooks/`).
 
 ---
 
-## 📂 Folder Descriptions
+## 🚀 Quick Start
 
-### `components/`
-Reusable UI components shared across multiple screens.  
-Contains small, presentational elements such as buttons, cards, modals, or icons.  
-Focuses purely on the visual layer, not business logic.
+1. Clone the repository  
+   ```bash
+   git clone <your_repo_url>
+   cd arludo
 
----
 
-### `data/`
-Local or mock data for development and testing.  
-Stores static `.json` files, configuration data, or temporary datasets used by the app logic.
+2. Install dependencies
+npm install
 
----
+3. Start the Expo development server
+npm start
 
-### `screens/`
-Top-level pages representing different parts of the app.  
-Each screen composes multiple components and handles its own logic, layout, and navigation behavior.
+4. Run on your preferred platform
 
----
+Press i → iOS simulator
 
-### `services/`
-Business logic and functional layer of the application.  
-Contains core algorithms, data processing, API calls, and recommendation logic.
+Press a → Android emulator
 
----
+Scan the QR code using Expo Go app on your phone
 
-### `stores/`
-Global state management (using Zustand, Redux, or similar).  
-Acts as the centralized data layer shared across all screens and components.
+Team Notes
 
----
+This project is the official base template — do not alter the structure unless discussed.
 
-### `theme/`
-Defines the global design system — including colors, font sizes, spacing, and other visual tokens.  
-Ensures consistent styling across the entire app.
+Focus your development in:
 
----
+app/ → Screens and navigation
 
-### `types/`
-Holds TypeScript type definitions and interfaces.  
-Used to describe data structures and enforce type safety throughout the codebase.
+components/ → Reusable UI pieces
 
----
+hooks/ → State logic or data functions
 
-### `utils/`
-Utility functions and generic helpers.  
-Contains small, pure functions that perform calculations or data transformations independent of UI.
+constants/ → Static configuration (colors, skill data, etc.)
 
----
+Do not commit node_modules/.
 
-### `App.tsx`
-Main entry point of the app.  
-Initializes navigation, wraps global providers, and defines the app’s starting screen.
-
----
-
-## 🧱 Summary Table
-
-| Folder | Purpose |
-|---------|----------|
-| `components/` | Shared UI components |
-| `data/` | Static or mock data |
-| `screens/` | Full application pages |
-| `services/` | Business logic and API layer |
-| `stores/` | Global state management |
-| `theme/` | Global colors and typography |
-| `types/` | TypeScript interfaces and models |
-| `utils/` | Helper and utility functions |
-| `App.tsx` | Application entry point |
-
----
-
-> 🧠 This structure follows best practices used in production React Native apps, promoting maintainability, clarity, and teamwork scalability.
+If you add a dependency, commit both package.json and package-lock.json.
