@@ -7,6 +7,7 @@ It follows professional React Native + TypeScript architecture for team collabor
 
 ## 🧭 Root Structure
 
+```
 src/
 ├─ components/
 ├─ data/
@@ -17,6 +18,7 @@ src/
 ├─ types/
 ├─ utils/
 └─ App.tsx
+```
 
 
 ---
