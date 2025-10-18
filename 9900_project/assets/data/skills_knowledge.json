@@ -1,0 +1,592 @@
+{
+  "meta": {
+    "version": "1.1",
+    "model": "AU Curriculum v9",
+    "years": [3,4,5,6,7,8,9,10],
+    "discipline_list": ["Biological Sciences","Chemical Sciences","Earth & Space Sciences","Physical Sciences"],
+    "skill_strands": ["Questioning & Predicting","Planning & Conducting","Processing & Analysing Data","Evaluating","Communicating"],
+    "skill_level_mapping": {
+      "Y3": 1, "Y4": 2, "Y5": 3, "Y6": 4, "Y7": 5, "Y8": 6, "Y9": 7, "Y10": 8
+    }
+  },
+
+  "disciplines": [
+    {
+      "id": "BIO.Y3.AC9S3U01",
+      "year": 3,
+      "discipline": "Biological Sciences",
+      "code": "AC9S3U01",
+      "title": "Living vs non-living; life cycles (intro)",
+      "description": "Compare living and non-living things; note simple life-cycle stages.",
+      "levels": [
+        { "level": 1, "outcomes": ["List living/non-living examples", "Identify stages in a simple life cycle"] },
+        { "level": 2, "outcomes": ["Explain why an object is living using features", "Order life-cycle stages with reasons"] },
+        { "level": 3, "outcomes": ["Compare two life cycles", "Predict how environment affects a stage"] }
+      ],
+      "progression_to": "BIO.Y4.AC9S4U01",
+      "similar_to": ["BIO.Y4.AC9S4U02"],
+      "reinforced_by": ["INQ.Y3.QP","INQ.Y3.PAD","INQ.Y3.COMM"]
+    },
+    {
+      "id": "EARTH.Y3.AC9S3U02",
+      "year": 3,
+      "discipline": "Earth & Space Sciences",
+      "code": "AC9S3U02",
+      "title": "Soils, rocks, minerals (properties & resources)",
+      "description": "Compare observable properties of soils/rocks/minerals; consider uses.",
+      "levels": [
+        { "level": 1, "outcomes": ["Describe simple properties", "Match rock samples to common uses"] },
+        { "level": 2, "outcomes": ["Group samples by multiple properties", "Explain why a property suits a use"] },
+        { "level": 3, "outcomes": ["Plan a fair comparison of samples", "Argue for a material choice with evidence"] }
+      ],
+      "progression_to": "EARTH.Y4.AC9S4U03",
+      "similar_to": ["CHEM.Y4.AC9S4U04"],
+      "reinforced_by": ["INQ.Y3.PC","INQ.Y3.COMM"]
+    },
+    {
+      "id": "PHYS.Y3.AC9S3U03",
+      "year": 3,
+      "discipline": "Physical Sciences",
+      "code": "AC9S3U03",
+      "title": "Heat sources & temperature change",
+      "description": "Identify heat sources; describe temperature change with heat transfer.",
+      "levels": [
+        { "level": 1, "outcomes": ["Name heat sources", "Use a thermometer safely"] },
+        { "level": 2, "outcomes": ["Record before/after temperatures", "Describe warming/cooling in context"] },
+        { "level": 3, "outcomes": ["Compare rates of temperature change", "Explain insulation effects with evidence"] }
+      ],
+      "progression_to": "PHYS.Y4.AC9S4U05",
+      "similar_to": ["CHEM.Y3.AC9S3U04"],
+      "reinforced_by": ["INQ.Y3.PC","INQ.Y3.PAD"]
+    },
+    {
+      "id": "CHEM.Y3.AC9S3U04",
+      "year": 3,
+      "discipline": "Chemical Sciences",
+      "code": "AC9S3U04",
+      "title": "Solids & liquids; changes of state",
+      "description": "Investigate properties of solids and liquids; heating/cooling changes.",
+      "levels": [
+        { "level": 1, "outcomes": ["Sort solids vs liquids", "Describe melting ice"] },
+        { "level": 2, "outcomes": ["Measure simple state changes", "Explain particle spacing qualitatively"] },
+        { "level": 3, "outcomes": ["Compare melting points qualitatively", "Link heating/cooling to everyday uses"] }
+      ],
+      "progression_to": "CHEM.Y4.AC9S4U04",
+      "similar_to": ["PHYS.Y3.AC9S3U03"],
+      "reinforced_by": ["INQ.Y3.PC","INQ.Y3.PAD"]
+    },
+
+    {
+      "id": "BIO.Y4.AC9S4U01",
+      "year": 4,
+      "discipline": "Biological Sciences",
+      "code": "AC9S4U01",
+      "title": "Life cycles (development & variation)",
+      "description": "Living things have life cycles with stages that can vary.",
+      "levels": [
+        { "level": 1, "outcomes": ["Name stages for different organisms", "Note simple differences between species"] },
+        { "level": 2, "outcomes": ["Compare life cycles across habitats", "Explain how environment influences stages"] },
+        { "level": 3, "outcomes": ["Create comparative life-cycle diagrams", "Predict stage duration changes with evidence"] }
+      ],
+      "progression_to": "BIO.Y5.AC9S5U01",
+      "similar_to": ["BIO.Y4.AC9S4U02"],
+      "reinforced_by": ["INQ.Y4.PAD","INQ.Y4.COMM"]
+    },
+    {
+      "id": "BIO.Y4.AC9S4U02",
+      "year": 4,
+      "discipline": "Biological Sciences",
+      "code": "AC9S4U02",
+      "title": "Interdependence & environments",
+      "description": "Living things depend on each other and the environment.",
+      "levels": [
+        { "level": 1, "outcomes": ["Identify simple food chains", "List basic needs"] },
+        { "level": 2, "outcomes": ["Explain effects of a change on a food chain", "Relate habitat features to survival"] },
+        { "level": 3, "outcomes": ["Propose actions to support local species", "Justify an intervention with evidence"] }
+      ],
+      "progression_to": "BIO.Y5.AC9S5U01",
+      "similar_to": ["EARTH.Y4.AC9S4U03"],
+      "reinforced_by": ["INQ.Y4.COMM","INQ.Y4.PC"]
+    },
+    {
+      "id": "EARTH.Y4.AC9S4U03",
+      "year": 4,
+      "discipline": "Earth & Space Sciences",
+      "code": "AC9S4U03",
+      "title": "Earth’s surface changes",
+      "description": "Earth’s surface changes due to natural processes and human activity.",
+      "levels": [
+        { "level": 1, "outcomes": ["Identify local examples of change", "Describe simple causes (water, wind)"] },
+        { "level": 2, "outcomes": ["Compare natural vs human-caused changes", "Suggest mitigation actions"] },
+        { "level": 3, "outcomes": ["Evaluate action impacts with evidence", "Create annotated before/after map"] }
+      ],
+      "progression_to": "EARTH.Y5.AC9S5U02",
+      "reinforced_by": ["INQ.Y4.COMM","INQ.Y4.PC"]
+    },
+    {
+      "id": "CHEM.Y4.AC9S4U04",
+      "year": 4,
+      "discipline": "Chemical Sciences",
+      "code": "AC9S4U04",
+      "title": "Material properties & uses",
+      "description": "Natural and processed materials have properties that influence use.",
+      "levels": [
+        { "level": 1, "outcomes": ["Match properties to uses", "Describe natural vs processed materials"] },
+        { "level": 2, "outcomes": ["Test a property fairly (e.g., absorbency)", "Recommend a material for a purpose"] },
+        { "level": 3, "outcomes": ["Compare properties & trade-offs", "Justify a design choice with data"] }
+      ],
+      "progression_to": "CHEM.Y5.AC9S5U04",
+      "similar_to": ["EARTH.Y3.AC9S3U02"],
+      "reinforced_by": ["INQ.Y4.PAD","INQ.Y4.PC"]
+    },
+    {
+      "id": "PHYS.Y4.AC9S4U05",
+      "year": 4,
+      "discipline": "Physical Sciences",
+      "code": "AC9S4U05",
+      "title": "Forces: contact & non-contact",
+      "description": "Forces act through contact and at a distance (e.g., friction, magnetism).",
+      "levels": [
+        { "level": 1, "outcomes": ["Identify pushes/pulls", "Observe friction or magnet effects"] },
+        { "level": 2, "outcomes": ["Compare motion with more/less force", "Plan a simple fair test on friction"] },
+        { "level": 3, "outcomes": ["Explain differences using measured data", "Predict outcomes with changed surfaces/loads"] }
+      ],
+      "progression_to": "PHYS.Y5.AC9S5U03",
+      "reinforced_by": ["INQ.Y4.PC","INQ.Y4.PAD"]
+    },
+
+    {
+      "id": "BIO.Y5.AC9S5U01",
+      "year": 5,
+      "discipline": "Biological Sciences",
+      "code": "AC9S5U01",
+      "title": "Adaptations for survival",
+      "description": "Relate structural features/behaviours to survival in habitats.",
+      "levels": [
+        { "level": 1, "outcomes": ["Identify key features that aid survival", "Give simple habitat–feature links"] },
+        { "level": 2, "outcomes": ["Explain structure–function relationships", "Compare adaptations across species"] },
+        { "level": 3, "outcomes": ["Use evidence to justify an adaptation", "Predict survival under changed conditions"] }
+      ],
+      "progression_to": "BIO.Y6.AC9S6U01",
+      "reinforced_by": ["INQ.Y5.PAD","INQ.Y5.COMM"]
+    },
+    {
+      "id": "EARTH.Y5.AC9S5U02",
+      "year": 5,
+      "discipline": "Earth & Space Sciences",
+      "code": "AC9S5U02",
+      "title": "Earth surface processes",
+      "description": "Weathering, erosion, transport and deposition change Earth’s surface.",
+      "levels": [
+        { "level": 1, "outcomes": ["Describe weathering/erosion examples", "Link process to simple landform change"] },
+        { "level": 2, "outcomes": ["Compare rates/conditions of change", "Record observations systematically"] },
+        { "level": 3, "outcomes": ["Explain interacting processes with evidence", "Propose mitigation strategies"] }
+      ],
+      "progression_to": "EARTH.Y6.AC9S6U02",
+      "reinforced_by": ["INQ.Y5.PC","INQ.Y5.COMM"]
+    },
+    {
+      "id": "PHYS.Y5.AC9S5U03",
+      "year": 5,
+      "discipline": "Physical Sciences",
+      "code": "AC9S5U03",
+      "title": "Light, shadows, reflection & refraction",
+      "description": "Light travels in straight lines; shadows; reflection and refraction.",
+      "levels": [
+        { "level": 1, "outcomes": ["Describe straight-line travel & shadows", "Recognise reflection/refraction"] },
+        { "level": 2, "outcomes": ["Predict shadow/reflection outcomes", "Conduct a simple fair test"] },
+        { "level": 3, "outcomes": ["Explain patterns with diagrams/data", "Relate to everyday applications"] }
+      ],
+      "progression_to": "PHYS.Y6.AC9S6U03",
+      "reinforced_by": ["INQ.Y5.PC","INQ.Y5.PAD"]
+    },
+    {
+      "id": "CHEM.Y5.AC9S5U04",
+      "year": 5,
+      "discipline": "Chemical Sciences",
+      "code": "AC9S5U04",
+      "title": "Particle model: solids, liquids, gases",
+      "description": "Use particle model to explain properties of solids, liquids and gases.",
+      "levels": [
+        { "level": 1, "outcomes": ["Describe particle spacing for states", "Link to simple properties"] },
+        { "level": 2, "outcomes": ["Explain changes with heating/cooling", "Relate particle motion to observations"] },
+        { "level": 3, "outcomes": ["Compare models vs data", "Apply model to everyday examples"] }
+      ],
+      "progression_to": "CHEM.Y6.AC9S6U04",
+      "reinforced_by": ["INQ.Y5.PAD","INQ.Y5.EVAL"]
+    },
+
+    {
+      "id": "BIO.Y6.AC9S6U01",
+      "year": 6,
+      "discipline": "Biological Sciences",
+      "code": "AC9S6U01",
+      "title": "Habitats & survival conditions",
+      "description": "Physical conditions of habitats affect growth and survival.",
+      "levels": [
+        { "level": 1, "outcomes": ["List key habitat conditions", "Relate condition to organism needs"] },
+        { "level": 2, "outcomes": ["Explain condition–growth links with data", "Compare two habitats"] },
+        { "level": 3, "outcomes": ["Predict responses under changed conditions", "Evaluate uncertainty in claims"] }
+      ],
+      "progression_to": "BIO.Y7.AC9S7U01",
+      "reinforced_by": ["INQ.Y6.PAD","INQ.Y6.EVAL"]
+    },
+    {
+      "id": "EARTH.Y6.AC9S6U02",
+      "year": 6,
+      "discipline": "Earth & Space Sciences",
+      "code": "AC9S6U02",
+      "title": "Sun–Earth–planet relationships",
+      "description": "Sun–Earth–planet relationships; observed Earth phenomena.",
+      "levels": [
+        { "level": 1, "outcomes": ["Identify key bodies & motions", "Describe day/night and seasons at a basic level"] },
+        { "level": 2, "outcomes": ["Relate motion to observed patterns", "Use diagrams to explain phenomena"] },
+        { "level": 3, "outcomes": ["Compare models/explanations", "Discuss evidence limits"] }
+      ],
+      "progression_to": "EARTH.Y7.AC9S7U02",
+      "reinforced_by": ["INQ.Y6.COMM","INQ.Y6.PAD"]
+    },
+    {
+      "id": "PHYS.Y6.AC9S6U03",
+      "year": 6,
+      "discipline": "Physical Sciences",
+      "code": "AC9S6U03",
+      "title": "Electrical circuits & components",
+      "description": "Role of electrical circuit components in energy transfer/transformation.",
+      "levels": [
+        { "level": 1, "outcomes": ["Identify components & symbols", "Build a simple circuit safely"] },
+        { "level": 2, "outcomes": ["Compare circuit configurations", "Measure and record circuit data"] },
+        { "level": 3, "outcomes": ["Explain energy transfer with data", "Troubleshoot and justify solutions"] }
+      ],
+      "progression_to": "PHYS.Y7.AC9S7U03",
+      "reinforced_by": ["INQ.Y6.PC","INQ.Y6.PAD"]
+    },
+    {
+      "id": "CHEM.Y6.AC9S6U04",
+      "year": 6,
+      "discipline": "Chemical Sciences",
+      "code": "AC9S6U04",
+      "title": "Reversible vs irreversible changes",
+      "description": "Classify reversible vs irreversible changes to substances.",
+      "levels": [
+        { "level": 1, "outcomes": ["Identify reversible vs irreversible examples", "Record observations clearly"] },
+        { "level": 2, "outcomes": ["Explain why a change is reversible/irreversible", "Relate to particle model"] },
+        { "level": 3, "outcomes": ["Compare multiple changes with evidence", "Discuss safety and reliability"] }
+      ],
+      "progression_to": "CHEM.Y7.AC9S7U04",
+      "reinforced_by": ["INQ.Y6.PAD","INQ.Y6.EVAL"]
+    },
+
+    {
+      "id": "BIO.Y7.AC9S7U01",
+      "year": 7,
+      "discipline": "Biological Sciences",
+      "code": "AC9S7U01",
+      "title": "Environmental factors and survival",
+      "description": "Environmental conditions affect organism growth and survival.",
+      "levels": [
+        { "level": 1, "outcomes": ["Identify factors (light, temp, water)", "Describe effects on organisms"] },
+        { "level": 2, "outcomes": ["Explain multi-factor interactions", "Use basic data to justify claims"] },
+        { "level": 3, "outcomes": ["Analyse datasets to predict responses", "Discuss uncertainty/limitations"] }
+      ],
+      "progression_to": "BIO.Y8.AC9S8U01",
+      "reinforced_by": ["INQ.Y7.PAD","INQ.Y7.EVAL"]
+    },
+    {
+      "id": "EARTH.Y7.AC9S7U02",
+      "year": 7,
+      "discipline": "Earth & Space Sciences",
+      "code": "AC9S7U02",
+      "title": "Sun–Earth–Moon phenomena",
+      "description": "Seasons, eclipses, phases from relative positions.",
+      "levels": [
+        { "level": 1, "outcomes": ["Describe positions for phases/seasons", "Identify eclipse preconditions"] },
+        { "level": 2, "outcomes": ["Explain observed patterns with diagrams", "Relate tilt/orbit to changes"] },
+        { "level": 3, "outcomes": ["Compare models; evaluate limits", "Use data to justify explanations"] }
+      ],
+      "progression_to": "EARTH.Y8.AC9S8U02",
+      "reinforced_by": ["INQ.Y7.COMM","INQ.Y7.PAD"]
+    },
+    {
+      "id": "PHYS.Y7.AC9S7U03",
+      "year": 7,
+      "discipline": "Physical Sciences",
+      "code": "AC9S7U03",
+      "title": "Forces (incl. friction & gravity)",
+      "description": "Forces and their effects; friction and gravity.",
+      "levels": [
+        { "level": 1, "outcomes": ["Identify forces in contexts", "Observe friction/gravity effects"] },
+        { "level": 2, "outcomes": ["Measure/compare motion with changed force", "Plan a controlled test"] },
+        { "level": 3, "outcomes": ["Explain results with data", "Predict outcomes under new conditions"] }
+      ],
+      "progression_to": "PHYS.Y8.AC9S8U03",
+      "reinforced_by": ["INQ.Y7.PC","INQ.Y7.PAD"]
+    },
+    {
+      "id": "CHEM.Y7.AC9S7U04",
+      "year": 7,
+      "discipline": "Chemical Sciences",
+      "code": "AC9S7U04",
+      "title": "Pure substances vs mixtures",
+      "description": "Properties of pure substances vs mixtures; separation techniques.",
+      "levels": [
+        { "level": 1, "outcomes": ["Classify pure substance vs mixture", "Identify simple separations"] },
+        { "level": 2, "outcomes": ["Explain how a method separates components", "Plan a fair test of separation"] },
+        { "level": 3, "outcomes": ["Compare yields/purity with data", "Recommend a method for a purpose"] }
+      ],
+      "progression_to": "CHEM.Y8.AC9S8U04",
+      "reinforced_by": ["INQ.Y7.PC","INQ.Y7.PAD"]
+    },
+
+    {
+      "id": "BIO.Y8.AC9S8U01",
+      "year": 8,
+      "discipline": "Biological Sciences",
+      "code": "AC9S8U01",
+      "title": "Cells and systems",
+      "description": "Cells underpin structure–function in multicellular organisms.",
+      "levels": [
+        { "level": 1, "outcomes": ["Identify cell parts & basic functions"] },
+        { "level": 2, "outcomes": ["Relate tissue/organ structures to functions"] },
+        { "level": 3, "outcomes": ["Explain system interactions under changing conditions"] }
+      ],
+      "progression_to": "BIO.Y9.AC9S9U01",
+      "reinforced_by": ["INQ.Y8.PAD","INQ.Y8.COMM"]
+    },
+    {
+      "id": "EARTH.Y8.AC9S8U02",
+      "year": 8,
+      "discipline": "Earth & Space Sciences",
+      "code": "AC9S8U02",
+      "title": "Plate tectonics",
+      "description": "Plate interactions causing geological change.",
+      "levels": [
+        { "level": 1, "outcomes": ["Describe plate boundaries & motions"] },
+        { "level": 2, "outcomes": ["Link boundary types to features/events"] },
+        { "level": 3, "outcomes": ["Explain evidence chains for tectonics"] }
+      ],
+      "progression_to": "EARTH.Y9.AC9S9U02",
+      "reinforced_by": ["INQ.Y8.COMM","INQ.Y8.PAD"]
+    },
+    {
+      "id": "PHYS.Y8.AC9S8U03",
+      "year": 8,
+      "discipline": "Physical Sciences",
+      "code": "AC9S8U03",
+      "title": "Energy and waves",
+      "description": "Energy transfer by waves; heat/light/sound/electrical energy.",
+      "levels": [
+        { "level": 1, "outcomes": ["Describe wave features & energy ideas"] },
+        { "level": 2, "outcomes": ["Relate wave properties to effects"] },
+        { "level": 3, "outcomes": ["Analyse energy transfer with data/models"] }
+      ],
+      "progression_to": "PHYS.Y9.AC9S9U03",
+      "reinforced_by": ["INQ.Y8.PC","INQ.Y8.PAD"]
+    },
+    {
+      "id": "CHEM.Y8.AC9S8U04",
+      "year": 8,
+      "discipline": "Chemical Sciences",
+      "code": "AC9S8U04",
+      "title": "Atomic structure & reactions (intro)",
+      "description": "Atomic structure relates to properties; introduction to reactions.",
+      "levels": [
+        { "level": 1, "outcomes": ["Identify subatomic particles & simple models"] },
+        { "level": 2, "outcomes": ["Link structure to properties & periodic trends"] },
+        { "level": 3, "outcomes": ["Represent simple reactions; interpret evidence"] }
+      ],
+      "progression_to": "CHEM.Y9.AC9S9U04",
+      "reinforced_by": ["INQ.Y8.PAD","INQ.Y8.EVAL"]
+    },
+
+    {
+      "id": "BIO.Y9.AC9S9U01",
+      "year": 9,
+      "discipline": "Biological Sciences",
+      "code": "AC9S9U01",
+      "title": "Ecosystem interdependence",
+      "description": "Energy transfer; matter cycling; impacts of change.",
+      "levels": [
+        { "level": 1, "outcomes": ["Describe food webs & flows of energy"] },
+        { "level": 2, "outcomes": ["Analyse changes to populations under disturbances"] },
+        { "level": 3, "outcomes": ["Model scenarios; justify management strategies"] }
+      ],
+      "progression_to": "BIO.Y10.AC9S10U01",
+      "reinforced_by": ["INQ.Y9.PAD","INQ.Y9.COMM","INQ.Y9.EVAL"]
+    },
+    {
+      "id": "EARTH.Y9.AC9S9U02",
+      "year": 9,
+      "discipline": "Earth & Space Sciences",
+      "code": "AC9S9U02",
+      "title": "Geological processes & timescales",
+      "description": "Plate tectonics, rock cycle, continental drift.",
+      "levels": [
+        { "level": 1, "outcomes": ["Describe rock cycle processes & evidence"] },
+        { "level": 2, "outcomes": ["Explain long timescales using evidence chains"] },
+        { "level": 3, "outcomes": ["Evaluate competing explanations with data"] }
+      ],
+      "progression_to": "EARTH.Y10.AC9S10U02",
+      "reinforced_by": ["INQ.Y9.COMM","INQ.Y9.EVAL"]
+    },
+    {
+      "id": "PHYS.Y9.AC9S9U03",
+      "year": 9,
+      "discipline": "Physical Sciences",
+      "code": "AC9S9U03",
+      "title": "Motion models",
+      "description": "Relationships among force, mass and acceleration.",
+      "levels": [
+        { "level": 1, "outcomes": ["Identify variables of motion", "Describe qualitative relationships"] },
+        { "level": 2, "outcomes": ["Collect/graph motion data", "Explain relationships from graphs"] },
+        { "level": 3, "outcomes": ["Model F–m–a scenarios & predict outcomes"] }
+      ],
+      "progression_to": "PHYS.Y10.AC9S10U03",
+      "reinforced_by": ["INQ.Y9.PC","INQ.Y9.PAD"]
+    },
+    {
+      "id": "CHEM.Y9.AC9S9U04",
+      "year": 9,
+      "discipline": "Chemical Sciences",
+      "code": "AC9S9U04",
+      "title": "Chemical processes & radioactivity",
+      "description": "Processes including natural radioactivity; atoms and energy transfer.",
+      "levels": [
+        { "level": 1, "outcomes": ["Recognise reaction types & radioactivity basics"] },
+        { "level": 2, "outcomes": ["Relate energy/particles to observed changes"] },
+        { "level": 3, "outcomes": ["Interpret data/models to justify explanations"] }
+      ],
+      "progression_to": "CHEM.Y10.AC9S10U04",
+      "reinforced_by": ["INQ.Y9.PAD","INQ.Y9.EVAL"]
+    },
+
+    {
+      "id": "BIO.Y10.AC9S10U01",
+      "year": 10,
+      "discipline": "Biological Sciences",
+      "code": "AC9S10U01",
+      "title": "Genetics, natural selection & evolution",
+      "description": "Genetic inheritance, natural selection and evolution.",
+      "levels": [
+        { "level": 1, "outcomes": ["Describe inheritance patterns & variation"] },
+        { "level": 2, "outcomes": ["Explain selection pressures with evidence"] },
+        { "level": 3, "outcomes": ["Evaluate evolution claims using multiple sources"] }
+      ],
+      "progression_to": null,
+      "reinforced_by": ["INQ.Y10.PAD","INQ.Y10.EVAL","INQ.Y10.COMM"]
+    },
+    {
+      "id": "EARTH.Y10.AC9S10U02",
+      "year": 10,
+      "discipline": "Earth & Space Sciences",
+      "code": "AC9S10U02",
+      "title": "Cosmos & stellar life cycles",
+      "description": "Universe systems; origins and stellar life cycles.",
+      "levels": [
+        { "level": 1, "outcomes": ["Describe stars/galaxies & life stages"] },
+        { "level": 2, "outcomes": ["Link observations to models of stars/galaxies"] },
+        { "level": 3, "outcomes": ["Compare cosmological explanations & evidence"] }
+      ],
+      "progression_to": null,
+      "reinforced_by": ["INQ.Y10.COMM","INQ.Y10.PAD"]
+    },
+    {
+      "id": "PHYS.Y10.AC9S10U03",
+      "year": 10,
+      "discipline": "Physical Sciences",
+      "code": "AC9S10U03",
+      "title": "Energy conservation & systems",
+      "description": "Energy conservation/transfer applied to motion, forces and systems.",
+      "levels": [
+        { "level": 1, "outcomes": ["State conservation ideas in contexts"] },
+        { "level": 2, "outcomes": ["Quantitatively compare energy transfers"] },
+        { "level": 3, "outcomes": ["Analyse complex systems; justify models"] }
+      ],
+      "progression_to": null,
+      "reinforced_by": ["INQ.Y10.PC","INQ.Y10.PAD"]
+    },
+    {
+      "id": "CHEM.Y10.AC9S10U04",
+      "year": 10,
+      "discipline": "Chemical Sciences",
+      "code": "AC9S10U04",
+      "title": "Chemical reactions & rates",
+      "description": "Types of reactions, uses, and factors affecting rates.",
+      "levels": [
+        { "level": 1, "outcomes": ["Identify common reaction types", "Record observations reliably"] },
+        { "level": 2, "outcomes": ["Relate rate factors to particle collisions", "Interpret reaction representations"] },
+        { "level": 3, "outcomes": ["Evaluate evidence for reaction models", "Optimise a reaction scenario"] }
+      ],
+      "progression_to": null,
+      "reinforced_by": ["INQ.Y10.PAD","INQ.Y10.EVAL"]
+    }
+  ],
+
+  "skills_progression": [
+    {
+      "strand": "Questioning & Predicting",
+      "levels_by_year": [
+        { "year": 3, "level": 1, "outcomes": ["Ask 'what happens if…' questions", "Predict using everyday experience"] },
+        { "year": 4, "level": 2, "outcomes": ["Frame investigable questions", "Give reasons linked to observations"] },
+        { "year": 5, "level": 3, "outcomes": ["Pose clarifying questions & simple hypotheses", "Link to prior ideas/evidence"] },
+        { "year": 6, "level": 4, "outcomes": ["Develop testable questions & refined predictions", "Consider variables and scope"] },
+        { "year": 7, "level": 5, "outcomes": ["Identify independent/dependent variables", "Formulate testable questions"] },
+        { "year": 8, "level": 6, "outcomes": ["Link questions to concepts and prior evidence", "Refine hypotheses precisely"] },
+        { "year": 9, "level": 7, "outcomes": ["Construct defensible hypotheses", "Anticipate limitations/assumptions"] },
+        { "year": 10, "level": 8, "outcomes": ["Develop theory-informed predictions", "Scope complex or multi-stage questions"] }
+      ]
+    },
+    {
+      "strand": "Planning & Conducting",
+      "levels_by_year": [
+        { "year": 3, "level": 1, "outcomes": ["Follow steps with support", "Use equipment safely"] },
+        { "year": 4, "level": 2, "outcomes": ["Outline steps & equipment", "Keep one variable consistent"] },
+        { "year": 5, "level": 3, "outcomes": ["Plan multi-step tests", "Consider fairness & safety"] },
+        { "year": 6, "level": 4, "outcomes": ["Design with measured variables", "Manage risk & reliability"] },
+        { "year": 7, "level": 5, "outcomes": ["Plan controlled experiments with repeats", "Record procedures for reliability"] },
+        { "year": 8, "level": 6, "outcomes": ["Manage multi-variable investigations", "Ensure controls and consistency"] },
+        { "year": 9, "level": 7, "outcomes": ["Design robust inquiries incl. ethics", "Ensure sufficient replication"] },
+        { "year": 10, "level": 8, "outcomes": ["Conduct complex investigations", "Optimise precision, reliability & ethics"] }
+      ]
+    },
+    {
+      "strand": "Processing & Analysing Data",
+      "levels_by_year": [
+        { "year": 3, "level": 1, "outcomes": ["Record with drawings/tallies", "Identify simple patterns"] },
+        { "year": 4, "level": 2, "outcomes": ["Use tables/graphs", "Compare categories; spot obvious anomalies"] },
+        { "year": 5, "level": 3, "outcomes": ["Construct graphs; identify trends", "Support conclusions with data"] },
+        { "year": 6, "level": 4, "outcomes": ["Select graph types; compare datasets", "Infer relationships"] },
+        { "year": 7, "level": 5, "outcomes": ["Use digital tools; select representations", "Note anomalies/variability"] },
+        { "year": 8, "level": 6, "outcomes": ["Analyse multivariate data", "Interpret trends & variability"] },
+        { "year": 9, "level": 7, "outcomes": ["Apply statistical/computational tools", "Model relationships & uncertainty"] },
+        { "year": 10, "level": 8, "outcomes": ["Undertake advanced analysis/modeling", "Justify conclusions with evidence"] }
+      ]
+    },
+    {
+      "strand": "Evaluating",
+      "levels_by_year": [
+        { "year": 3, "level": 1, "outcomes": ["Consider reasonableness of results", "Suggest simple improvements"] },
+        { "year": 4, "level": 2, "outcomes": ["Identify limitations/errors", "Explain mismatches with prediction"] },
+        { "year": 5, "level": 3, "outcomes": ["Discuss limitations of data/methods", "Propose specific improvements"] },
+        { "year": 6, "level": 4, "outcomes": ["Evaluate fairness & reliability", "Refine methods based on issues"] },
+        { "year": 7, "level": 5, "outcomes": ["Critically review data quality", "Identify sources of error/bias"] },
+        { "year": 8, "level": 6, "outcomes": ["Assess validity & reliability", "Suggest targeted improvements"] },
+        { "year": 9, "level": 7, "outcomes": ["Evaluate strength of evidence/claims", "Contrast literature & investigation"] },
+        { "year": 10, "level": 8, "outcomes": ["Critically appraise methodology/sources", "Judge validity & generalisability"] }
+      ]
+    },
+    {
+      "strand": "Communicating",
+      "levels_by_year": [
+        { "year": 3, "level": 1, "outcomes": ["Use labelled diagrams & simple text", "Use key terms correctly"] },
+        { "year": 4, "level": 2, "outcomes": ["Include tables/graphs with captions", "Connect results to the question"] },
+        { "year": 5, "level": 3, "outcomes": ["Use scientific vocabulary in short reports", "Choose appropriate representations"] },
+        { "year": 6, "level": 4, "outcomes": ["Structure reports with data displays", "Provide reasoned conclusions"] },
+        { "year": 7, "level": 5, "outcomes": ["Produce structured reports", "Justify claims with evidence"] },
+        { "year": 8, "level": 6, "outcomes": ["Use models/diagrams formally", "Tailor format to audience/purpose"] },
+        { "year": 9, "level": 7, "outcomes": ["Present sustained, evidence-based arguments", "Integrate multiple sources"] },
+        { "year": 10, "level": 8, "outcomes": ["Deliver well-structured reports/presentations", "Make reasoning explicit and transparent"] }
+      ]
+    }
+  ]
+}
