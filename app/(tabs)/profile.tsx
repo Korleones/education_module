@@ -1,9 +1,13 @@
+/**
+* Just for display
+ */
+
 import { View, Text, StyleSheet } from 'react-native';
 
 export default function Profile() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>👤 我的页面</Text>
+      <Text style={styles.text}>👤 Me</Text>
     </View>
   );
 }
