@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * You can choose the mock student in "Me" page
  */
@@ -131,6 +132,14 @@ export default function Profile() {
           )}
         </View>
       )}
+=======
+import { View, Text, StyleSheet } from 'react-native';
+
+export default function Profile() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>👤 我的页面</Text>
+>>>>>>> a24ea20 (feat(navigation bar): add the navigation bar and 4 simulating pages)
     </View>
   );
 }
@@ -138,6 +147,7 @@ export default function Profile() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+<<<<<<< HEAD
     backgroundColor: '#fff',
     paddingHorizontal: 20,
     paddingTop: 40,
@@ -209,5 +219,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#555',
     marginLeft: 10,
+=======
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    fontSize: 18,
+>>>>>>> a24ea20 (feat(navigation bar): add the navigation bar and 4 simulating pages)
   },
 });

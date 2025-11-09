@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * Layout component that defines the bottom tab navigation for the app.
  *
@@ -7,10 +8,13 @@
  * The Ionicons library provides the tab icons.
  */
 
+=======
+>>>>>>> a24ea20 (feat(navigation bar): add the navigation bar and 4 simulating pages)
 import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Layout() {
+<<<<<<< HEAD
   return (
     // Define the bottom tab navigation layout
     <Tabs
@@ -19,6 +23,16 @@ export default function Layout() {
         tabBarActiveTintColor: '#007AFF',  // Color of the icon/text when selected
         tabBarInactiveTintColor: '#8e8e93', // Color when not selected
         tabBarStyle: {                // Styling for the entire tab bar
+=======
+
+  return (
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: '#007AFF',
+        tabBarInactiveTintColor: '#8e8e93',
+        tabBarStyle: {
+>>>>>>> a24ea20 (feat(navigation bar): add the navigation bar and 4 simulating pages)
           backgroundColor: '#fff',
           borderTopWidth: 0.3,
           borderTopColor: '#ccc',
@@ -26,6 +40,7 @@ export default function Layout() {
           paddingBottom: 8,
         },
         tabBarLabelStyle: {
+<<<<<<< HEAD
           fontSize: 12,              // Label text size under icons
         },
       }}
@@ -35,33 +50,58 @@ export default function Layout() {
         name="home" // Corresponds to app/(tabs)/home.tsx
         options={{
           title: 'Home',
+=======
+          fontSize: 12,
+        },
+      }}
+    >
+      <Tabs.Screen
+        name="home"
+        options={{
+          title: '首页',
+>>>>>>> a24ea20 (feat(navigation bar): add the navigation bar and 4 simulating pages)
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home-outline" size={size} color={color} />
           ),
         }}
       />
+<<<<<<< HEAD
 
       {/* Search tab */}
       <Tabs.Screen
         name="search" // Corresponds to app/(tabs)/search.tsx
         options={{
           title: 'Search',
+=======
+      <Tabs.Screen
+        name="search"
+        options={{
+          title: '搜索',
+>>>>>>> a24ea20 (feat(navigation bar): add the navigation bar and 4 simulating pages)
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="search-outline" size={size} color={color} />
           ),
         }}
       />
+<<<<<<< HEAD
 
       {/* Profile (Me) tab */}
       <Tabs.Screen
         name="profile" // Corresponds to app/(tabs)/profile.tsx
         options={{
           title: 'Me',
+=======
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: '我的',
+>>>>>>> a24ea20 (feat(navigation bar): add the navigation bar and 4 simulating pages)
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person-outline" size={size} color={color} />
           ),
         }}
       />
+<<<<<<< HEAD
 
       {/* Recommendation tab */}
       <Tabs.Screen
@@ -95,5 +135,17 @@ export default function Layout() {
     </Tabs>
 
 
+=======
+        <Tabs.Screen
+        name="navigation"
+        options={{
+          title: 'nide',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person-outline" size={size} color={color} />
+          ),
+        }}
+      />
+    </Tabs>
+>>>>>>> a24ea20 (feat(navigation bar): add the navigation bar and 4 simulating pages)
   );
 }
