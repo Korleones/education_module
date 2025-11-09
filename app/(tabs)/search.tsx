@@ -1,9 +1,13 @@
+/**
+* Just for display
+ */
+
 import { View, Text, StyleSheet } from 'react-native';
 
 export default function Search() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>🔍 搜索页面</Text>
+      <Text style={styles.text}>🔍 Search</Text>
     </View>
   );
 }
