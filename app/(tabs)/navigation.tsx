@@ -1,10 +1,40 @@
+import React from "react";
+import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
 
-import { View, Text, StyleSheet } from 'react-native';
 
+/** 
+* A navigation page to navigate user to skill tree, recommender sysyetm or constellation chart.
+*/
 export default function Navigation() {
+  const handlePress = (label: string) => {
+    Alert.alert(`Clicked: ${label}`);
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Our beautiful Recommendation</Text>
+      {/* Skill Tree */}
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => handlePress("Skill Tree")}
+      >
+        <Text style={styles.buttonText}>🌿 Skill Tree</Text>
+      </TouchableOpacity>
+
+      {/* Recommender System */}
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => handlePress("Recommender System")}
+      >
+        <Text style={styles.buttonText}>🎯 Recommender System</Text>
+      </TouchableOpacity>
+
+      {/* Constellation Chart */}
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => handlePress("Constellation Chart")}
+      >
+        <Text style={styles.buttonText}>🌌 Constellation Chart</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -12,7 +42,6 @@ export default function Navigation() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-<<<<<<< HEAD
     backgroundColor: "#fff",
     justifyContent: "space-evenly",  //vertical
     alignItems: "center",  //horizontal
@@ -35,12 +64,5 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 22,
     fontWeight: "bold",
-=======
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    fontSize: 18,
->>>>>>> a24ea20 (feat(navigation bar): add the navigation bar and 4 simulating pages)
   },
 });
