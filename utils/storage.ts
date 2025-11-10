@@ -28,13 +28,4 @@ export const loadSelectedStudent = async () => {
   }
 };
 
-/**
- * Clear the selected student from local storage.
- */
-export const clearSelectedStudent = async () => {
-  try {
-    await AsyncStorage.removeItem(STORAGE_KEY);
-  } catch (error) {
-    console.error('Error clearing student:', error);
-  }
-};
+
