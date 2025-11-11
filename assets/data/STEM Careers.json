@@ -1,0 +1,3075 @@
+{
+  "meta": {
+    "version": "1.0",
+    "notes": "Careers catalog referencing 'Skills and Knowledge years 3-10.json' file. IDs in 'required_knowledge.node' and 'min_skill_levels' refer to that external model.",
+    "references": {
+      "skills_knowledge_model_file": "Skills and Knowledge years 3-10.json",
+      "skill_strands": {
+        "QP": "Questioning & Predicting",
+        "PC": "Planning & Conducting",
+        "PAD": "Processing & Analysing Data",
+        "EVAL": "Evaluating",
+        "COMM": "Communicating"
+      },
+      "node_id_format": "DISCIPLINE.Y{year}.AC9S#U## (e.g., PHYSICAL.Y9.AC9S9U03)",
+      "skill_node_id_format": "INQ.Y{year}.{ABBR} (e.g., INQ.Y9.PAD)"
+    }
+  },
+  "careers": [
+    {
+      "id": "career.001",
+      "title": "Marine Biologist",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.002",
+      "title": "Wildlife Carer",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.003",
+      "title": "Park Ranger",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.004",
+      "title": "Ecology Field Assistant",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.005",
+      "title": "Conservation Officer",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.006",
+      "title": "Aquaculture Technician",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.007",
+      "title": "Zookeeper",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.008",
+      "title": "Environmental Scientist",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.009",
+      "title": "Biosecurity Officer",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.010",
+      "title": "Genetics Lab Assistant",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.011",
+      "title": "Plant Technician",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.012",
+      "title": "Animal Technician",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.013",
+      "title": "Fisheries Officer",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.014",
+      "title": "Forestry Technician",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.015",
+      "title": "Horticulturist",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.016",
+      "title": "Bioinformatics Associate",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.017",
+      "title": "Science Communicator",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.018",
+      "title": "Medical Laboratory Technician",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.019",
+      "title": "Clinical Trials Assistant",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.020",
+      "title": "Microbiology Technician",
+      "category": "Biology/Nature",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 2,
+          "weight": 0.9
+        },
+        {
+          "node": "BIOLOGICAL.Y10.AC9S10U01",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.021",
+      "title": "Process Operator (Chemicals)",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.022",
+      "title": "Water Treatment Technician",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.023",
+      "title": "Pharmaceutical Technician",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.024",
+      "title": "Materials Tester",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.025",
+      "title": "Food Technologist",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.026",
+      "title": "Cosmetic Lab Technician",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.027",
+      "title": "Paint/Coatings Technician",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.028",
+      "title": "Petrochemical Operator",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.029",
+      "title": "Battery Technician",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.030",
+      "title": "Forensic Scientist",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.031",
+      "title": "Analytical Chemist",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.032",
+      "title": "Chemical Engineer (Assoc)",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.033",
+      "title": "Plant Metallurgist (Assoc)",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.034",
+      "title": "Quality Assurance Technician",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.035",
+      "title": "Brewery Technician",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.036",
+      "title": "Gas Plant Operator",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.037",
+      "title": "Plastics Technician",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.038",
+      "title": "Textile Lab Technician",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.039",
+      "title": "Soil Lab Technician",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.040",
+      "title": "Waste Management Technician",
+      "category": "Chemistry/Materials",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "CHEMICAL.Y8.AC9S8U04",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "CHEMICAL.Y10.AC9S10U04",
+          "min_level": 2,
+          "weight": 0.88
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.55
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.041",
+      "title": "Electrician",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.042",
+      "title": "Robotics Technician",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.043",
+      "title": "Electronics Technician",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.044",
+      "title": "Renewable Energy Installer",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.045",
+      "title": "Wind Turbine Technician",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.046",
+      "title": "Solar PV Designer",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.047",
+      "title": "Aerospace Engineer",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.048",
+      "title": "Mechanical Engineering Technologist",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.049",
+      "title": "Civil Engineering Technician",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.050",
+      "title": "Surveying Technician",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.051",
+      "title": "Automotive Mechatronics Tech",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.052",
+      "title": "Drafter (CAD)",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.053",
+      "title": "Telecommunications Technician",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.054",
+      "title": "Instrumentation Technician",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.055",
+      "title": "Biomedical Equipment Technician",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.056",
+      "title": "Audio Technician",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.057",
+      "title": "AV/Lighting Tech (Events)",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.058",
+      "title": "3D Printing Technician",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.059",
+      "title": "Rail Signalling Technician",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.060",
+      "title": "HVAC Technician",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.061",
+      "title": "Aerospace Technician",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.062",
+      "title": "Mechatronics Engineer",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.063",
+      "title": "Data Center Technician",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.064",
+      "title": "Network Administrator (Assoc)",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.065",
+      "title": "IT Support Specialist",
+      "category": "Physics/Engineering/Tech",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 5,
+        "COMM": 5
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y6.AC9S6U03",
+          "min_level": 2,
+          "weight": 0.75
+        },
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 2,
+          "weight": 0.85
+        },
+        {
+          "node": "PHYSICAL.Y10.AC9S10U03",
+          "min_level": 2,
+          "weight": 0.88
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.066",
+      "title": "Environmental Compliance Officer",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.067",
+      "title": "Hydrology Field Tech",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.068",
+      "title": "Geotechnical Technician",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.069",
+      "title": "GIS Technician",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.070",
+      "title": "Cartographic Technician",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.071",
+      "title": "Mine Survey Technician",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.072",
+      "title": "Revegetation/Restoration Worker",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.073",
+      "title": "Wastewater Plant Operator",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.074",
+      "title": "Sustainability Officer",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.075",
+      "title": "Urban Greening Officer",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.076",
+      "title": "Bushfire Mitigation Officer",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.077",
+      "title": "Weather Observer",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.078",
+      "title": "Agricultural Technician",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.079",
+      "title": "Precision Agriculture Technician",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.080",
+      "title": "Irrigation Technician",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.081",
+      "title": "Soil Conservation Officer",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.082",
+      "title": "Environmental Health Officer (Assoc)",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.083",
+      "title": "Oceanographic Technician",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.084",
+      "title": "Marine Conservation Officer",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.085",
+      "title": "Arborist (Science-focused)",
+      "category": "Earth/Environment/Geo",
+      "min_skill_levels": {
+        "QP": 5,
+        "PC": 6,
+        "PAD": 6,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "EARTH.Y8.AC9S8U02",
+          "min_level": 2,
+          "weight": 0.8
+        },
+        {
+          "node": "EARTH.Y9.AC9S9U02",
+          "min_level": 2,
+          "weight": 0.85
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.086",
+      "title": "Data Analyst (Junior)",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.087",
+      "title": "Education Technologist",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.088",
+      "title": "UX Research Assistant",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.089",
+      "title": "Science Content Creator",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.090",
+      "title": "Technical Writer (Science)",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.091",
+      "title": "Lab Information Systems Admin",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.092",
+      "title": "Citizen Science Program Coord",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.093",
+      "title": "Bioinformatics Technician",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.094",
+      "title": "GIS Data Analyst (Junior)",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.095",
+      "title": "Field Data Collection Lead",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.096",
+      "title": "Clinical Data Assistant",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.097",
+      "title": "Quality Data Analyst (Manufacturing)",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.098",
+      "title": "Instrumentation Data Tech",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.099",
+      "title": "Environmental Reporting Officer",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.100",
+      "title": "STEM Outreach Officer",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.101",
+      "title": "Regulatory Affairs Assistant",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.102",
+      "title": "Science Illustrator/Animator",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.103",
+      "title": "Museum/Science Centre Educator",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.104",
+      "title": "Lab Manager (Assoc)",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    },
+    {
+      "id": "career.105",
+      "title": "Science Podcaster/Producer",
+      "category": "Data/AI/Comms",
+      "min_skill_levels": {
+        "QP": 6,
+        "PC": 5,
+        "PAD": 7,
+        "EVAL": 6,
+        "COMM": 6
+      },
+      "required_knowledge": [
+        {
+          "node": "PHYSICAL.Y9.AC9S9U03",
+          "min_level": 1,
+          "weight": 0.6
+        },
+        {
+          "node": "BIOLOGICAL.Y9.AC9S9U01",
+          "min_level": 1,
+          "weight": 0.6
+        }
+      ],
+      "logic": "AND(min_skill_levels, sum(weighted(required_knowledge)) >= threshold)",
+      "threshold": 1.5
+    }
+  ]
+}
