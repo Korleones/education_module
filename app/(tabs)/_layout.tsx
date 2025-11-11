@@ -73,6 +73,27 @@ export default function Layout() {
           ),
         }}
       />
+       <Tabs.Screen
+        name="rec-system/index"
+        options={{
+          href: null, // 🚫 关键：让它不出现在底栏
+        }}
+      />
+
+       <Tabs.Screen
+        name="skill-tree/index"
+        options={{
+          href: null, // 🚫 关键：让它不出现在底栏
+        }}
+      />
+       <Tabs.Screen
+        name="constellation-chart/index"
+        options={{
+          href: null, // 🚫 关键：让它不出现在底栏
+        }}
+      />
     </Tabs>
+
+
   );
 }

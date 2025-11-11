@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
 
@@ -7,7 +8,22 @@ import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
 */
 export default function Navigation() {
   const handlePress = (label: string) => {
-    Alert.alert(`Clicked: ${label}`);
+    switch (label) {
+      case "Skill Tree":
+        router.push('/skill-tree'); // 跳转到 app/skill-tree/index.tsx
+        break;
+
+      case "Recommender System":
+        router.push('/rec-system'); // 跳转到 app/rec-system/index.tsx
+        break;
+
+      case "Constellation Chart":
+        router.push('/constellation-chart'); // 跳转到 app/constellation/index.tsx
+        break;
+
+      default:
+        Alert.alert(`Unknown option: ${label}`);
+    }
   };
 
   return (
