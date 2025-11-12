@@ -1,6 +1,6 @@
 import {StatusBar, StyleSheet, Text, TouchableOpacity, useColorScheme, View} from 'react-native';
 import CareerConstellation from './src/components/CareerConstellation';
-import ScrollableCareerSteps from './src/components/ScrollableSteps';
+import ScrollableCareerSteps from '../../../src/components/ScrollableSteps';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import React, { useState } from 'react';
 
