@@ -12,9 +12,9 @@ import {
 } from 'react-native';
 
 // 1. 导入本地JSON数据（确保路径正确）
-import mockUsersProgress from '../../data/mock_users_progress.json';
-import stemCareers from '../../data/STEM Careers.json';
-import skillsKnowledge from '../../data/Skills and Knowledge years 3-10.json';
+import mockUsersProgress from '../../../../assets/data/mock_users_progress.json';
+import stemCareers from "../../../../assets/data/STEM Careers.json";
+import skillsKnowledge from '../../../../assets/data/Skills and Knowledge years 3-10.json';
 
 // 2. 类型定义与接口声明
 interface UserSkill {

@@ -89,7 +89,7 @@ interface CareerConstellationProps {
 }
 
 // 加载数据
-import rawCareers from '../../data/STEM Careers.json';
+import rawCareers from '../../../../assets/data/STEM Careers.json';
 
 // 屏幕尺寸
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
