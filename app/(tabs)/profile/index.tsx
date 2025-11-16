@@ -14,8 +14,8 @@ import {
   UIManager,
   Pressable,
 } from 'react-native';
-import { saveSelectedStudent, loadSelectedStudent } from '../../utils/storage';
-import studentsData from '../../assets/data/mock_users_progress.json';
+import { saveSelectedStudent, loadSelectedStudent } from '../../../utils/storage';
+import studentsData from '../../../assets/data/mock_users_progress.json';
 
 // Android need to enable LayoutAnimation support
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {

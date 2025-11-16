@@ -10,15 +10,15 @@ export default function Navigation() {
   const handlePress = (label: string) => {
     switch (label) {
       case "Skill Tree":
-        router.push('/skill-tree'); // 跳转到 app/skill-tree/index.tsx
+        router.push('navigation/skill-tree'); // 跳转到 app/skill-tree/index.tsx
         break;
 
       case "Recommender System":
-        router.push('/rec-system'); // 跳转到 app/rec-system/index.tsx
+        router.push('navigation/rec-system'); // 跳转到 app/rec-system/index.tsx
         break;
 
       case "Constellation Chart":
-        router.push('/constellation-chart'); // 跳转到 app/constellation/index.tsx
+        router.push('navigation/constellation-chart'); // 跳转到 app/constellation/index.tsx
         break;
 
       default:
