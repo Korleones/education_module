@@ -1,99 +1,72 @@
 /**
  * Layout component that defines the bottom tab navigation for the app.
- *
- * This component uses Expo Router's <Tabs> to create a tab-based navigation layout.
- * Each <Tabs.Screen> represents a different page within the tab bar (Home, Search, Me, Recommendation).
- *
- * The Ionicons library provides the tab icons.
  */
 
-import { Tabs } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import { Tabs } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function Layout() {
   return (
-    // Define the bottom tab navigation layout
     <Tabs
       screenOptions={{
-        headerShown: false,           // Hide the top navigation header
-        tabBarActiveTintColor: '#007AFF',  // Color of the icon/text when selected
-        tabBarInactiveTintColor: '#8e8e93', // Color when not selected
-        tabBarStyle: {                // Styling for the entire tab bar
-          backgroundColor: '#fff',
+        headerShown: false,
+        tabBarActiveTintColor: "#007AFF",
+        tabBarInactiveTintColor: "#8e8e93",
+        tabBarStyle: {
+          backgroundColor: "#fff",
           borderTopWidth: 0.3,
-          borderTopColor: '#ccc',
+          borderTopColor: "#ccc",
           height: 60,
           paddingBottom: 8,
         },
         tabBarLabelStyle: {
-          fontSize: 12,              // Label text size under icons
+          fontSize: 12,
         },
       }}
     >
-      {/* Home tab */}
+      {/* Home tab 对应 app/(tabs)/home/index.tsx */}
       <Tabs.Screen
-        name="home" // Corresponds to app/(tabs)/home.tsx
+        name="home/index"
         options={{
-          title: 'Home',
+          title: "Home",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home-outline" size={size} color={color} />
           ),
         }}
       />
 
-      {/* Search tab */}
+      {/* Search tab 对应 app/(tabs)/search/index.tsx */}
       <Tabs.Screen
-        name="search" // Corresponds to app/(tabs)/search.tsx
+        name="search/index"
         options={{
-          title: 'Search',
+          title: "Search",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="search-outline" size={size} color={color} />
           ),
         }}
       />
 
-      {/* Profile (Me) tab */}
+      {/* Profile tab 对应 app/(tabs)/profile/index.tsx */}
       <Tabs.Screen
-        name="profile" // Corresponds to app/(tabs)/profile.tsx
+        name="profile/index"
         options={{
-          title: 'Me',
+          title: "Me",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person-outline" size={size} color={color} />
           ),
         }}
       />
 
-      {/* Recommendation tab */}
+      {/* Rec tab 对应 app/(tabs)/navigation */}
       <Tabs.Screen
-        name="navigation" // Corresponds to app/(tabs)/navigation.tsx
+        name="navigation"
         options={{
-          title: 'Rec',
+          title: "Rec",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="sparkles-outline" size={size} color={color} />
           ),
         }}
       />
-       <Tabs.Screen
-        name="rec-system/index"
-        options={{
-          href: null, 
-        }}
-      />
-
-       <Tabs.Screen
-        name="skill-tree/index"
-        options={{
-          href: null,
-        }}
-      />
-       <Tabs.Screen
-        name="constellation-chart/index"
-        options={{
-          href: null, 
-        }}
-      />
     </Tabs>
-
-
   );
 }
