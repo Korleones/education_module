@@ -50,15 +50,51 @@
         "title": "Wildlife Carer_Biological Sciences_video",
         "whyThis": "This video is about the career we just recommended to you.",
         "confidence": "high"
+      },
+      {
+        "id": "video.060",
+        "title": "HVAC Technician_Physical Sciences_video",
+        "whyThis": "This video is about the career we just recommended to you.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.021",
+        "title": "Process Operator (Chemicals)_Chemical Sciences_video",
+        "whyThis": "This video is related to the Chemical Sciences you are learning.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.022",
+        "title": "Water Treatment Technician_Chemical Sciences_video",
+        "whyThis": "This video is related to the Chemical Sciences you are learning.",
+        "confidence": "medium"
       }
     ],
     "careers": [
       {
+        "id": "career.060",
+        "title": "HVAC Technician",
+        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more on Physical Sciences. We relaxed the rules to show this career to you now.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.30",
+          "gradeBoost=-0.10",
+          "finalScore=0.21",
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
         "id": "career.001",
         "title": "Marine Biologist",
         "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
-        "confidence": "medium",
+        "confidence": "low",
         "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.30",
+          "gradeBoost=-0.10",
+          "finalScore=0.20",
           "covered=0.00",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
@@ -67,18 +103,12 @@
         "id": "career.002",
         "title": "Wildlife Carer",
         "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
-        "confidence": "medium",
+        "confidence": "low",
         "evidence": [
-          "covered=0.00",
-          "required_threshold=1.5 (relaxed to 40%)"
-        ]
-      },
-      {
-        "id": "career.003",
-        "title": "Park Ranger",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
-        "confidence": "medium",
-        "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.00",
+          "gradeBoost=-0.10",
+          "finalScore=0.00",
           "covered=0.00",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
@@ -86,6 +116,6 @@
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T05:25:40.677Z"
+    "generatedAt": "2025-11-17T11:29:46.586Z"
   }
 }

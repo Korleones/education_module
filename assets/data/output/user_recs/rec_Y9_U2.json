@@ -19,72 +19,102 @@
   "recommendations": {
     "units": [
       {
-        "id": "game.002",
-        "title": "Earth & Space Sciences — AC9S3U02 — Soils, rocks, minerals (properties & resources)",
-        "whyThis": "You’ve already learned some Earth & Space Sciences, so this Y3 activity is the next step to extend it.",
-        "confidence": "high"
-      },
-      {
-        "id": "game.003",
-        "title": "Physical Sciences — AC9S3U03 — Heat sources & temperature change",
-        "whyThis": "You’ve already learned some Physical Sciences, so this Y3 activity is the next step to extend it.",
-        "confidence": "high"
-      },
-      {
-        "id": "game.004",
-        "title": "Chemical Sciences — AC9S3U04 — Solids & liquids; changes of state",
+        "id": "game.029",
+        "title": "Chemical Sciences — AC9S9U04 — Chemical processes & radioactivity",
         "whyThis": "This activity introduces Chemical Sciences at a level that suits you.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.022",
+        "title": "Biological Sciences — AC9S8U01 — Cells and systems",
+        "whyThis": "You’ve already learned some Biological Sciences, so this Y8 activity is the next step to extend it.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.023",
+        "title": "Earth & Space Sciences — AC9S8U02 — Plate tectonics",
+        "whyThis": "You’ve already learned some Earth & Space Sciences, so this Y8 activity is the next step to extend it.",
         "confidence": "high"
       }
     ],
     "videos": [
       {
-        "id": "video.041",
-        "title": "Electrician_Physical Sciences_video",
+        "id": "video.078",
+        "title": "Oceanographic Technician_Earth & Space Sciences_video",
         "whyThis": "This video is about the career we just recommended to you.",
         "confidence": "high"
       },
       {
-        "id": "video.042",
-        "title": "Robotics Technician_Physical Sciences_video",
+        "id": "video.079",
+        "title": "Marine Conservation Officer_Earth & Space Sciences_video",
         "whyThis": "This video is about the career we just recommended to you.",
         "confidence": "high"
+      },
+      {
+        "id": "video.001",
+        "title": "Marine Biologist_Biological Sciences_video",
+        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.002",
+        "title": "Wildlife Carer_Biological Sciences_video",
+        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.041",
+        "title": "Electrician_Physical Sciences_video",
+        "whyThis": "This video is related to the Physical Sciences you are learning.",
+        "confidence": "medium"
       }
     ],
     "careers": [
       {
-        "id": "career.041",
-        "title": "Electrician",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Physical Sciences. We relaxed the rules to show this career to you now.",
-        "confidence": "medium",
+        "id": "career.085",
+        "title": "Arborist (Science-focused)",
+        "whyThis": "This career is connected to the science areas you’ve been learning.",
+        "confidence": "high",
         "evidence": [
-          "covered=0.00",
+          "baseScore=0.52",
+          "interestBoost=0.00",
+          "gradeBoost=0.25",
+          "finalScore=0.79",
+          "covered=0.85",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
       },
       {
-        "id": "career.042",
-        "title": "Robotics Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Physical Sciences. We relaxed the rules to show this career to you now.",
-        "confidence": "medium",
+        "id": "career.084",
+        "title": "Marine Conservation Officer",
+        "whyThis": "This career is connected to the science areas you’ve been learning.",
+        "confidence": "high",
         "evidence": [
-          "covered=0.00",
+          "baseScore=0.52",
+          "interestBoost=0.00",
+          "gradeBoost=0.25",
+          "finalScore=0.79",
+          "covered=0.85",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
       },
       {
-        "id": "career.043",
-        "title": "Electronics Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Physical Sciences. We relaxed the rules to show this career to you now.",
-        "confidence": "medium",
+        "id": "career.083",
+        "title": "Oceanographic Technician",
+        "whyThis": "This career is connected to the science areas you’ve been learning.",
+        "confidence": "high",
         "evidence": [
-          "covered=0.00",
+          "baseScore=0.52",
+          "interestBoost=0.00",
+          "gradeBoost=0.25",
+          "finalScore=0.79",
+          "covered=0.85",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
       }
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T05:25:40.733Z"
+    "generatedAt": "2025-11-17T11:29:46.687Z"
   }
 }

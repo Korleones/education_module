@@ -1,5 +1,5 @@
 // src/rec-system/recSys.ts
-// 这是把你当前 recSys.py 迁移到前端的 TypeScript 版本
+// Rule-based 推荐系统的 TypeScript 版本
 // 前端可以直接 import 调用，无需 Python 后端
 
 // ========== 0. 引入静态 JSON（路径按项目实际结构修改） ==========
@@ -83,7 +83,7 @@ export interface RecResult {
   };
 }
 
-// ========== 2. 全局配置（和 Python 一致） ==========
+// ========== 2. 全局配置 ==========
 const TOPK = 3;                      // units 和 careers 都取前 3 个
 const ONLY_NEXT_LEVEL_UNITS = true;  // 只推荐“下一等级”的活动
 const HIDE_CAREERS_ON_COLDSTART = false;
@@ -119,9 +119,17 @@ function parseYearFromNode(nodeId?: string | null): string {
   if (!nodeId) return '';
   const parts = nodeId.split('.');
   for (const p of parts) {
-    if (p.startsWith('Y')) return p;
+    if (p.toUpperCase().startsWith('Y')) return p;
   }
   return '';
+}
+
+function yearLabelToNumber(label?: string | null): number | null {
+  if (!label) return null;
+  const m = label.match(/Y(\d+)/i);
+  if (!m) return null;
+  const n = parseInt(m[1], 10);
+  return isNaN(n) ? null : n;
 }
 
 function confidenceFromScore(score: number): Confidence {
@@ -134,6 +142,90 @@ function isColdStart(user: UserProfile): boolean {
   const knSum = Object.values(user.knowledge || {}).reduce((a, b) => a + b, 0);
   const skSum = Object.values(user.inquiry_skills || {}).reduce((a, b) => a + b, 0);
   return knSum === 0 && skSum === 0;
+}
+
+// 简单字符串 hash，用来做 per-user 抖动
+function hashStringToInt(str: string): number {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash * 31 + str.charCodeAt(i)) | 0;
+  }
+  return hash;
+}
+
+// 根据年级为 Unit 加一点加成/惩罚
+function gradeBoostForUnit(user: UserProfile, unit: Unit): number {
+  const ug = user.grade;
+  if (ug == null) return 0;
+
+  const nodes = unit.knowledge_nodes || [];
+  if (!nodes.length) return 0;
+
+  const yearLabel = parseYearFromNode(nodes[0].id);
+  const yg = yearLabelToNumber(yearLabel);
+  if (yg == null) return 0;
+
+  const dist = Math.abs(ug - yg);
+  if (dist <= 0.5) return 0.3;      // 正好是该年级 → 强加成
+  if (dist <= 1.5) return 0.15;     // 相邻年级 → 轻微加成
+  if (dist <= 2.5) return 0.05;     // 稍远 → 很小加成
+  return -0.05;                     // 太远 → 略微减分
+}
+
+// 从 career 的 required_knowledge 中推一个典型年级
+function extractCareerMainGrade(career: Career): number | null {
+  const req = career.required_knowledge || [];
+  const years: number[] = [];
+  for (const rk of req) {
+    const yLabel = parseYearFromNode(rk.node);
+    const yg = yearLabelToNumber(yLabel);
+    if (yg != null) years.push(yg);
+  }
+  if (!years.length) return null;
+  const avg = years.reduce((a, b) => a + b, 0) / years.length;
+  return Math.round(avg);
+}
+
+// 根据用户年级与职业典型年级距离，给 career 一个加成/惩罚
+function gradeBoostForCareer(user: UserProfile, career: Career): number {
+  const ug = user.grade;
+  if (ug == null) return 0;
+  const cg = extractCareerMainGrade(career);
+  if (cg == null) return 0;
+
+  const dist = Math.abs(ug - cg);
+  if (dist <= 0.5) return 0.25;     // 非常适配当前年级
+  if (dist <= 1.5) return 0.15;     // 邻近年级
+  if (dist <= 2.5) return 0.05;     // 稍远年级
+  return -0.1;                      // 太远，略微惩罚
+}
+
+// 利用 career_interests 对职业加成
+function interestBoostForCareer(user: UserProfile, career: Career): number {
+  const interests = (user.career_interests || []).map((s) =>
+    String(s || '').toLowerCase(),
+  );
+  if (!interests.length) return 0;
+
+  const title = (career.title || '').toLowerCase();
+  const id = (career.id || '').toLowerCase();
+  const discipline = (career.discipline || '').toLowerCase();
+
+  // 强匹配：兴趣里直接提到职业名或 ID
+  const strong = interests.some((term) => {
+    if (!term) return false;
+    return title.includes(term) || id === term;
+  });
+  if (strong) return 0.3;
+
+  // 中等匹配：兴趣和 discipline 有重叠（例如 "biology" vs "Biological Sciences"）
+  const medium = interests.some((term) => {
+    if (!term || !discipline) return false;
+    return discipline.includes(term) || term.includes(discipline);
+  });
+  if (medium) return 0.15;
+
+  return 0;
 }
 
 // ========== 4. 从 JSON 构造用户 / 游戏 / 视频 / 职业 ==========
@@ -244,7 +336,6 @@ function loadVideosFromJson(raw: any): Video[] {
 }
 
 function loadCareersFromJson(raw: any): Career[] {
-  // 对应 Python: 只用 STEM Careers.json
   const arr: any[] = Array.isArray(raw)
     ? raw
     : raw && Array.isArray(raw.careers)
@@ -273,7 +364,6 @@ function filterUnits(units: Unit[]): Unit[] {
 }
 
 function compareTuple(a: [boolean, number], b: [boolean, number]): number {
-  // Python 用的是 tuple 比较：优先比较第一个，再比较第二个
   if (a[0] === b[0]) {
     if (a[1] === b[1]) return 0;
     return a[1] > b[1] ? 1 : -1;
@@ -294,7 +384,6 @@ function pickNextLevelUnits(units: Unit[], user: UserProfile): Unit[] {
     if (unitLv <= curLv) continue;
 
     const prev = best[node];
-
     const rank = (x: number): [boolean, number] => [x === curLv + 1, -x];
 
     if (!prev || compareTuple(rank(unitLv), rank(prev.level)) > 0) {
@@ -315,9 +404,15 @@ function scoreUnit(unit: Unit, user: UserProfile): { raw: number; signals: strin
     const gap = have === 0 ? 1.0 : 0.6;
     raw += w * gap;
   }
+
+  // 根据年级做一点偏置
+  raw += gradeBoostForUnit(user, unit);
+
   if (parseDifficulty(unit.difficulty) === 3) {
     raw *= 0.95;
   }
+  if (raw < 0) raw = 0;
+
   const signals = (unit.knowledge_nodes || []).map((kn) => kn.id);
   return { raw, signals };
 }
@@ -398,14 +493,17 @@ function scoreCareer(
 
   const base = totalW > 0 ? covered / totalW : 0;
   let score: number;
+
   if (gatePass && thresholdPass) {
     score = base;
   } else if (thresholdPass && !gatePass) {
-    score = Math.max(0.4, base * 0.6);
-  } else {
     score = base * 0.6;
+  } else {
+    score = base * 0.3;
   }
-  if (score === 0) score = 0.45;
+
+  // 很弱的匹配视为 0，知识上几乎没覆盖
+  if (score < 0.1) score = 0;
 
   unmetNodes.sort((a, b) => b.w - a.w);
 
@@ -447,16 +545,41 @@ function buildWhyForCareer(
       `You also need a bit more on ${subjectLabelFromNode(top.node)}.`,
     );
   }
-  parts.push('We relaxed the rules to show this career to you now.');
+  if (!scored.gate_pass || !scored.threshold_pass) {
+    parts.push('We relaxed the rules to show this career to you now.');
+  }
   return parts.join(' ');
 }
 
-// ========== 7. 视频匹配 ==========
+// ========== 7. 视频匹配（TOP5，多样性控制） ==========
+function buildWhyForVideo(
+  v: Video,
+  user: UserProfile,
+  careerIds: Set<string>,
+): string {
+  const disc = v.discipline;
+  const userDisciplines = new Set<string>();
+  Object.keys(user.knowledge || {}).forEach((node) => {
+    userDisciplines.add(subjectLabelFromNode(node));
+  });
+
+  if (v.career_id && careerIds.has(String(v.career_id))) {
+    return 'This video is about the career we just recommended to you.';
+  }
+  if (disc && userDisciplines.has(disc)) {
+    return `This video is related to the ${disc} you are learning.`;
+  }
+  if (disc) {
+    return `This video shows another area of ${disc} you might be interested in.`;
+  }
+  return 'This video gives you another STEM story to explore.';
+}
+
 function selectVideosForUser(
   user: UserProfile,
   videos: Video[],
   pickedCareers: CareerRecItem[],
-  limit: number = 2,
+  limit: number = 5,
 ): RecItem[] {
   const userDisciplines = new Set<string>();
   Object.keys(user.knowledge || {}).forEach((node) => {
@@ -465,48 +588,98 @@ function selectVideosForUser(
 
   const careerIds = new Set<string>();
   pickedCareers.forEach((c) => {
-    if (c.id) careerIds.add(c.id);
+    if (c.id) careerIds.add(String(c.id));
   });
 
-  const picked: RecItem[] = [];
+  const scoredVideos = videos.map((v) => {
+    let score = 0;
+    const disc = v.discipline || null;
 
-  // 1) career_id 精确匹配
-  for (const v of videos) {
-    if (picked.length >= limit) break;
     if (v.career_id && careerIds.has(String(v.career_id))) {
-      picked.push({
-        id: v.id,
-        title: v.title,
-        whyThis: 'This video is about the career we just recommended to you.',
-        confidence: 'high',
-      });
+      score += 3;
     }
+
+    if (disc && userDisciplines.has(disc)) {
+      score += 2;
+    } else if (disc) {
+      score += 0.5;
+    }
+
+    if (score === 0 && userDisciplines.size === 0 && careerIds.size === 0) {
+      score = 1;
+    }
+
+    return { v, score };
+  });
+
+  const hasPositive = scoredVideos.some((x) => x.score > 0);
+  if (!hasPositive) {
+    scoredVideos.forEach((x) => {
+      x.score = 1;
+    });
   }
 
-  // 2) 学科匹配
-  for (const v of videos) {
+  scoredVideos.sort((a, b) => b.score - a.score);
+
+  const picked: RecItem[] = [];
+  const usedIds = new Set<string>();
+  const disciplineCount = new Map<string, number>();
+
+  // 第一轮：限制同一 discipline 最多 2 个
+  for (const item of scoredVideos) {
     if (picked.length >= limit) break;
-    const vd = v.discipline;
-    if (vd && userDisciplines.has(vd)) {
-      picked.push({
+
+    const v = item.v;
+    const vidId = String(v.id);
+    if (usedIds.has(vidId)) continue;
+
+    const disc = v.discipline || 'UNKNOWN';
+    const count = disciplineCount.get(disc) || 0;
+    if (count >= 2) continue;
+
+    const rec: RecItem = {
+      id: v.id,
+      title: v.title,
+      whyThis: buildWhyForVideo(v, user, careerIds),
+      confidence: item.score >= 4 ? 'high' : item.score >= 2 ? 'medium' : 'low',
+    };
+
+    picked.push(rec);
+    usedIds.add(vidId);
+    disciplineCount.set(disc, count + 1);
+  }
+
+  // 第二轮兜底：不限制 discipline，补足到 limit
+  if (picked.length < limit) {
+    for (const item of scoredVideos) {
+      if (picked.length >= limit) break;
+
+      const v = item.v;
+      const vidId = String(v.id);
+      if (usedIds.has(vidId)) continue;
+
+      const rec: RecItem = {
         id: v.id,
         title: v.title,
-        whyThis: `This video is related to the ${vd} you are learning.`,
-        confidence: 'medium',
-      });
+        whyThis: buildWhyForVideo(v, user, careerIds),
+        confidence: item.score >= 4 ? 'high' : item.score >= 2 ? 'medium' : 'low',
+      };
+
+      picked.push(rec);
+      usedIds.add(vidId);
     }
   }
 
   return picked;
 }
 
-// ========== 8. 一次性加载静态数据（代替 Python 那几行 load_XXX） ==========
+// ========== 8. 一次性加载静态数据 ==========
 export const MOCK_USERS: UserProfile[] = loadUsersFromJson(mockUsersRaw as any);
 const GAMES: Unit[] = loadGamesAsUnitsFromJson(gamesRaw as any);
 const CAREERS: Career[] = loadCareersFromJson(careersRaw as any);
 const VIDEOS: Video[] = loadVideosFromJson(videosRaw as any);
 
-// ========== 9. 主推荐函数（对应 Python 的 get_recommendations_for_user） ==========
+// ========== 9. 主推荐函数 ==========
 export function getRecommendationsForProfile(user: UserProfile): RecResult {
   // --- units ---
   const filteredUnits = filterUnits(GAMES);
@@ -537,37 +710,116 @@ export function getRecommendationsForProfile(user: UserProfile): RecResult {
     };
   });
 
-  // --- careers ---
-  const careersAll: CareerRecItem[] = [];
+  // --- careers ---（利用年级 + 兴趣 + 抖动，且至少尝试补满 TOPK 个）
+  let careersTop: CareerRecItem[] = [];
   if (!(isColdStart(user) && HIDE_CAREERS_ON_COLDSTART)) {
-    for (const c of CAREERS) {
+    const scored = CAREERS.map((c) => {
       const s = scoreCareer(c, user);
-      const confidence = confidenceFromScore(s.score);
-      careersAll.push({
-        id: c.id,
-        title: c.title,
-        whyThis: buildWhyForCareer(user, c, s),
-        confidence,
-        evidence: [
-          `covered=${s.covered.toFixed(2)}`,
-          `required_threshold=${c.threshold ?? 0} (relaxed to 40%)`,
-        ],
-      });
-    }
-    // Python: sorted(careers_out, key=lambda x: x["confidence"], reverse=True)
-    // 字符串逆序：'medium' > 'low' > 'high'
-    careersAll.sort((a, b) => {
-      if (a.confidence === b.confidence) return 0;
-      return a.confidence < b.confidence ? 1 : -1;
+      const baseScore = s.score;
+
+      const iBoost = interestBoostForCareer(user, c);
+      const gBoost = gradeBoostForCareer(user, c);
+
+      let finalScore = baseScore + iBoost + gBoost;
+
+      const jitterRaw = Math.abs(
+        hashStringToInt(`${user.id}:${c.id}`),
+      ) % 1000;
+      const jitter = (jitterRaw / 1000) * 0.03; // 0 ~ 0.03
+      finalScore += jitter;
+
+      if (finalScore < 0) finalScore = 0;
+
+      return {
+        career: c,
+        scored: s,
+        baseScore,
+        interestBoost: iBoost,
+        gradeBoost: gBoost,
+        finalScore,
+      };
     });
+
+    const positive = scored.filter((item) => item.scored.score > 0);
+    const effective =
+      positive.length >= TOPK
+        ? positive
+        : scored;
+
+    // 先按 finalScore 排序
+    effective.sort((a, b) => {
+      if (b.finalScore !== a.finalScore) {
+        return b.finalScore - a.finalScore;
+      }
+      const ha = hashStringToInt(`${user.id}:${a.career.id}`);
+      const hb = hashStringToInt(`${user.id}:${b.career.id}`);
+      return ha - hb;
+    });
+
+    const picked: CareerRecItem[] = [];
+    const usedDisciplines = new Set<string>();
+
+    // 第一轮：尽量保证 discipline 多样性（同一学科先拿 1 个）
+    for (const item of effective) {
+      if (picked.length >= TOPK) break;
+
+      const c = item.career;
+      const s = item.scored;
+      const disc = c.discipline || 'UNKNOWN';
+
+      if (!usedDisciplines.has(disc)) {
+        picked.push({
+          id: c.id,
+          title: c.title,
+          whyThis: buildWhyForCareer(user, c, s),
+          confidence: confidenceFromScore(item.finalScore),
+          evidence: [
+            `baseScore=${item.baseScore.toFixed(2)}`,
+            `interestBoost=${item.interestBoost.toFixed(2)}`,
+            `gradeBoost=${item.gradeBoost.toFixed(2)}`,
+            `finalScore=${item.finalScore.toFixed(2)}`,
+            `covered=${s.covered.toFixed(2)}`,
+            `required_threshold=${c.threshold ?? 0} (relaxed to 40%)`,
+          ],
+        });
+        usedDisciplines.add(disc);
+      }
+    }
+
+    // 第二轮兜底：如果 discipline 种类少于 TOPK，再从高分里补满到 TOPK，不再限制学科
+    if (picked.length < TOPK) {
+      for (const item of effective) {
+        if (picked.length >= TOPK) break;
+
+        const already = picked.some((p) => p.id === item.career.id);
+        if (already) continue;
+
+        const c = item.career;
+        const s = item.scored;
+
+        picked.push({
+          id: c.id,
+          title: c.title,
+          whyThis: buildWhyForCareer(user, c, s),
+          confidence: confidenceFromScore(item.finalScore),
+          evidence: [
+            `baseScore=${item.baseScore.toFixed(2)}`,
+            `interestBoost=${item.interestBoost.toFixed(2)}`,
+            `gradeBoost=${item.gradeBoost.toFixed(2)}`,
+            `finalScore=${item.finalScore.toFixed(2)}`,
+            `covered=${s.covered.toFixed(2)}`,
+            `required_threshold=${c.threshold ?? 0} (relaxed to 40%)`,
+          ],
+        });
+      }
+    }
+
+    careersTop = picked;
   }
 
-  const careersTop = careersAll.slice(0, TOPK);
+  // --- videos ---（每个用户 5 个）
+  const videosOut = selectVideosForUser(user, VIDEOS, careersTop, 5);
 
-  // --- videos ---
-  const videosOut = selectVideosForUser(user, VIDEOS, careersTop, 2);
-
-  // --- 输出结构和 Python 一致 ---
   const result: RecResult = {
     user: {
       id: user.id,

@@ -19,21 +19,21 @@
   "recommendations": {
     "units": [
       {
-        "id": "game.002",
-        "title": "Earth & Space Sciences — AC9S3U02 — Soils, rocks, minerals (properties & resources)",
+        "id": "game.019",
+        "title": "Earth & Space Sciences — AC9S7U02 — Sun–Earth–Moon phenomena",
         "whyThis": "This activity introduces Earth & Space Sciences at a level that suits you.",
         "confidence": "high"
       },
       {
-        "id": "game.003",
-        "title": "Physical Sciences — AC9S3U03 — Heat sources & temperature change",
-        "whyThis": "You’ve already learned some Physical Sciences, so this Y3 activity is the next step to extend it.",
+        "id": "game.014",
+        "title": "Biological Sciences — AC9S6U01 — Habitats & survival conditions",
+        "whyThis": "You’ve already learned some Biological Sciences, so this Y6 activity is the next step to extend it.",
         "confidence": "high"
       },
       {
-        "id": "game.004",
-        "title": "Chemical Sciences — AC9S3U04 — Solids & liquids; changes of state",
-        "whyThis": "You’ve already learned some Chemical Sciences, so this Y3 activity is the next step to extend it.",
+        "id": "game.015",
+        "title": "Earth & Space Sciences — AC9S6U02 — Sun–Earth–planet relationships",
+        "whyThis": "This activity introduces Earth & Space Sciences at a level that suits you.",
         "confidence": "high"
       }
     ],
@@ -45,10 +45,28 @@
         "confidence": "high"
       },
       {
-        "id": "video.002",
-        "title": "Wildlife Carer_Biological Sciences_video",
+        "id": "video.041",
+        "title": "Electrician_Physical Sciences_video",
         "whyThis": "This video is about the career we just recommended to you.",
         "confidence": "high"
+      },
+      {
+        "id": "video.042",
+        "title": "Robotics Technician_Physical Sciences_video",
+        "whyThis": "This video is about the career we just recommended to you.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.002",
+        "title": "Wildlife Carer_Biological Sciences_video",
+        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.021",
+        "title": "Process Operator (Chemicals)_Chemical Sciences_video",
+        "whyThis": "This video is related to the Chemical Sciences you are learning.",
+        "confidence": "medium"
       }
     ],
     "careers": [
@@ -56,28 +74,40 @@
         "id": "career.001",
         "title": "Marine Biologist",
         "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like planning & conducting, processing & analysing data. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
-        "confidence": "medium",
+        "confidence": "low",
         "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.30",
+          "gradeBoost=0.05",
+          "finalScore=0.37",
           "covered=0.00",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
       },
       {
-        "id": "career.002",
-        "title": "Wildlife Carer",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like planning & conducting, processing & analysing data. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
-        "confidence": "medium",
+        "id": "career.041",
+        "title": "Electrician",
+        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like planning & conducting, processing & analysing data. You also need a bit more on Physical Sciences. We relaxed the rules to show this career to you now.",
+        "confidence": "low",
         "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.17",
           "covered=0.00",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
       },
       {
-        "id": "career.003",
-        "title": "Park Ranger",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like planning & conducting, processing & analysing data. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
-        "confidence": "medium",
+        "id": "career.042",
+        "title": "Robotics Technician",
+        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like planning & conducting, processing & analysing data. You also need a bit more on Physical Sciences. We relaxed the rules to show this career to you now.",
+        "confidence": "low",
         "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.17",
           "covered=0.00",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
@@ -85,6 +115,6 @@
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T05:25:40.721Z"
+    "generatedAt": "2025-11-17T11:29:46.663Z"
   }
 }

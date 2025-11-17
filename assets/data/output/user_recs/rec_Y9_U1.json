@@ -19,21 +19,21 @@
   "recommendations": {
     "units": [
       {
-        "id": "game.002",
-        "title": "Earth & Space Sciences — AC9S3U02 — Soils, rocks, minerals (properties & resources)",
+        "id": "game.027",
+        "title": "Earth & Space Sciences — AC9S9U02 — Geological processes & timescales",
         "whyThis": "This activity introduces Earth & Space Sciences at a level that suits you.",
         "confidence": "high"
       },
       {
-        "id": "game.003",
-        "title": "Physical Sciences — AC9S3U03 — Heat sources & temperature change",
-        "whyThis": "You’ve already learned some Physical Sciences, so this Y3 activity is the next step to extend it.",
+        "id": "game.022",
+        "title": "Biological Sciences — AC9S8U01 — Cells and systems",
+        "whyThis": "You’ve already learned some Biological Sciences, so this Y8 activity is the next step to extend it.",
         "confidence": "high"
       },
       {
-        "id": "game.004",
-        "title": "Chemical Sciences — AC9S3U04 — Solids & liquids; changes of state",
-        "whyThis": "You’ve already learned some Chemical Sciences, so this Y3 activity is the next step to extend it.",
+        "id": "game.023",
+        "title": "Earth & Space Sciences — AC9S8U02 — Plate tectonics",
+        "whyThis": "This activity introduces Earth & Space Sciences at a level that suits you.",
         "confidence": "high"
       }
     ],
@@ -41,50 +41,80 @@
       {
         "id": "video.001",
         "title": "Marine Biologist_Biological Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
-        "confidence": "high"
+        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "confidence": "medium"
       },
       {
         "id": "video.002",
         "title": "Wildlife Carer_Biological Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
-        "confidence": "high"
+        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.021",
+        "title": "Process Operator (Chemicals)_Chemical Sciences_video",
+        "whyThis": "This video is related to the Chemical Sciences you are learning.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.022",
+        "title": "Water Treatment Technician_Chemical Sciences_video",
+        "whyThis": "This video is related to the Chemical Sciences you are learning.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.041",
+        "title": "Electrician_Physical Sciences_video",
+        "whyThis": "This video is related to the Physical Sciences you are learning.",
+        "confidence": "medium"
       }
     ],
     "careers": [
       {
-        "id": "career.001",
-        "title": "Marine Biologist",
+        "id": "career.105",
+        "title": "Science Podcaster/Producer",
         "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
         "confidence": "medium",
         "evidence": [
-          "covered=0.00",
+          "baseScore=0.15",
+          "interestBoost=0.00",
+          "gradeBoost=0.25",
+          "finalScore=0.43",
+          "covered=0.60",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
       },
       {
-        "id": "career.002",
-        "title": "Wildlife Carer",
+        "id": "career.104",
+        "title": "Lab Manager (Assoc)",
         "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
         "confidence": "medium",
         "evidence": [
-          "covered=0.00",
+          "baseScore=0.15",
+          "interestBoost=0.00",
+          "gradeBoost=0.25",
+          "finalScore=0.43",
+          "covered=0.60",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
       },
       {
-        "id": "career.003",
-        "title": "Park Ranger",
+        "id": "career.103",
+        "title": "Museum/Science Centre Educator",
         "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
         "confidence": "medium",
         "evidence": [
-          "covered=0.00",
+          "baseScore=0.15",
+          "interestBoost=0.00",
+          "gradeBoost=0.25",
+          "finalScore=0.43",
+          "covered=0.60",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
       }
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T05:25:40.732Z"
+    "generatedAt": "2025-11-17T11:29:46.683Z"
   }
 }
