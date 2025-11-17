@@ -1,4 +1,4 @@
-import Raw from '../../../../assets/data/STEM Careers.json';
+import Raw from '../../../../../assets/data/STEM Careers.json';
 import type { CareersCatalog, Career } from '../types/models';
 
 const catalog = Raw as unknown as CareersCatalog;

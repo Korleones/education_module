@@ -1,6 +1,6 @@
 // app/(tabs)/rec-system/services/expectedRepo.ts
 
-import raw from '../../../../assets/data/expected_recommendations.json';
+import raw from '../../../../../assets/data/expected_recommendations.json';
 
 export interface ExpectedItem {
   id: string;

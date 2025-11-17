@@ -1,4 +1,4 @@
-import Raw from '../../../../assets/data/Skills and Knowledge years 3-10.json';
+import Raw from '../../../../../assets/data/Skills and Knowledge years 3-10.json';
 import type { SkillsKnowledgeModel, KnowledgeNode } from '../types/models';
 
 

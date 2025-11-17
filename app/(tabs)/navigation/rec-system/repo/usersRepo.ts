@@ -1,4 +1,4 @@
-import Raw from '../../../../assets/data/mock_users_progress.json';
+import Raw from '../../../../../assets/data/mock_users_progress.json';
 import type { UserProgress } from '../types/models';
 
 // 这里假设结构为 { "users": [...] }
