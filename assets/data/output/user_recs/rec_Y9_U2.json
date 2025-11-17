@@ -1,0 +1,90 @@
+{
+  "user": {
+    "id": "Y9_U2",
+    "grade": 9,
+    "isColdStart": false,
+    "knowledge": {
+      "EARTH.Y9.AC9S9U02": 2,
+      "PHYSICAL.Y9.AC9S9U03": 1,
+      "BIO.Y9.AC9S9U01": 2
+    },
+    "inquiry_skills": {
+      "QP": 6,
+      "PC": 7,
+      "PAD": 6,
+      "EVAL": 7,
+      "COMM": 7
+    }
+  },
+  "recommendations": {
+    "units": [
+      {
+        "id": "game.002",
+        "title": "Earth & Space Sciences — AC9S3U02 — Soils, rocks, minerals (properties & resources)",
+        "whyThis": "You’ve already learned some Earth & Space Sciences, so this Y3 activity is the next step to extend it.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.003",
+        "title": "Physical Sciences — AC9S3U03 — Heat sources & temperature change",
+        "whyThis": "You’ve already learned some Physical Sciences, so this Y3 activity is the next step to extend it.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.004",
+        "title": "Chemical Sciences — AC9S3U04 — Solids & liquids; changes of state",
+        "whyThis": "This activity introduces Chemical Sciences at a level that suits you.",
+        "confidence": "high"
+      }
+    ],
+    "videos": [
+      {
+        "id": "video.041",
+        "title": "Electrician_Physical Sciences_video",
+        "whyThis": "This video is about the career we just recommended to you.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.042",
+        "title": "Robotics Technician_Physical Sciences_video",
+        "whyThis": "This video is about the career we just recommended to you.",
+        "confidence": "high"
+      }
+    ],
+    "careers": [
+      {
+        "id": "career.041",
+        "title": "Electrician",
+        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Physical Sciences. We relaxed the rules to show this career to you now.",
+        "confidence": "medium",
+        "evidence": [
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.042",
+        "title": "Robotics Technician",
+        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Physical Sciences. We relaxed the rules to show this career to you now.",
+        "confidence": "medium",
+        "evidence": [
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.043",
+        "title": "Electronics Technician",
+        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Physical Sciences. We relaxed the rules to show this career to you now.",
+        "confidence": "medium",
+        "evidence": [
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "generatedAt": "2025-11-17T05:25:40.733Z"
+  }
+}
