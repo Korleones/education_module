@@ -228,6 +228,25 @@ function interestBoostForCareer(user: UserProfile, career: Career): number {
   return 0;
 }
 
+// 从职业的 required_knowledge / discipline 总结出学科名称
+function subjectSummaryFromCareer(career: Career): string {
+  const subjs = new Set<string>();
+
+  (career.required_knowledge || []).forEach((rk) => {
+    if (rk.node) subjs.add(subjectLabelFromNode(rk.node));
+  });
+
+  if (!subjs.size && career.discipline) {
+    subjs.add(career.discipline);
+  }
+
+  const arr = Array.from(subjs);
+  if (arr.length === 0) return 'science';
+  if (arr.length === 1) return arr[0];
+  if (arr.length === 2) return `${arr[0]} and ${arr[1]}`;
+  return `${arr[0]}, ${arr[1]} and other areas of science`;
+}
+
 // ========== 4. 从 JSON 构造用户 / 游戏 / 视频 / 职业 ==========
 function loadUsersFromJson(raw: any): UserProfile[] {
   const arr: any[] = Array.isArray(raw)
@@ -519,13 +538,47 @@ function scoreCareer(
 }
 
 function buildWhyForCareer(
-  _user: UserProfile,
-  _career: Career,
+  user: UserProfile,
+  career: Career,
   scored: ReturnType<typeof scoreCareer>,
 ): string {
-  const parts: string[] = [
-    'This career is connected to the science areas you’ve been learning.',
-  ];
+  const parts: string[] = [];
+  const title = career.title || career.id;
+  const subjSummary = subjectSummaryFromCareer(career);
+
+  // ① 和具体学科挂钩
+  if (scored.covered > 0) {
+    parts.push(
+      `${title} uses the ${subjSummary} you’ve already been learning.`
+    );
+  } else {
+    parts.push(
+      `${title} will help you build your ${subjSummary} from where you are now.`
+    );
+  }
+
+  // ② 兴趣信息（career_interests）
+  if (user.career_interests && user.career_interests.length > 0) {
+    const interestsLower = user.career_interests.map((x) => x.toLowerCase());
+    const hitDiscipline =
+      career.discipline &&
+      interestsLower.includes(career.discipline.toLowerCase());
+    const hitTitle = interestsLower.some((k) =>
+      (career.title || '').toLowerCase().includes(k),
+    );
+
+    if (hitDiscipline || hitTitle) {
+      const what =
+        career.discipline && hitDiscipline
+          ? career.discipline
+          : (career.title || title);
+      parts.push(
+        `You’ve told us you’re interested in ${what}, so ${title} is a good career to explore.`
+      );
+    }
+  }
+
+  // ③ inquiry skills 缺口（具体点写）
   const niceSkillNames: Record<string, string> = {
     QP: 'questioning & predicting',
     PC: 'planning & conducting',
@@ -533,21 +586,48 @@ function buildWhyForCareer(
     EVAL: 'evaluating',
     COMM: 'communicating',
   };
+
   if (!scored.gate_pass && scored.unmet_skills.length > 0) {
     const missing = scored.unmet_skills
       .slice(0, 2)
       .map(([sk]) => niceSkillNames[sk] || sk);
-    parts.push('You still need inquiry skills like ' + missing.join(', ') + '.');
+    parts.push(
+      `To move towards ${title} you still need inquiry skills like ${missing.join(', ')}.`
+    );
   }
+
+  // ④ 知识缺口，带具体学科
   if (!scored.threshold_pass && scored.unmet_nodes.length > 0) {
     const top = scored.unmet_nodes[0];
     parts.push(
-      `You also need a bit more on ${subjectLabelFromNode(top.node)}.`,
+      `You also need a bit more knowledge in ${subjectLabelFromNode(top.node)}.`
     );
   }
-  if (!scored.gate_pass || !scored.threshold_pass) {
-    parts.push('We relaxed the rules to show this career to you now.');
+
+  // ⑤ 年级相关的说明
+  if (user.grade != null) {
+    if (user.grade <= 6) {
+      parts.push(
+        `${title} is more of a future goal for you over the next few years.`
+      );
+    } else if (user.grade <= 10) {
+      parts.push(
+        `At your year level it’s a good time to start exploring what ${title} involves.`
+      );
+    } else {
+      parts.push(
+        `At your year level you can already start planning the study pathway towards ${title}.`
+      );
+    }
   }
+
+  // ⑥ 放宽规则也写清楚
+  if (!scored.gate_pass || !scored.threshold_pass) {
+    parts.push(
+      `We slightly relaxed the rules so you can see ${title} now and understand what to work towards.`
+    );
+  }
+
   return parts.join(' ');
 }
 
@@ -556,22 +636,30 @@ function buildWhyForVideo(
   v: Video,
   user: UserProfile,
   careerIds: Set<string>,
+  careerMap: Map<string, CareerRecItem>,
 ): string {
-  const disc = v.discipline;
+  const disc = v.discipline || undefined;
+
   const userDisciplines = new Set<string>();
   Object.keys(user.knowledge || {}).forEach((node) => {
     userDisciplines.add(subjectLabelFromNode(node));
   });
 
-  if (v.career_id && careerIds.has(String(v.career_id))) {
-    return 'This video is about the career we just recommended to you.';
+  const cid = v.career_id && String(v.career_id);
+  const matchedCareer = cid ? careerMap.get(cid) : undefined;
+
+  if (cid && matchedCareer) {
+    return `This video shows what ${matchedCareer.title} looks like in real life.`;
   }
+
   if (disc && userDisciplines.has(disc)) {
-    return `This video is related to the ${disc} you are learning.`;
+    return `This video is about ${disc}, the science area you are working on at school.`;
   }
+
   if (disc) {
     return `This video shows another area of ${disc} you might be interested in.`;
   }
+
   return 'This video gives you another STEM story to explore.';
 }
 
@@ -587,8 +675,13 @@ function selectVideosForUser(
   });
 
   const careerIds = new Set<string>();
+  const careerMap = new Map<string, CareerRecItem>();
   pickedCareers.forEach((c) => {
-    if (c.id) careerIds.add(String(c.id));
+    if (c.id) {
+      const id = String(c.id);
+      careerIds.add(id);
+      careerMap.set(id, c);
+    }
   });
 
   const scoredVideos = videos.map((v) => {
@@ -640,7 +733,7 @@ function selectVideosForUser(
     const rec: RecItem = {
       id: v.id,
       title: v.title,
-      whyThis: buildWhyForVideo(v, user, careerIds),
+      whyThis: buildWhyForVideo(v, user, careerIds, careerMap),
       confidence: item.score >= 4 ? 'high' : item.score >= 2 ? 'medium' : 'low',
     };
 
@@ -661,7 +754,7 @@ function selectVideosForUser(
       const rec: RecItem = {
         id: v.id,
         title: v.title,
-        whyThis: buildWhyForVideo(v, user, careerIds),
+        whyThis: buildWhyForVideo(v, user, careerIds, careerMap),
         confidence: item.score >= 4 ? 'high' : item.score >= 2 ? 'medium' : 'low',
       };
 

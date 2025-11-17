@@ -40,25 +40,25 @@
       {
         "id": "video.021",
         "title": "Process Operator (Chemicals)_Chemical Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Process Operator (Chemicals) looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.040",
         "title": "Waste Management Technician_Chemical Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Waste Management Technician looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.050",
         "title": "Surveying Technician_Physical Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Surveying Technician looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.041",
         "title": "Electrician_Physical Sciences_video",
-        "whyThis": "This video is related to the Physical Sciences you are learning.",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
@@ -72,7 +72,7 @@
       {
         "id": "career.050",
         "title": "Surveying Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning.",
+        "whyThis": "Surveying Technician uses the Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Surveying Technician involves.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.35",
@@ -86,7 +86,7 @@
       {
         "id": "career.040",
         "title": "Waste Management Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning.",
+        "whyThis": "Waste Management Technician uses the Chemical Sciences and Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Waste Management Technician involves.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.39",
@@ -100,7 +100,7 @@
       {
         "id": "career.021",
         "title": "Process Operator (Chemicals)",
-        "whyThis": "This career is connected to the science areas you’ve been learning.",
+        "whyThis": "Process Operator (Chemicals) uses the Chemical Sciences and Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Process Operator (Chemicals) involves.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.39",
@@ -114,6 +114,6 @@
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T11:29:46.699Z"
+    "generatedAt": "2025-11-17T13:54:09.690Z"
   }
 }
