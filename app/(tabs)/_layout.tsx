@@ -7,7 +7,6 @@ import { Ionicons } from "@expo/vector-icons";
 
 export default function Layout() {
   return (
-    // Define the bottom tab navigation layout
     <Tabs
       screenOptions={{
         headerShown: false,
@@ -69,7 +68,5 @@ export default function Layout() {
         }}
       />
     </Tabs>
-
-
   );
 }
