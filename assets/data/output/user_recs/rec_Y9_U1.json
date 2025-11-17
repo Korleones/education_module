@@ -1,0 +1,120 @@
+{
+  "user": {
+    "id": "Y9_U1",
+    "grade": 9,
+    "isColdStart": false,
+    "knowledge": {
+      "CHEMICAL.Y9.AC9S9U04": 1,
+      "PHYSICAL.Y9.AC9S9U03": 1,
+      "BIO.Y9.AC9S9U01": 1
+    },
+    "inquiry_skills": {
+      "QP": 7,
+      "PC": 7,
+      "PAD": 7,
+      "EVAL": 6,
+      "COMM": 6
+    }
+  },
+  "recommendations": {
+    "units": [
+      {
+        "id": "game.027",
+        "title": "Earth & Space Sciences — AC9S9U02 — Geological processes & timescales",
+        "whyThis": "This activity introduces Earth & Space Sciences at a level that suits you.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.022",
+        "title": "Biological Sciences — AC9S8U01 — Cells and systems",
+        "whyThis": "You’ve already learned some Biological Sciences, so this Y8 activity is the next step to extend it.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.023",
+        "title": "Earth & Space Sciences — AC9S8U02 — Plate tectonics",
+        "whyThis": "This activity introduces Earth & Space Sciences at a level that suits you.",
+        "confidence": "high"
+      }
+    ],
+    "videos": [
+      {
+        "id": "video.001",
+        "title": "Marine Biologist_Biological Sciences_video",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.002",
+        "title": "Wildlife Carer_Biological Sciences_video",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.021",
+        "title": "Process Operator (Chemicals)_Chemical Sciences_video",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.022",
+        "title": "Water Treatment Technician_Chemical Sciences_video",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.041",
+        "title": "Electrician_Physical Sciences_video",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      }
+    ],
+    "careers": [
+      {
+        "id": "career.105",
+        "title": "Science Podcaster/Producer",
+        "whyThis": "Science Podcaster/Producer uses the Physical Sciences and Biological Sciences you’ve already been learning. You also need a bit more knowledge in Biological Sciences. At your year level it’s a good time to start exploring what Science Podcaster/Producer involves. We slightly relaxed the rules so you can see Science Podcaster/Producer now and understand what to work towards.",
+        "confidence": "medium",
+        "evidence": [
+          "baseScore=0.15",
+          "interestBoost=0.00",
+          "gradeBoost=0.25",
+          "finalScore=0.43",
+          "covered=0.60",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.104",
+        "title": "Lab Manager (Assoc)",
+        "whyThis": "Lab Manager (Assoc) uses the Physical Sciences and Biological Sciences you’ve already been learning. You also need a bit more knowledge in Biological Sciences. At your year level it’s a good time to start exploring what Lab Manager (Assoc) involves. We slightly relaxed the rules so you can see Lab Manager (Assoc) now and understand what to work towards.",
+        "confidence": "medium",
+        "evidence": [
+          "baseScore=0.15",
+          "interestBoost=0.00",
+          "gradeBoost=0.25",
+          "finalScore=0.43",
+          "covered=0.60",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.103",
+        "title": "Museum/Science Centre Educator",
+        "whyThis": "Museum/Science Centre Educator uses the Physical Sciences and Biological Sciences you’ve already been learning. You also need a bit more knowledge in Biological Sciences. At your year level it’s a good time to start exploring what Museum/Science Centre Educator involves. We slightly relaxed the rules so you can see Museum/Science Centre Educator now and understand what to work towards.",
+        "confidence": "medium",
+        "evidence": [
+          "baseScore=0.15",
+          "interestBoost=0.00",
+          "gradeBoost=0.25",
+          "finalScore=0.43",
+          "covered=0.60",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "generatedAt": "2025-11-17T13:54:09.668Z"
+  }
+}

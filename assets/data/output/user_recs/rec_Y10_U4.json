@@ -1,0 +1,121 @@
+{
+  "user": {
+    "id": "Y10_U4",
+    "grade": 10,
+    "isColdStart": false,
+    "knowledge": {
+      "EARTH.Y10.AC9S10U02": 3,
+      "PHYSICAL.Y10.AC9S10U03": 3,
+      "BIO.Y10.AC9S10U01": 3,
+      "CHEMICAL.Y10.AC9S10U04": 3
+    },
+    "inquiry_skills": {
+      "QP": 8,
+      "PC": 7,
+      "PAD": 8,
+      "EVAL": 7,
+      "COMM": 8
+    }
+  },
+  "recommendations": {
+    "units": [
+      {
+        "id": "game.027",
+        "title": "Earth & Space Sciences — AC9S9U02 — Geological processes & timescales",
+        "whyThis": "You’ve already learned some Earth & Space Sciences, so this Y9 activity is the next step to extend it.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.029",
+        "title": "Chemical Sciences — AC9S9U04 — Chemical processes & radioactivity",
+        "whyThis": "You’ve already learned some Chemical Sciences, so this Y9 activity is the next step to extend it.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.026",
+        "title": "Biological Sciences — AC9S9U01 — Ecosystem interdependence",
+        "whyThis": "You’ve already learned some Biological Sciences, so this Y9 activity is the next step to extend it.",
+        "confidence": "high"
+      }
+    ],
+    "videos": [
+      {
+        "id": "video.021",
+        "title": "Process Operator (Chemicals)_Chemical Sciences_video",
+        "whyThis": "This video shows what Process Operator (Chemicals) looks like in real life.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.022",
+        "title": "Water Treatment Technician_Chemical Sciences_video",
+        "whyThis": "This video shows what Water Treatment Technician looks like in real life.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.001",
+        "title": "Marine Biologist_Biological Sciences_video",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.002",
+        "title": "Wildlife Carer_Biological Sciences_video",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.041",
+        "title": "Electrician_Physical Sciences_video",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      }
+    ],
+    "careers": [
+      {
+        "id": "career.021",
+        "title": "Process Operator (Chemicals)",
+        "whyThis": "Process Operator (Chemicals) uses the Chemical Sciences and Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Process Operator (Chemicals) involves.",
+        "confidence": "medium",
+        "evidence": [
+          "baseScore=0.39",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.57",
+          "covered=0.88",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.022",
+        "title": "Water Treatment Technician",
+        "whyThis": "Water Treatment Technician uses the Chemical Sciences and Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Water Treatment Technician involves.",
+        "confidence": "medium",
+        "evidence": [
+          "baseScore=0.39",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.57",
+          "covered=0.88",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.023",
+        "title": "Pharmaceutical Technician",
+        "whyThis": "Pharmaceutical Technician uses the Chemical Sciences and Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Pharmaceutical Technician involves.",
+        "confidence": "medium",
+        "evidence": [
+          "baseScore=0.39",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.57",
+          "covered=0.88",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "generatedAt": "2025-11-17T13:54:09.705Z"
+  }
+}

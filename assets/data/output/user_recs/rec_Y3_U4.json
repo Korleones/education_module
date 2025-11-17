@@ -1,0 +1,121 @@
+{
+  "user": {
+    "id": "Y3_U4",
+    "grade": 3,
+    "isColdStart": false,
+    "knowledge": {
+      "PHYSICAL.Y3.AC9S3U03": 2,
+      "BIO.Y3.AC9S3U01": 1,
+      "EARTH.Y3.AC9S3U02": 3,
+      "CHEMICAL.Y3.AC9S3U04": 2
+    },
+    "inquiry_skills": {
+      "QP": 1,
+      "PC": 1,
+      "PAD": 1,
+      "EVAL": 1,
+      "COMM": 1
+    }
+  },
+  "recommendations": {
+    "units": [
+      {
+        "id": "game.006",
+        "title": "Biological Sciences — AC9S4U02 — Interdependence & environments",
+        "whyThis": "You’ve already learned some Biological Sciences, so this Y4 activity is the next step to extend it.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.007",
+        "title": "Earth & Space Sciences — AC9S4U03 — Earth’s surface changes",
+        "whyThis": "You’ve already learned some Earth & Space Sciences, so this Y4 activity is the next step to extend it.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.008",
+        "title": "Chemical Sciences — AC9S4U04 — Material properties & uses",
+        "whyThis": "You’ve already learned some Chemical Sciences, so this Y4 activity is the next step to extend it.",
+        "confidence": "high"
+      }
+    ],
+    "videos": [
+      {
+        "id": "video.020",
+        "title": "Microbiology Technician_Biological Sciences_video",
+        "whyThis": "This video shows what Microbiology Technician looks like in real life.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.040",
+        "title": "Waste Management Technician_Chemical Sciences_video",
+        "whyThis": "This video shows what Waste Management Technician looks like in real life.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.060",
+        "title": "HVAC Technician_Physical Sciences_video",
+        "whyThis": "This video shows what HVAC Technician looks like in real life.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.001",
+        "title": "Marine Biologist_Biological Sciences_video",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.021",
+        "title": "Process Operator (Chemicals)_Chemical Sciences_video",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      }
+    ],
+    "careers": [
+      {
+        "id": "career.040",
+        "title": "Waste Management Technician",
+        "whyThis": "Waste Management Technician will help you build your Chemical Sciences and Physical Sciences from where you are now. To move towards Waste Management Technician you still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more knowledge in Chemical Sciences. Waste Management Technician is more of a future goal for you over the next few years. We slightly relaxed the rules so you can see Waste Management Technician now and understand what to work towards.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.30",
+          "gradeBoost=-0.10",
+          "finalScore=0.23",
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.020",
+        "title": "Microbiology Technician",
+        "whyThis": "Microbiology Technician will help you build your Biological Sciences and Earth & Space Sciences from where you are now. To move towards Microbiology Technician you still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more knowledge in Biological Sciences. Microbiology Technician is more of a future goal for you over the next few years. We slightly relaxed the rules so you can see Microbiology Technician now and understand what to work towards.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.30",
+          "gradeBoost=-0.10",
+          "finalScore=0.23",
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.060",
+        "title": "HVAC Technician",
+        "whyThis": "HVAC Technician will help you build your Physical Sciences from where you are now. To move towards HVAC Technician you still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more knowledge in Physical Sciences. HVAC Technician is more of a future goal for you over the next few years. We slightly relaxed the rules so you can see HVAC Technician now and understand what to work towards.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.30",
+          "gradeBoost=-0.10",
+          "finalScore=0.20",
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "generatedAt": "2025-11-17T13:54:09.515Z"
+  }
+}

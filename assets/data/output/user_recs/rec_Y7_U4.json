@@ -1,0 +1,121 @@
+{
+  "user": {
+    "id": "Y7_U4",
+    "grade": 7,
+    "isColdStart": false,
+    "knowledge": {
+      "BIO.Y7.AC9S7U01": 1,
+      "EARTH.Y7.AC9S7U02": 3,
+      "PHYSICAL.Y7.AC9S7U03": 3,
+      "CHEMICAL.Y7.AC9S7U04": 2
+    },
+    "inquiry_skills": {
+      "QP": 5,
+      "PC": 4,
+      "PAD": 5,
+      "EVAL": 4,
+      "COMM": 5
+    }
+  },
+  "recommendations": {
+    "units": [
+      {
+        "id": "game.014",
+        "title": "Biological Sciences — AC9S6U01 — Habitats & survival conditions",
+        "whyThis": "You’ve already learned some Biological Sciences, so this Y6 activity is the next step to extend it.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.015",
+        "title": "Earth & Space Sciences — AC9S6U02 — Sun–Earth–planet relationships",
+        "whyThis": "You’ve already learned some Earth & Space Sciences, so this Y6 activity is the next step to extend it.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.016",
+        "title": "Physical Sciences — AC9S6U03 — Electrical circuits & components",
+        "whyThis": "You’ve already learned some Physical Sciences, so this Y6 activity is the next step to extend it.",
+        "confidence": "high"
+      }
+    ],
+    "videos": [
+      {
+        "id": "video.020",
+        "title": "Microbiology Technician_Biological Sciences_video",
+        "whyThis": "This video shows what Microbiology Technician looks like in real life.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.041",
+        "title": "Electrician_Physical Sciences_video",
+        "whyThis": "This video shows what Electrician looks like in real life.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.042",
+        "title": "Robotics Technician_Physical Sciences_video",
+        "whyThis": "This video shows what Robotics Technician looks like in real life.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.001",
+        "title": "Marine Biologist_Biological Sciences_video",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.021",
+        "title": "Process Operator (Chemicals)_Chemical Sciences_video",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      }
+    ],
+    "careers": [
+      {
+        "id": "career.020",
+        "title": "Microbiology Technician",
+        "whyThis": "Microbiology Technician will help you build your Biological Sciences and Earth & Space Sciences from where you are now. To move towards Microbiology Technician you still need inquiry skills like planning & conducting, processing & analysing data. You also need a bit more knowledge in Biological Sciences. At your year level it’s a good time to start exploring what Microbiology Technician involves. We slightly relaxed the rules so you can see Microbiology Technician now and understand what to work towards.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.30",
+          "gradeBoost=0.05",
+          "finalScore=0.36",
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.041",
+        "title": "Electrician",
+        "whyThis": "Electrician will help you build your Physical Sciences from where you are now. To move towards Electrician you still need inquiry skills like planning & conducting, processing & analysing data. You also need a bit more knowledge in Physical Sciences. At your year level it’s a good time to start exploring what Electrician involves. We slightly relaxed the rules so you can see Electrician now and understand what to work towards.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.16",
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.042",
+        "title": "Robotics Technician",
+        "whyThis": "Robotics Technician will help you build your Physical Sciences from where you are now. To move towards Robotics Technician you still need inquiry skills like planning & conducting, processing & analysing data. You also need a bit more knowledge in Physical Sciences. At your year level it’s a good time to start exploring what Robotics Technician involves. We slightly relaxed the rules so you can see Robotics Technician now and understand what to work towards.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.16",
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "generatedAt": "2025-11-17T13:54:09.632Z"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "user": {
+    "id": "Y10_U1",
+    "grade": 10,
+    "isColdStart": false,
+    "knowledge": {
+      "PHYSICAL.Y10.AC9S10U03": 2,
+      "CHEMICAL.Y10.AC9S10U04": 3
+    },
+    "inquiry_skills": {
+      "QP": 8,
+      "PC": 8,
+      "PAD": 8,
+      "EVAL": 7,
+      "COMM": 7
+    }
+  },
+  "recommendations": {
+    "units": [
+      {
+        "id": "game.030",
+        "title": "Biological Sciences — AC9S10U01 — Genetics, natural selection & evolution",
+        "whyThis": "This activity introduces Biological Sciences at a level that suits you.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.031",
+        "title": "Earth & Space Sciences — AC9S10U02 — Cosmos & stellar life cycles",
+        "whyThis": "This activity introduces Earth & Space Sciences at a level that suits you.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.027",
+        "title": "Earth & Space Sciences — AC9S9U02 — Geological processes & timescales",
+        "whyThis": "This activity introduces Earth & Space Sciences at a level that suits you.",
+        "confidence": "high"
+      }
+    ],
+    "videos": [
+      {
+        "id": "video.021",
+        "title": "Process Operator (Chemicals)_Chemical Sciences_video",
+        "whyThis": "This video shows what Process Operator (Chemicals) looks like in real life.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.040",
+        "title": "Waste Management Technician_Chemical Sciences_video",
+        "whyThis": "This video shows what Waste Management Technician looks like in real life.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.050",
+        "title": "Surveying Technician_Physical Sciences_video",
+        "whyThis": "This video shows what Surveying Technician looks like in real life.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.041",
+        "title": "Electrician_Physical Sciences_video",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.001",
+        "title": "Marine Biologist_Biological Sciences_video",
+        "whyThis": "This video shows another area of Biological Sciences you might be interested in.",
+        "confidence": "low"
+      }
+    ],
+    "careers": [
+      {
+        "id": "career.050",
+        "title": "Surveying Technician",
+        "whyThis": "Surveying Technician uses the Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Surveying Technician involves.",
+        "confidence": "medium",
+        "evidence": [
+          "baseScore=0.35",
+          "interestBoost=0.30",
+          "gradeBoost=0.05",
+          "finalScore=0.73",
+          "covered=0.88",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.040",
+        "title": "Waste Management Technician",
+        "whyThis": "Waste Management Technician uses the Chemical Sciences and Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Waste Management Technician involves.",
+        "confidence": "medium",
+        "evidence": [
+          "baseScore=0.39",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.57",
+          "covered=0.88",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.021",
+        "title": "Process Operator (Chemicals)",
+        "whyThis": "Process Operator (Chemicals) uses the Chemical Sciences and Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Process Operator (Chemicals) involves.",
+        "confidence": "medium",
+        "evidence": [
+          "baseScore=0.39",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.55",
+          "covered=0.88",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "generatedAt": "2025-11-17T13:54:09.690Z"
+  }
+}

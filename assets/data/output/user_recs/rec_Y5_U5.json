@@ -1,0 +1,120 @@
+{
+  "user": {
+    "id": "Y5_U5",
+    "grade": 5,
+    "isColdStart": false,
+    "knowledge": {
+      "PHYSICAL.Y5.AC9S5U03": 1,
+      "EARTH.Y5.AC9S5U02": 1,
+      "CHEMICAL.Y5.AC9S5U04": 1
+    },
+    "inquiry_skills": {
+      "QP": 3,
+      "PC": 3,
+      "PAD": 3,
+      "EVAL": 2,
+      "COMM": 2
+    }
+  },
+  "recommendations": {
+    "units": [
+      {
+        "id": "game.010",
+        "title": "Biological Sciences — AC9S5U01 — Adaptations for survival",
+        "whyThis": "This activity introduces Biological Sciences at a level that suits you.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.006",
+        "title": "Biological Sciences — AC9S4U02 — Interdependence & environments",
+        "whyThis": "This activity introduces Biological Sciences at a level that suits you.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.007",
+        "title": "Earth & Space Sciences — AC9S4U03 — Earth’s surface changes",
+        "whyThis": "You’ve already learned some Earth & Space Sciences, so this Y4 activity is the next step to extend it.",
+        "confidence": "high"
+      }
+    ],
+    "videos": [
+      {
+        "id": "video.001",
+        "title": "Marine Biologist_Biological Sciences_video",
+        "whyThis": "This video shows what Marine Biologist looks like in real life.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.002",
+        "title": "Wildlife Carer_Biological Sciences_video",
+        "whyThis": "This video shows what Wildlife Carer looks like in real life.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.021",
+        "title": "Process Operator (Chemicals)_Chemical Sciences_video",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.022",
+        "title": "Water Treatment Technician_Chemical Sciences_video",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.041",
+        "title": "Electrician_Physical Sciences_video",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      }
+    ],
+    "careers": [
+      {
+        "id": "career.020",
+        "title": "Microbiology Technician",
+        "whyThis": "Microbiology Technician will help you build your Biological Sciences and Earth & Space Sciences from where you are now. To move towards Microbiology Technician you still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more knowledge in Biological Sciences. Microbiology Technician is more of a future goal for you over the next few years. We slightly relaxed the rules so you can see Microbiology Technician now and understand what to work towards.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.30",
+          "gradeBoost=-0.10",
+          "finalScore=0.20",
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.001",
+        "title": "Marine Biologist",
+        "whyThis": "Marine Biologist will help you build your Biological Sciences and Earth & Space Sciences from where you are now. To move towards Marine Biologist you still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more knowledge in Biological Sciences. Marine Biologist is more of a future goal for you over the next few years. We slightly relaxed the rules so you can see Marine Biologist now and understand what to work towards.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.00",
+          "gradeBoost=-0.10",
+          "finalScore=0.00",
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.002",
+        "title": "Wildlife Carer",
+        "whyThis": "Wildlife Carer will help you build your Biological Sciences and Earth & Space Sciences from where you are now. To move towards Wildlife Carer you still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more knowledge in Biological Sciences. Wildlife Carer is more of a future goal for you over the next few years. We slightly relaxed the rules so you can see Wildlife Carer now and understand what to work towards.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.00",
+          "gradeBoost=-0.10",
+          "finalScore=0.00",
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "generatedAt": "2025-11-17T13:54:09.578Z"
+  }
+}

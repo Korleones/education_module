@@ -1,0 +1,121 @@
+{
+  "user": {
+    "id": "Y9_U4",
+    "grade": 9,
+    "isColdStart": false,
+    "knowledge": {
+      "PHYSICAL.Y9.AC9S9U03": 1,
+      "BIO.Y9.AC9S9U01": 3,
+      "CHEMICAL.Y9.AC9S9U04": 2,
+      "EARTH.Y9.AC9S9U02": 1
+    },
+    "inquiry_skills": {
+      "QP": 7,
+      "PC": 6,
+      "PAD": 7,
+      "EVAL": 6,
+      "COMM": 7
+    }
+  },
+  "recommendations": {
+    "units": [
+      {
+        "id": "game.022",
+        "title": "Biological Sciences — AC9S8U01 — Cells and systems",
+        "whyThis": "You’ve already learned some Biological Sciences, so this Y8 activity is the next step to extend it.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.023",
+        "title": "Earth & Space Sciences — AC9S8U02 — Plate tectonics",
+        "whyThis": "You’ve already learned some Earth & Space Sciences, so this Y8 activity is the next step to extend it.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.024",
+        "title": "Physical Sciences — AC9S8U03 — Energy and waves",
+        "whyThis": "You’ve already learned some Physical Sciences, so this Y8 activity is the next step to extend it.",
+        "confidence": "high"
+      }
+    ],
+    "videos": [
+      {
+        "id": "video.001",
+        "title": "Marine Biologist_Biological Sciences_video",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.002",
+        "title": "Wildlife Carer_Biological Sciences_video",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.021",
+        "title": "Process Operator (Chemicals)_Chemical Sciences_video",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.022",
+        "title": "Water Treatment Technician_Chemical Sciences_video",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.041",
+        "title": "Electrician_Physical Sciences_video",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      }
+    ],
+    "careers": [
+      {
+        "id": "career.099",
+        "title": "Environmental Reporting Officer",
+        "whyThis": "Environmental Reporting Officer uses the Physical Sciences and Biological Sciences you’ve already been learning. You also need a bit more knowledge in Biological Sciences. At your year level it’s a good time to start exploring what Environmental Reporting Officer involves. We slightly relaxed the rules so you can see Environmental Reporting Officer now and understand what to work towards.",
+        "confidence": "medium",
+        "evidence": [
+          "baseScore=0.15",
+          "interestBoost=0.00",
+          "gradeBoost=0.25",
+          "finalScore=0.41",
+          "covered=0.60",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.098",
+        "title": "Instrumentation Data Tech",
+        "whyThis": "Instrumentation Data Tech uses the Physical Sciences and Biological Sciences you’ve already been learning. You also need a bit more knowledge in Biological Sciences. At your year level it’s a good time to start exploring what Instrumentation Data Tech involves. We slightly relaxed the rules so you can see Instrumentation Data Tech now and understand what to work towards.",
+        "confidence": "medium",
+        "evidence": [
+          "baseScore=0.15",
+          "interestBoost=0.00",
+          "gradeBoost=0.25",
+          "finalScore=0.41",
+          "covered=0.60",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.097",
+        "title": "Quality Data Analyst (Manufacturing)",
+        "whyThis": "Quality Data Analyst (Manufacturing) uses the Physical Sciences and Biological Sciences you’ve already been learning. You also need a bit more knowledge in Biological Sciences. At your year level it’s a good time to start exploring what Quality Data Analyst (Manufacturing) involves. We slightly relaxed the rules so you can see Quality Data Analyst (Manufacturing) now and understand what to work towards.",
+        "confidence": "medium",
+        "evidence": [
+          "baseScore=0.15",
+          "interestBoost=0.00",
+          "gradeBoost=0.25",
+          "finalScore=0.41",
+          "covered=0.60",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "generatedAt": "2025-11-17T13:54:09.682Z"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "user": {
+    "id": "Y3_U1",
+    "grade": 3,
+    "isColdStart": false,
+    "knowledge": {
+      "EARTH.Y3.AC9S3U02": 3,
+      "BIO.Y3.AC9S3U01": 1
+    },
+    "inquiry_skills": {
+      "QP": 1,
+      "PC": 1,
+      "PAD": 1,
+      "EVAL": 1,
+      "COMM": 1
+    }
+  },
+  "recommendations": {
+    "units": [
+      {
+        "id": "game.003",
+        "title": "Physical Sciences — AC9S3U03 — Heat sources & temperature change",
+        "whyThis": "This activity introduces Physical Sciences at a level that suits you.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.004",
+        "title": "Chemical Sciences — AC9S3U04 — Solids & liquids; changes of state",
+        "whyThis": "This activity introduces Chemical Sciences at a level that suits you.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.006",
+        "title": "Biological Sciences — AC9S4U02 — Interdependence & environments",
+        "whyThis": "You’ve already learned some Biological Sciences, so this Y4 activity is the next step to extend it.",
+        "confidence": "high"
+      }
+    ],
+    "videos": [
+      {
+        "id": "video.001",
+        "title": "Marine Biologist_Biological Sciences_video",
+        "whyThis": "This video shows what Marine Biologist looks like in real life.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.040",
+        "title": "Waste Management Technician_Chemical Sciences_video",
+        "whyThis": "This video shows what Waste Management Technician looks like in real life.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.050",
+        "title": "Surveying Technician_Physical Sciences_video",
+        "whyThis": "This video shows what Surveying Technician looks like in real life.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.002",
+        "title": "Wildlife Carer_Biological Sciences_video",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.061",
+        "title": "Environmental Compliance Officer_Earth & Space Sciences_video",
+        "whyThis": "This video is about Earth & Space Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      }
+    ],
+    "careers": [
+      {
+        "id": "career.050",
+        "title": "Surveying Technician",
+        "whyThis": "Surveying Technician will help you build your Physical Sciences from where you are now. To move towards Surveying Technician you still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more knowledge in Physical Sciences. Surveying Technician is more of a future goal for you over the next few years. We slightly relaxed the rules so you can see Surveying Technician now and understand what to work towards.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.30",
+          "gradeBoost=-0.10",
+          "finalScore=0.22",
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.040",
+        "title": "Waste Management Technician",
+        "whyThis": "Waste Management Technician will help you build your Chemical Sciences and Physical Sciences from where you are now. To move towards Waste Management Technician you still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more knowledge in Chemical Sciences. Waste Management Technician is more of a future goal for you over the next few years. We slightly relaxed the rules so you can see Waste Management Technician now and understand what to work towards.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.30",
+          "gradeBoost=-0.10",
+          "finalScore=0.22",
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.001",
+        "title": "Marine Biologist",
+        "whyThis": "Marine Biologist will help you build your Biological Sciences and Earth & Space Sciences from where you are now. To move towards Marine Biologist you still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more knowledge in Biological Sciences. Marine Biologist is more of a future goal for you over the next few years. We slightly relaxed the rules so you can see Marine Biologist now and understand what to work towards.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.30",
+          "gradeBoost=-0.10",
+          "finalScore=0.22",
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "generatedAt": "2025-11-17T13:54:09.495Z"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "user": {
+    "id": "Y9_U3",
+    "grade": 9,
+    "isColdStart": false,
+    "knowledge": {
+      "BIO.Y9.AC9S9U01": 1,
+      "PHYSICAL.Y9.AC9S9U03": 2
+    },
+    "inquiry_skills": {
+      "QP": 6,
+      "PC": 7,
+      "PAD": 6,
+      "EVAL": 7,
+      "COMM": 7
+    }
+  },
+  "recommendations": {
+    "units": [
+      {
+        "id": "game.027",
+        "title": "Earth & Space Sciences — AC9S9U02 — Geological processes & timescales",
+        "whyThis": "This activity introduces Earth & Space Sciences at a level that suits you.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.029",
+        "title": "Chemical Sciences — AC9S9U04 — Chemical processes & radioactivity",
+        "whyThis": "This activity introduces Chemical Sciences at a level that suits you.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.022",
+        "title": "Biological Sciences — AC9S8U01 — Cells and systems",
+        "whyThis": "You’ve already learned some Biological Sciences, so this Y8 activity is the next step to extend it.",
+        "confidence": "high"
+      }
+    ],
+    "videos": [
+      {
+        "id": "video.001",
+        "title": "Marine Biologist_Biological Sciences_video",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.002",
+        "title": "Wildlife Carer_Biological Sciences_video",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.041",
+        "title": "Electrician_Physical Sciences_video",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.042",
+        "title": "Robotics Technician_Physical Sciences_video",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.021",
+        "title": "Process Operator (Chemicals)_Chemical Sciences_video",
+        "whyThis": "This video shows another area of Chemical Sciences you might be interested in.",
+        "confidence": "low"
+      }
+    ],
+    "careers": [
+      {
+        "id": "career.065",
+        "title": "IT Support Specialist",
+        "whyThis": "IT Support Specialist uses the Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what IT Support Specialist involves.",
+        "confidence": "medium",
+        "evidence": [
+          "baseScore=0.34",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.51",
+          "covered=0.85",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.064",
+        "title": "Network Administrator (Assoc)",
+        "whyThis": "Network Administrator (Assoc) uses the Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Network Administrator (Assoc) involves.",
+        "confidence": "medium",
+        "evidence": [
+          "baseScore=0.34",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.51",
+          "covered=0.85",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.063",
+        "title": "Data Center Technician",
+        "whyThis": "Data Center Technician uses the Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Data Center Technician involves.",
+        "confidence": "medium",
+        "evidence": [
+          "baseScore=0.34",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.51",
+          "covered=0.85",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "generatedAt": "2025-11-17T13:54:09.677Z"
+  }
+}

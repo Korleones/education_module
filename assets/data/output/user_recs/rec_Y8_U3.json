@@ -1,0 +1,119 @@
+{
+  "user": {
+    "id": "Y8_U3",
+    "grade": 8,
+    "isColdStart": false,
+    "knowledge": {
+      "PHYSICAL.Y8.AC9S8U03": 2,
+      "CHEMICAL.Y8.AC9S8U04": 2
+    },
+    "inquiry_skills": {
+      "QP": 6,
+      "PC": 6,
+      "PAD": 6,
+      "EVAL": 5,
+      "COMM": 5
+    }
+  },
+  "recommendations": {
+    "units": [
+      {
+        "id": "game.022",
+        "title": "Biological Sciences — AC9S8U01 — Cells and systems",
+        "whyThis": "This activity introduces Biological Sciences at a level that suits you.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.023",
+        "title": "Earth & Space Sciences — AC9S8U02 — Plate tectonics",
+        "whyThis": "This activity introduces Earth & Space Sciences at a level that suits you.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.019",
+        "title": "Earth & Space Sciences — AC9S7U02 — Sun–Earth–Moon phenomena",
+        "whyThis": "This activity introduces Earth & Space Sciences at a level that suits you.",
+        "confidence": "high"
+      }
+    ],
+    "videos": [
+      {
+        "id": "video.021",
+        "title": "Process Operator (Chemicals)_Chemical Sciences_video",
+        "whyThis": "This video shows what Process Operator (Chemicals) looks like in real life.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.022",
+        "title": "Water Treatment Technician_Chemical Sciences_video",
+        "whyThis": "This video shows what Water Treatment Technician looks like in real life.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.041",
+        "title": "Electrician_Physical Sciences_video",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.042",
+        "title": "Robotics Technician_Physical Sciences_video",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.001",
+        "title": "Marine Biologist_Biological Sciences_video",
+        "whyThis": "This video shows another area of Biological Sciences you might be interested in.",
+        "confidence": "low"
+      }
+    ],
+    "careers": [
+      {
+        "id": "career.021",
+        "title": "Process Operator (Chemicals)",
+        "whyThis": "Process Operator (Chemicals) uses the Chemical Sciences and Physical Sciences you’ve already been learning. To move towards Process Operator (Chemicals) you still need inquiry skills like evaluating. At your year level it’s a good time to start exploring what Process Operator (Chemicals) involves. We slightly relaxed the rules so you can see Process Operator (Chemicals) now and understand what to work towards.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.22",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.38",
+          "covered=0.80",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.022",
+        "title": "Water Treatment Technician",
+        "whyThis": "Water Treatment Technician uses the Chemical Sciences and Physical Sciences you’ve already been learning. To move towards Water Treatment Technician you still need inquiry skills like evaluating. At your year level it’s a good time to start exploring what Water Treatment Technician involves. We slightly relaxed the rules so you can see Water Treatment Technician now and understand what to work towards.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.22",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.38",
+          "covered=0.80",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.023",
+        "title": "Pharmaceutical Technician",
+        "whyThis": "Pharmaceutical Technician uses the Chemical Sciences and Physical Sciences you’ve already been learning. To move towards Pharmaceutical Technician you still need inquiry skills like evaluating. At your year level it’s a good time to start exploring what Pharmaceutical Technician involves. We slightly relaxed the rules so you can see Pharmaceutical Technician now and understand what to work towards.",
+        "confidence": "low",
+        "evidence": [
+          "baseScore=0.22",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.38",
+          "covered=0.80",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "generatedAt": "2025-11-17T13:54:09.653Z"
+  }
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "userId": "Y3_U1",
+    "completedNodeId": "EARTH.Y3.AC9S3U02",
+    "expected": [
+      { "id": "EARTH.Y4.AC9S4U03", "kind": "knowledge" },
+      { "id": "INQ.Y3.PC", "kind": "skill_strand" }
+    ]
+  }
+]
