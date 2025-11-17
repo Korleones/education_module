@@ -1,0 +1,90 @@
+{
+  "user": {
+    "id": "Y8_U4",
+    "grade": 8,
+    "isColdStart": false,
+    "knowledge": {
+      "EARTH.Y8.AC9S8U02": 1,
+      "PHYSICAL.Y8.AC9S8U03": 3,
+      "CHEMICAL.Y8.AC9S8U04": 2
+    },
+    "inquiry_skills": {
+      "QP": 5,
+      "PC": 5,
+      "PAD": 6,
+      "EVAL": 6,
+      "COMM": 6
+    }
+  },
+  "recommendations": {
+    "units": [
+      {
+        "id": "game.002",
+        "title": "Earth & Space Sciences — AC9S3U02 — Soils, rocks, minerals (properties & resources)",
+        "whyThis": "You’ve already learned some Earth & Space Sciences, so this Y3 activity is the next step to extend it.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.003",
+        "title": "Physical Sciences — AC9S3U03 — Heat sources & temperature change",
+        "whyThis": "You’ve already learned some Physical Sciences, so this Y3 activity is the next step to extend it.",
+        "confidence": "high"
+      },
+      {
+        "id": "game.004",
+        "title": "Chemical Sciences — AC9S3U04 — Solids & liquids; changes of state",
+        "whyThis": "You’ve already learned some Chemical Sciences, so this Y3 activity is the next step to extend it.",
+        "confidence": "high"
+      }
+    ],
+    "videos": [
+      {
+        "id": "video.001",
+        "title": "Marine Biologist_Biological Sciences_video",
+        "whyThis": "This video is about the career we just recommended to you.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.002",
+        "title": "Wildlife Carer_Biological Sciences_video",
+        "whyThis": "This video is about the career we just recommended to you.",
+        "confidence": "high"
+      }
+    ],
+    "careers": [
+      {
+        "id": "career.001",
+        "title": "Marine Biologist",
+        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like planning & conducting. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
+        "confidence": "medium",
+        "evidence": [
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.002",
+        "title": "Wildlife Carer",
+        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like planning & conducting. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
+        "confidence": "medium",
+        "evidence": [
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      },
+      {
+        "id": "career.003",
+        "title": "Park Ranger",
+        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like planning & conducting. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
+        "confidence": "medium",
+        "evidence": [
+          "covered=0.00",
+          "required_threshold=1.5 (relaxed to 40%)"
+        ]
+      }
+    ]
+  },
+  "meta": {
+    "generatedAt": "2025-11-17T05:25:40.728Z"
+  }
+}
