@@ -65,7 +65,7 @@ export interface CareersCatalog {
 }
 
 // ── 推荐 DTO ──
-export type RecKind = 'knowledge' | 'skill_strand' | 'career_gap';
+export type RecKind = 'knowledge' | 'skill_strand' | 'career_gap' | 'unit' | 'video' | 'career';
 
 export interface RecommendationItem {
   id: string;

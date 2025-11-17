@@ -1,83 +1,182 @@
-// app/tabs/rec-system/components/DebugPanel.tsx
+// app/(tabs)/navigation/rec-system/components/DebugPanel.tsx
 import React from 'react';
-import { View, Text, Switch, FlatList } from 'react-native';
-
-import { getNextStepsForDebug } from '../services/recommendationService';
+import {
+  View,
+  Text,
+  Switch,
+  ScrollView,
+  Pressable,
+} from 'react-native';
 import { isDebugMode, setDebugMode } from '../state/debugMode';
+import { getUserRawRecs } from '../repo/userRecsRepo';
 
-type Metrics = {
-  precision: number;
-  recall: number;
-  missing: { id: string; kind: string }[];
-  unexpected: { id: string; kind: string }[];
-} | null;
-
-export const DebugPanel: React.FC<{
+type Props = {
   userId?: string;
-  completedNodeId?: string;
-}> = ({ userId, completedNodeId }) => {
-  const [debug, setDebug] = React.useState(isDebugMode());
-  const [metrics, setMetrics] = React.useState<Metrics>(null);
+  completedNodeId?: string; // 保留字段，方便以后扩展
+};
 
-  async function updateMetrics(debugOn: boolean) {
-    if (!debugOn || !userId || !completedNodeId) {
-      setMetrics(null);
+export const DebugPanel: React.FC<Props> = ({ userId }) => {
+  const [debug, setDebug] = React.useState(isDebugMode());
+  const [rawJson, setRawJson] = React.useState<any | null>(null);
+  const [showJson, setShowJson] = React.useState(false);
+
+  // Debug 打开或学生切换时加载 JSON
+  React.useEffect(() => {
+    if (!debug || !userId) {
+      setRawJson(null);
       return;
     }
+    const raw = getUserRawRecs(userId);
+    setRawJson(raw ?? null);
+  }, [debug, userId]);
 
-    const res = await getNextStepsForDebug(userId, completedNodeId);
-    setMetrics(res.compare ?? null);
-  }
-
-  const toggleDebug = async (val: boolean) => {
+  const toggleDebug = (val: boolean) => {
     setDebugMode(val);
     setDebug(val);
-    await updateMetrics(val);
+    // 关闭 Debug 时顺便收起 JSON
+    if (!val) setShowJson(false);
   };
 
   return (
-    <View style={{ paddingLeft: 16, paddingRight: 16, paddingVertical: 8 }}>
-      {/* 顶部只保留 Debug Mode + 开关 */}
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'flex-end',
+      }}
+    >
+      {/* 顶部开关行 */}
       <View
         style={{
           flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: 'flex-end',
+          marginBottom: debug ? 4 : 0,
         }}
       >
-        <Text style={{ marginRight: 8 }}>Debug Mode</Text>
+        <Text style={{ marginRight: 8, fontSize: 13 }}>Debug Mode</Text>
         <Switch value={debug} onValueChange={toggleDebug} />
       </View>
 
-      {/* 打开 Debug 模式后，下面照常显示调试信息 */}
-      {debug && metrics && (
-        <View style={{ marginTop: 6 }}>
-          <Text style={{ fontWeight: '600' }}>
-            Precision: {(metrics.precision * 100).toFixed(0)}%
-            {'   '}
-            Recall: {(metrics.recall * 100).toFixed(0)}%
-          </Text>
+      {/* Debug 打开时显示卡片 */}
+      {debug && (
+        <View
+          style={{
+            marginTop: 6,
+            alignSelf: 'stretch', // 占满整行
+          }}
+        >
+          {/* 卡片外框 */}
+          <View
+            style={{
+              backgroundColor: '#ffffff',
+              borderRadius: 12,
+              paddingHorizontal: 14,
+              paddingVertical: 10,
+              shadowColor: '#000',
+              shadowOpacity: 0.12,
+              shadowOffset: { width: 0, height: 2 },
+              shadowRadius: 6,
+              elevation: 3,
+              borderWidth: 1,
+              borderColor: '#e5e7eb',
+            }}
+          >
+            {/* 标题 + Show/Hide JSON 按钮 */}
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: 6,
+              }}
+            >
+              <View>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    fontWeight: '700',
+                    color: '#111827',
+                  }}
+                >
+                  Debug Information
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 11,
+                    color: '#6b7280',
+                    marginTop: 2,
+                  }}
+                >
+                  Raw JSON output for {userId ?? 'N/A'}
+                </Text>
+              </View>
 
-          <Text style={{ marginTop: 6, fontWeight: '600' }}>Missing (FN):</Text>
-          <FlatList
-            data={metrics.missing}
-            keyExtractor={(x, i) => `m-${i}`}
-            renderItem={({ item }) => <Text>- {item.kind}: {item.id}</Text>}
-            ListEmptyComponent={<Text>None</Text>}
-          />
+              <Pressable
+                onPress={() => setShowJson((s) => !s)}
+                style={({ pressed }) => ({
+                  paddingHorizontal: 10,
+                  paddingVertical: 6,
+                  borderRadius: 20,
+                  borderWidth: 1,
+                  borderColor: '#d1d5db',
+                  backgroundColor: pressed ? '#e5e7eb' : '#f9fafb',
+                })}
+              >
+                <Text
+                  style={{
+                    fontSize: 11,
+                    fontWeight: '500',
+                    color: '#111827',
+                  }}
+                >
+                  {showJson ? 'Hide JSON' : 'Show JSON'}
+                </Text>
+              </Pressable>
+            </View>
 
-          <Text style={{ marginTop: 6, fontWeight: '600' }}>Unexpected (FP):</Text>
-          <FlatList
-            data={metrics.unexpected}
-            keyExtractor={(x, i) => `u-${i}`}
-            renderItem={({ item }) => <Text>- {item.kind}: {item.id}</Text>}
-            ListEmptyComponent={<Text>None</Text>}
-          />
+            {/* 展开的 JSON 内容 */}
+            {showJson && (
+              <View
+                style={{
+                  marginTop: 4,
+                  maxHeight: 260,
+                  borderRadius: 8,
+                  backgroundColor: '#f3f4f6',
+                  paddingHorizontal: 8,
+                  paddingVertical: 6,
+                }}
+              >
+                {rawJson ? (
+                  <ScrollView>
+                    <Text
+                      style={{
+                        fontSize: 10,
+                        fontFamily: 'monospace',
+                        color: '#111827',
+                      }}
+                    >
+                      {JSON.stringify(rawJson, null, 2)}
+                    </Text>
+                  </ScrollView>
+                ) : (
+                  <Text
+                    style={{
+                      fontSize: 11,
+                      color: '#9ca3af',
+                    }}
+                  >
+                    No JSON file found for this student.
+                  </Text>
+                )}
+              </View>
+            )}
+          </View>
         </View>
       )}
     </View>
   );
 };
+
+
 
 
 

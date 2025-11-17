@@ -1,6 +1,13 @@
 // app/tabs/rec-system/index.tsx
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, View, Text, Alert, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  Alert,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useIsFocused } from '@react-navigation/native';
 
@@ -22,8 +29,6 @@ async function loadSelectedStudent(): Promise<any | null> {
     return null;
   }
 }
-
-
 
 // ⭐ 推荐系统页面
 export default function RecSystemPage() {
@@ -54,56 +59,58 @@ export default function RecSystemPage() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      {/* 顶部：标题 + 学生信息 + 右上角 Debug 开关 */}
-      <View style={{ paddingTop: 16, paddingHorizontal: 16, paddingBottom: 8 }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start',
-          }}
-        >
-
-
-        <TouchableOpacity style={styles.backButton} onPress={() => router.push('/navigation')}>
+      {/* 悬浮在最上面的 Back 按钮 */}
+      <TouchableOpacity
+        style={styles.backButton}
+        onPress={() => router.push('/navigation')}
+      >
         <Ionicons name="chevron-back" size={22} color="#333" />
         <Text style={styles.backText}>Back</Text>
       </TouchableOpacity>
 
-          {/* 左侧：标题 + 当前学生 */}
-          <View style={{ flexShrink: 1, paddingRight: 12 }}>
-            <Text style={{ fontSize: 22, fontWeight: '800' }}>
-              Skill Completed ✅
-            </Text>
-
-            <Text style={{ marginTop: 6, color: '#374151' }}>
-              User: {userId}
-              {selectedStudent?.year ? `   Year: ${selectedStudent.year}` : ''}
-            </Text>
-
-            {!selectedStudent && (
-              <Text style={{ marginTop: 4, color: '#9ca3af', fontSize: 12 }}>
-                Tip: select a student first on the "Select a Student" screen.
+      {/* ✅ 下面这一层整体下移，避免和 Back 重叠 */}
+      <View style={{ flex: 1, paddingTop: 80 }}>
+        {/* 顶部：标题 + 学生信息 + 右上角 Debug 开关 */}
+        <View style={{ paddingHorizontal: 16, paddingBottom: 8 }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'flex-start',
+            }}
+          >
+            {/* 左侧：标题 + 当前学生 */}
+            <View style={{ flexShrink: 1, paddingRight: 12 }}>
+              <Text style={{ fontSize: 22, fontWeight: '800' }}>
+                Skill Completed ✅
               </Text>
-            )}
+
+              <Text style={{ marginTop: 6, color: '#374151' }}>
+                User: {userId}
+                {selectedStudent?.year ? `   Year: ${selectedStudent.year}` : ''}
+              </Text>
+
+              {!selectedStudent && (
+                <Text style={{ marginTop: 4, color: '#9ca3af', fontSize: 12 }}>
+                  Tip: select a student first on the "Select a Student" screen.
+                </Text>
+              )}
+            </View>
+
+            {/* 右上角 Debug Mode 开关 */}
+            <DebugPanel userId={userId} completedNodeId={completedNodeId} />
           </View>
-
-          {/* 右上角 Debug Mode 开关 */}
-          <DebugPanel
-            userId={userId}
-            completedNodeId={completedNodeId}
-          />
         </View>
-      </View>
 
-      {/* 推荐结果列表 */}
-      <RecommendationPanel
-        userId={userId}
-        completedNodeId={completedNodeId}
-        onSelect={(item) =>
-          Alert.alert('Go Next', `${item.kind}: ${item.title}`)
-        }
-      />
+        {/* 推荐结果列表 */}
+        <RecommendationPanel
+          userId={userId}
+          completedNodeId={completedNodeId}
+          onSelect={(item) =>
+            Alert.alert('Go Next', `${item.kind}: ${item.title}`)
+          }
+        />
+      </View>
     </SafeAreaView>
   );
 }
@@ -111,8 +118,8 @@ export default function RecSystemPage() {
 const styles = StyleSheet.create({
   backButton: {
     position: 'absolute',
-    top: 20,              // iOS 顶部安全区
-    left: 20,
+    top: 20, // 靠近顶部安全区
+    left: 16,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#fff',
@@ -123,7 +130,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.15,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
-    elevation: 3,        // Android 阴影
+    elevation: 3, // Android 阴影
     zIndex: 10,
   },
   backText: {
@@ -132,12 +139,8 @@ const styles = StyleSheet.create({
     marginLeft: 2,
     fontWeight: '500',
   },
-  content: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-})
+});
+
 
 
 

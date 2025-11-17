@@ -1,57 +1,129 @@
-import React from 'react';
-import { View, Text, FlatList, ActivityIndicator } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, ScrollView, ActivityIndicator } from 'react-native';
 
 import { getNextSteps } from '../services/recommendationService';
-import { RecommendationCard } from './RecommendationCard';
 import type { RecommendationItem } from '../types/models';
+import { RecommendationCard } from './RecommendationCard';
 
-
-
-export const RecommendationPanel: React.FC<{
+type Props = {
   userId: string;
   completedNodeId: string;
-  onSelect?: (i: RecommendationItem) => void;
-  footer?: React.ReactElement | null;   // ← 关键修改
-}> = ({ userId, completedNodeId, onSelect, footer }) => {
-  const [loading, setLoading] = React.useState(true);
-  const [items, setItems] = React.useState<RecommendationItem[]>([]);
+  onSelect: (item: RecommendationItem) => void;
+};
 
-  React.useEffect(() => {
-    let ok = true;
-    (async () => {
+export const RecommendationPanel: React.FC<Props> = ({
+  userId,
+  completedNodeId,
+  onSelect,
+}) => {
+  const [items, setItems] = useState<RecommendationItem[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const run = async () => {
       setLoading(true);
-      const res = await getNextSteps(userId, completedNodeId);
-      if (ok) { setItems(res); setLoading(false); }
-    })();
-    return () => { ok = false; };
+      setError(null);
+      try {
+        const res = await getNextSteps(userId, completedNodeId);
+        if (!cancelled) setItems(res);
+      } catch (e: any) {
+        console.error('[rec-system] getNextSteps error', e);
+        if (!cancelled) setError('Failed to load recommendations.');
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    };
+
+    run();
+
+    return () => {
+      cancelled = true;
+    };
   }, [userId, completedNodeId]);
+
+  // 分组：units / videos / careers / others
+  const units = items.filter((it) => it.kind === 'unit');
+  const videos = items.filter((it) => it.kind === 'video');
+  const careers = items.filter((it) => it.kind === 'career');
+  const others = items.filter(
+    (it) => it.kind !== 'unit' && it.kind !== 'video' && it.kind !== 'career'
+  );
+
+  const renderSection = (
+    title: string,
+    data: RecommendationItem[] | null | undefined
+  ) => {
+    if (!data || data.length === 0) return null;
+
+    return (
+      <View style={{ marginTop: 16 }}>
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: '700',
+            marginBottom: 6,
+            paddingHorizontal: 16,
+          }}
+        >
+          {title}
+        </Text>
+
+        {data.map((item) => (
+          <RecommendationCard
+            key={item.id}
+            item={item}
+            onPress={() => onSelect(item)}
+          />
+        ))}
+      </View>
+    );
+  };
 
   if (loading) {
     return (
-      <View style={{ padding: 16 }}>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: 32,
+        }}
+      >
         <ActivityIndicator />
-        <Text> Loading recommendations…</Text>
+        <Text style={{ marginTop: 8, color: '#6b7280' }}>Loading…</Text>
+      </View>
+    );
+  }
+
+  if (error) {
+    return (
+      <View style={{ padding: 16 }}>
+        <Text style={{ color: 'red' }}>{error}</Text>
+      </View>
+    );
+  }
+
+  if (!items.length) {
+    return (
+      <View style={{ padding: 16 }}>
+        <Text style={{ color: '#6b7280' }}>No recommendations available.</Text>
       </View>
     );
   }
 
   return (
-    <View style={{ flex: 1, padding: 16 }}>
-      <Text style={{ fontSize: 18, fontWeight: '700', marginBottom: 8 }}>Next Steps</Text>
-      <FlatList
-        data={items}
-        keyExtractor={(i) => i.id}
-        ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
-        renderItem={({ item }) => (
-          <RecommendationCard item={item} onPress={onSelect} />
-        )}
-        ListEmptyComponent={<Text>No recommendations.</Text>}
-        // ✅ 这里直接用 footer || null，类型就能对上
-        ListFooterComponent={footer || null}
-        contentContainerStyle={{ paddingBottom: 24 }}
-      />
-    </View>
+    <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 24 }}>
+      {/* 按照 Units / Videos / Careers 顺序分块显示 */}
+      {renderSection('Game & Units', units)}
+      {renderSection('Videos', videos)}
+      {renderSection('Careers', careers)}
+
+      {/* 其它类型（比如原来的 knowledge / career_gap），可以放在最后一个区块里 */}
+      {renderSection('Other Suggestions', others)}
+    </ScrollView>
   );
 };
-
 

@@ -7,15 +7,20 @@ interface Props {
   onPress?: (item: RecommendationItem) => void; // 允许外面传 onPress（可选）
 }
 
+// 根据数值映射到 high / medium / low
+const getConfidenceLabel = (c?: number) => {
+  if (c == null) return '—';
+  if (c >= 0.85) return 'high';
+  if (c >= 0.7) return 'medium';
+  return 'low';
+};
+
 export const RecommendationCard: React.FC<Props> = ({ item, onPress }) => {
   const [showReason, setShowReason] = React.useState(false);
 
   return (
     // 整个卡片可点击（如果上层传了 onPress）
-    <Pressable
-      onPress={() => onPress?.(item)}
-      style={styles.card}
-    >
+    <Pressable onPress={() => onPress?.(item)} style={styles.card}>
       {/* 标题 + Why This 按钮 */}
       <View style={styles.topRow}>
         <Text style={styles.title}>{item.title}</Text>
@@ -30,12 +35,10 @@ export const RecommendationCard: React.FC<Props> = ({ item, onPress }) => {
         </Pressable>
       </View>
 
-      {showReason && (
-        <Text style={styles.reason}>{item.reason}</Text>
-      )}
+      {showReason && <Text style={styles.reason}>{item.reason}</Text>}
 
       <Text style={styles.confidence}>
-        Confidence: {(item.confidence * 100).toFixed(0)}%
+        Confidence: {getConfidenceLabel(item.confidence)}
       </Text>
     </Pressable>
   );
@@ -80,3 +83,4 @@ const styles = StyleSheet.create({
     color: '#6b7280',
   },
 });
+
