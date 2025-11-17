@@ -20,72 +20,102 @@
   "recommendations": {
     "units": [
       {
-        "id": "game.002",
-        "title": "Earth & Space Sciences — AC9S3U02 — Soils, rocks, minerals (properties & resources)",
-        "whyThis": "You’ve already learned some Earth & Space Sciences, so this Y3 activity is the next step to extend it.",
+        "id": "game.019",
+        "title": "Earth & Space Sciences — AC9S7U02 — Sun–Earth–Moon phenomena",
+        "whyThis": "You’ve already learned some Earth & Space Sciences, so this Y7 activity is the next step to extend it.",
         "confidence": "high"
       },
       {
-        "id": "game.003",
-        "title": "Physical Sciences — AC9S3U03 — Heat sources & temperature change",
-        "whyThis": "You’ve already learned some Physical Sciences, so this Y3 activity is the next step to extend it.",
+        "id": "game.020",
+        "title": "Physical Sciences — AC9S7U03 — Forces (incl. friction & gravity)",
+        "whyThis": "You’ve already learned some Physical Sciences, so this Y7 activity is the next step to extend it.",
         "confidence": "high"
       },
       {
-        "id": "game.004",
-        "title": "Chemical Sciences — AC9S3U04 — Solids & liquids; changes of state",
-        "whyThis": "You’ve already learned some Chemical Sciences, so this Y3 activity is the next step to extend it.",
+        "id": "game.021",
+        "title": "Chemical Sciences — AC9S7U04 — Pure substances vs mixtures",
+        "whyThis": "You’ve already learned some Chemical Sciences, so this Y7 activity is the next step to extend it.",
         "confidence": "high"
       }
     ],
     "videos": [
       {
-        "id": "video.001",
-        "title": "Marine Biologist_Biological Sciences_video",
+        "id": "video.021",
+        "title": "Process Operator (Chemicals)_Chemical Sciences_video",
         "whyThis": "This video is about the career we just recommended to you.",
         "confidence": "high"
+      },
+      {
+        "id": "video.022",
+        "title": "Water Treatment Technician_Chemical Sciences_video",
+        "whyThis": "This video is about the career we just recommended to you.",
+        "confidence": "high"
+      },
+      {
+        "id": "video.001",
+        "title": "Marine Biologist_Biological Sciences_video",
+        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "confidence": "medium"
       },
       {
         "id": "video.002",
         "title": "Wildlife Carer_Biological Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
-        "confidence": "high"
+        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.041",
+        "title": "Electrician_Physical Sciences_video",
+        "whyThis": "This video is related to the Physical Sciences you are learning.",
+        "confidence": "medium"
       }
     ],
     "careers": [
       {
-        "id": "career.001",
-        "title": "Marine Biologist",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
-        "confidence": "medium",
+        "id": "career.021",
+        "title": "Process Operator (Chemicals)",
+        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like evaluating. We relaxed the rules to show this career to you now.",
+        "confidence": "low",
         "evidence": [
-          "covered=0.00",
+          "baseScore=0.22",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.39",
+          "covered=0.80",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
       },
       {
-        "id": "career.002",
-        "title": "Wildlife Carer",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
-        "confidence": "medium",
+        "id": "career.022",
+        "title": "Water Treatment Technician",
+        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like evaluating. We relaxed the rules to show this career to you now.",
+        "confidence": "low",
         "evidence": [
-          "covered=0.00",
+          "baseScore=0.22",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.39",
+          "covered=0.80",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
       },
       {
-        "id": "career.003",
-        "title": "Park Ranger",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
-        "confidence": "medium",
+        "id": "career.023",
+        "title": "Pharmaceutical Technician",
+        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like evaluating. We relaxed the rules to show this career to you now.",
+        "confidence": "low",
         "evidence": [
-          "covered=0.00",
+          "baseScore=0.22",
+          "interestBoost=0.00",
+          "gradeBoost=0.15",
+          "finalScore=0.39",
+          "covered=0.80",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
       }
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T05:25:40.730Z"
+    "generatedAt": "2025-11-17T11:29:46.680Z"
   }
 }

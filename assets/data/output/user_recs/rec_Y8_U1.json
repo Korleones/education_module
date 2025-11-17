@@ -18,65 +18,95 @@
   "recommendations": {
     "units": [
       {
-        "id": "game.002",
-        "title": "Earth & Space Sciences — AC9S3U02 — Soils, rocks, minerals (properties & resources)",
+        "id": "game.023",
+        "title": "Earth & Space Sciences — AC9S8U02 — Plate tectonics",
         "whyThis": "This activity introduces Earth & Space Sciences at a level that suits you.",
         "confidence": "high"
       },
       {
-        "id": "game.003",
-        "title": "Physical Sciences — AC9S3U03 — Heat sources & temperature change",
-        "whyThis": "You’ve already learned some Physical Sciences, so this Y3 activity is the next step to extend it.",
+        "id": "game.025",
+        "title": "Chemical Sciences — AC9S8U04 — Atomic structure & reactions (intro)",
+        "whyThis": "This activity introduces Chemical Sciences at a level that suits you.",
         "confidence": "high"
       },
       {
-        "id": "game.004",
-        "title": "Chemical Sciences — AC9S3U04 — Solids & liquids; changes of state",
-        "whyThis": "This activity introduces Chemical Sciences at a level that suits you.",
+        "id": "game.019",
+        "title": "Earth & Space Sciences — AC9S7U02 — Sun–Earth–Moon phenomena",
+        "whyThis": "This activity introduces Earth & Space Sciences at a level that suits you.",
         "confidence": "high"
       }
     ],
     "videos": [
       {
-        "id": "video.001",
-        "title": "Marine Biologist_Biological Sciences_video",
+        "id": "video.010",
+        "title": "Genetics Lab Assistant_Biological Sciences_video",
         "whyThis": "This video is about the career we just recommended to you.",
         "confidence": "high"
       },
       {
-        "id": "video.002",
-        "title": "Wildlife Carer_Biological Sciences_video",
+        "id": "video.041",
+        "title": "Electrician_Physical Sciences_video",
         "whyThis": "This video is about the career we just recommended to you.",
         "confidence": "high"
+      },
+      {
+        "id": "video.030",
+        "title": "Forensic Scientist_Chemical Sciences_video",
+        "whyThis": "This video is about the career we just recommended to you.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.001",
+        "title": "Marine Biologist_Biological Sciences_video",
+        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "confidence": "medium"
+      },
+      {
+        "id": "video.042",
+        "title": "Robotics Technician_Physical Sciences_video",
+        "whyThis": "This video is related to the Physical Sciences you are learning.",
+        "confidence": "medium"
       }
     ],
     "careers": [
       {
-        "id": "career.001",
-        "title": "Marine Biologist",
+        "id": "career.010",
+        "title": "Genetics Lab Assistant",
         "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
         "confidence": "medium",
         "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.30",
+          "gradeBoost=0.15",
+          "finalScore=0.48",
           "covered=0.00",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
       },
       {
-        "id": "career.002",
-        "title": "Wildlife Carer",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
+        "id": "career.030",
+        "title": "Forensic Scientist",
+        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like evaluating. You also need a bit more on Chemical Sciences. We relaxed the rules to show this career to you now.",
         "confidence": "medium",
         "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.30",
+          "gradeBoost=0.15",
+          "finalScore=0.47",
           "covered=0.00",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
       },
       {
-        "id": "career.003",
-        "title": "Park Ranger",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
-        "confidence": "medium",
+        "id": "career.041",
+        "title": "Electrician",
+        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Physical Sciences. We relaxed the rules to show this career to you now.",
+        "confidence": "low",
         "evidence": [
+          "baseScore=0.00",
+          "interestBoost=0.00",
+          "gradeBoost=0.25",
+          "finalScore=0.27",
           "covered=0.00",
           "required_threshold=1.5 (relaxed to 40%)"
         ]
@@ -84,6 +114,6 @@
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T05:25:40.723Z"
+    "generatedAt": "2025-11-17T11:29:46.666Z"
   }
 }
