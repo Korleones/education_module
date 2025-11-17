@@ -42,31 +42,31 @@
       {
         "id": "video.061",
         "title": "Environmental Compliance Officer_Earth & Space Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Environmental Compliance Officer looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.062",
         "title": "Hydrology Field Tech_Earth & Space Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Hydrology Field Tech looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.001",
         "title": "Marine Biologist_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.002",
         "title": "Wildlife Carer_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.021",
         "title": "Process Operator (Chemicals)_Chemical Sciences_video",
-        "whyThis": "This video is related to the Chemical Sciences you are learning.",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       }
     ],
@@ -74,7 +74,7 @@
       {
         "id": "career.066",
         "title": "Environmental Compliance Officer",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like communicating. We relaxed the rules to show this career to you now.",
+        "whyThis": "Environmental Compliance Officer uses the Earth & Space Sciences you’ve already been learning. To move towards Environmental Compliance Officer you still need inquiry skills like communicating. At your year level it’s a good time to start exploring what Environmental Compliance Officer involves. We slightly relaxed the rules so you can see Environmental Compliance Officer now and understand what to work towards.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.29",
@@ -88,7 +88,7 @@
       {
         "id": "career.067",
         "title": "Hydrology Field Tech",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like communicating. We relaxed the rules to show this career to you now.",
+        "whyThis": "Hydrology Field Tech uses the Earth & Space Sciences you’ve already been learning. To move towards Hydrology Field Tech you still need inquiry skills like communicating. At your year level it’s a good time to start exploring what Hydrology Field Tech involves. We slightly relaxed the rules so you can see Hydrology Field Tech now and understand what to work towards.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.29",
@@ -102,7 +102,7 @@
       {
         "id": "career.068",
         "title": "Geotechnical Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like communicating. We relaxed the rules to show this career to you now.",
+        "whyThis": "Geotechnical Technician uses the Earth & Space Sciences you’ve already been learning. To move towards Geotechnical Technician you still need inquiry skills like communicating. At your year level it’s a good time to start exploring what Geotechnical Technician involves. We slightly relaxed the rules so you can see Geotechnical Technician now and understand what to work towards.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.29",
@@ -116,6 +116,6 @@
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T11:29:46.669Z"
+    "generatedAt": "2025-11-17T13:54:09.648Z"
   }
 }

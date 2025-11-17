@@ -41,31 +41,31 @@
       {
         "id": "video.010",
         "title": "Genetics Lab Assistant_Biological Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Genetics Lab Assistant looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.040",
         "title": "Waste Management Technician_Chemical Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Waste Management Technician looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.060",
         "title": "HVAC Technician_Physical Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what HVAC Technician looks like in real life.",
         "confidence": "medium"
       },
       {
         "id": "video.001",
         "title": "Marine Biologist_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.021",
         "title": "Process Operator (Chemicals)_Chemical Sciences_video",
-        "whyThis": "This video is related to the Chemical Sciences you are learning.",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       }
     ],
@@ -73,7 +73,7 @@
       {
         "id": "career.010",
         "title": "Genetics Lab Assistant",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
+        "whyThis": "Genetics Lab Assistant will help you build your Biological Sciences and Earth & Space Sciences from where you are now. To move towards Genetics Lab Assistant you still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more knowledge in Biological Sciences. Genetics Lab Assistant is more of a future goal for you over the next few years. We slightly relaxed the rules so you can see Genetics Lab Assistant now and understand what to work towards.",
         "confidence": "low",
         "evidence": [
           "baseScore=0.00",
@@ -87,7 +87,7 @@
       {
         "id": "career.040",
         "title": "Waste Management Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more on Chemical Sciences. We relaxed the rules to show this career to you now.",
+        "whyThis": "Waste Management Technician will help you build your Chemical Sciences and Physical Sciences from where you are now. To move towards Waste Management Technician you still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more knowledge in Chemical Sciences. Waste Management Technician is more of a future goal for you over the next few years. We slightly relaxed the rules so you can see Waste Management Technician now and understand what to work towards.",
         "confidence": "low",
         "evidence": [
           "baseScore=0.00",
@@ -101,7 +101,7 @@
       {
         "id": "career.060",
         "title": "HVAC Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more on Physical Sciences. We relaxed the rules to show this career to you now.",
+        "whyThis": "HVAC Technician will help you build your Physical Sciences from where you are now. To move towards HVAC Technician you still need inquiry skills like questioning & predicting, planning & conducting. You also need a bit more knowledge in Physical Sciences. HVAC Technician is more of a future goal for you over the next few years. We slightly relaxed the rules so you can see HVAC Technician now and understand what to work towards.",
         "confidence": "low",
         "evidence": [
           "baseScore=0.00",
@@ -115,6 +115,6 @@
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T11:29:46.616Z"
+    "generatedAt": "2025-11-17T13:54:09.555Z"
   }
 }

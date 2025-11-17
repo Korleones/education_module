@@ -40,25 +40,25 @@
       {
         "id": "video.001",
         "title": "Marine Biologist_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.002",
         "title": "Wildlife Carer_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.041",
         "title": "Electrician_Physical Sciences_video",
-        "whyThis": "This video is related to the Physical Sciences you are learning.",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.042",
         "title": "Robotics Technician_Physical Sciences_video",
-        "whyThis": "This video is related to the Physical Sciences you are learning.",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
@@ -72,7 +72,7 @@
       {
         "id": "career.065",
         "title": "IT Support Specialist",
-        "whyThis": "This career is connected to the science areas you’ve been learning.",
+        "whyThis": "IT Support Specialist uses the Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what IT Support Specialist involves.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.34",
@@ -86,7 +86,7 @@
       {
         "id": "career.064",
         "title": "Network Administrator (Assoc)",
-        "whyThis": "This career is connected to the science areas you’ve been learning.",
+        "whyThis": "Network Administrator (Assoc) uses the Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Network Administrator (Assoc) involves.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.34",
@@ -100,7 +100,7 @@
       {
         "id": "career.063",
         "title": "Data Center Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning.",
+        "whyThis": "Data Center Technician uses the Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Data Center Technician involves.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.34",
@@ -114,6 +114,6 @@
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T11:29:46.690Z"
+    "generatedAt": "2025-11-17T13:54:09.677Z"
   }
 }

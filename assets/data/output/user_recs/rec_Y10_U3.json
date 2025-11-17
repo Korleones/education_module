@@ -41,31 +41,31 @@
       {
         "id": "video.041",
         "title": "Electrician_Physical Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Electrician looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.042",
         "title": "Robotics Technician_Physical Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Robotics Technician looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.001",
         "title": "Marine Biologist_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.002",
         "title": "Wildlife Carer_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.061",
         "title": "Environmental Compliance Officer_Earth & Space Sciences_video",
-        "whyThis": "This video is related to the Earth & Space Sciences you are learning.",
+        "whyThis": "This video is about Earth & Space Sciences, the science area you are working on at school.",
         "confidence": "medium"
       }
     ],
@@ -73,7 +73,7 @@
       {
         "id": "career.060",
         "title": "HVAC Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning.",
+        "whyThis": "HVAC Technician uses the Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what HVAC Technician involves.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.35",
@@ -87,7 +87,7 @@
       {
         "id": "career.041",
         "title": "Electrician",
-        "whyThis": "This career is connected to the science areas you’ve been learning.",
+        "whyThis": "Electrician uses the Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Electrician involves.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.35",
@@ -101,7 +101,7 @@
       {
         "id": "career.042",
         "title": "Robotics Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning.",
+        "whyThis": "Robotics Technician uses the Physical Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Robotics Technician involves.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.35",
@@ -115,6 +115,6 @@
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T11:29:46.705Z"
+    "generatedAt": "2025-11-17T13:54:09.700Z"
   }
 }

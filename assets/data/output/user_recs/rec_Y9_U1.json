@@ -41,31 +41,31 @@
       {
         "id": "video.001",
         "title": "Marine Biologist_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.002",
         "title": "Wildlife Carer_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.021",
         "title": "Process Operator (Chemicals)_Chemical Sciences_video",
-        "whyThis": "This video is related to the Chemical Sciences you are learning.",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.022",
         "title": "Water Treatment Technician_Chemical Sciences_video",
-        "whyThis": "This video is related to the Chemical Sciences you are learning.",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.041",
         "title": "Electrician_Physical Sciences_video",
-        "whyThis": "This video is related to the Physical Sciences you are learning.",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       }
     ],
@@ -73,7 +73,7 @@
       {
         "id": "career.105",
         "title": "Science Podcaster/Producer",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
+        "whyThis": "Science Podcaster/Producer uses the Physical Sciences and Biological Sciences you’ve already been learning. You also need a bit more knowledge in Biological Sciences. At your year level it’s a good time to start exploring what Science Podcaster/Producer involves. We slightly relaxed the rules so you can see Science Podcaster/Producer now and understand what to work towards.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.15",
@@ -87,7 +87,7 @@
       {
         "id": "career.104",
         "title": "Lab Manager (Assoc)",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
+        "whyThis": "Lab Manager (Assoc) uses the Physical Sciences and Biological Sciences you’ve already been learning. You also need a bit more knowledge in Biological Sciences. At your year level it’s a good time to start exploring what Lab Manager (Assoc) involves. We slightly relaxed the rules so you can see Lab Manager (Assoc) now and understand what to work towards.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.15",
@@ -101,7 +101,7 @@
       {
         "id": "career.103",
         "title": "Museum/Science Centre Educator",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
+        "whyThis": "Museum/Science Centre Educator uses the Physical Sciences and Biological Sciences you’ve already been learning. You also need a bit more knowledge in Biological Sciences. At your year level it’s a good time to start exploring what Museum/Science Centre Educator involves. We slightly relaxed the rules so you can see Museum/Science Centre Educator now and understand what to work towards.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.15",
@@ -115,6 +115,6 @@
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T11:29:46.683Z"
+    "generatedAt": "2025-11-17T13:54:09.668Z"
   }
 }

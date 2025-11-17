@@ -42,31 +42,31 @@
       {
         "id": "video.001",
         "title": "Marine Biologist_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.002",
         "title": "Wildlife Carer_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.021",
         "title": "Process Operator (Chemicals)_Chemical Sciences_video",
-        "whyThis": "This video is related to the Chemical Sciences you are learning.",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.022",
         "title": "Water Treatment Technician_Chemical Sciences_video",
-        "whyThis": "This video is related to the Chemical Sciences you are learning.",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.041",
         "title": "Electrician_Physical Sciences_video",
-        "whyThis": "This video is related to the Physical Sciences you are learning.",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       }
     ],
@@ -74,7 +74,7 @@
       {
         "id": "career.099",
         "title": "Environmental Reporting Officer",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
+        "whyThis": "Environmental Reporting Officer uses the Physical Sciences and Biological Sciences you’ve already been learning. You also need a bit more knowledge in Biological Sciences. At your year level it’s a good time to start exploring what Environmental Reporting Officer involves. We slightly relaxed the rules so you can see Environmental Reporting Officer now and understand what to work towards.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.15",
@@ -88,7 +88,7 @@
       {
         "id": "career.098",
         "title": "Instrumentation Data Tech",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
+        "whyThis": "Instrumentation Data Tech uses the Physical Sciences and Biological Sciences you’ve already been learning. You also need a bit more knowledge in Biological Sciences. At your year level it’s a good time to start exploring what Instrumentation Data Tech involves. We slightly relaxed the rules so you can see Instrumentation Data Tech now and understand what to work towards.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.15",
@@ -102,7 +102,7 @@
       {
         "id": "career.097",
         "title": "Quality Data Analyst (Manufacturing)",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
+        "whyThis": "Quality Data Analyst (Manufacturing) uses the Physical Sciences and Biological Sciences you’ve already been learning. You also need a bit more knowledge in Biological Sciences. At your year level it’s a good time to start exploring what Quality Data Analyst (Manufacturing) involves. We slightly relaxed the rules so you can see Quality Data Analyst (Manufacturing) now and understand what to work towards.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.15",
@@ -116,6 +116,6 @@
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T11:29:46.693Z"
+    "generatedAt": "2025-11-17T13:54:09.682Z"
   }
 }

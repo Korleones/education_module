@@ -41,31 +41,31 @@
       {
         "id": "video.001",
         "title": "Marine Biologist_Biological Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Marine Biologist looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.040",
         "title": "Waste Management Technician_Chemical Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Waste Management Technician looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.064",
         "title": "GIS Technician_Earth & Space Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what GIS Technician looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.002",
         "title": "Wildlife Carer_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.021",
         "title": "Process Operator (Chemicals)_Chemical Sciences_video",
-        "whyThis": "This video is related to the Chemical Sciences you are learning.",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       }
     ],
@@ -73,7 +73,7 @@
       {
         "id": "career.040",
         "title": "Waste Management Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Chemical Sciences. We relaxed the rules to show this career to you now.",
+        "whyThis": "Waste Management Technician will help you build your Chemical Sciences and Physical Sciences from where you are now. You also need a bit more knowledge in Chemical Sciences. At your year level it’s a good time to start exploring what Waste Management Technician involves. We slightly relaxed the rules so you can see Waste Management Technician now and understand what to work towards.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.00",
@@ -87,7 +87,7 @@
       {
         "id": "career.001",
         "title": "Marine Biologist",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Biological Sciences. We relaxed the rules to show this career to you now.",
+        "whyThis": "Marine Biologist uses the Biological Sciences and Earth & Space Sciences you’ve already been learning. You also need a bit more knowledge in Biological Sciences. At your year level it’s a good time to start exploring what Marine Biologist involves. We slightly relaxed the rules so you can see Marine Biologist now and understand what to work towards.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.00",
@@ -101,7 +101,7 @@
       {
         "id": "career.069",
         "title": "GIS Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You also need a bit more on Earth & Space Sciences. We relaxed the rules to show this career to you now.",
+        "whyThis": "GIS Technician will help you build your Earth & Space Sciences from where you are now. You also need a bit more knowledge in Earth & Space Sciences. At your year level it’s a good time to start exploring what GIS Technician involves. We slightly relaxed the rules so you can see GIS Technician now and understand what to work towards.",
         "confidence": "low",
         "evidence": [
           "baseScore=0.00",
@@ -115,6 +115,6 @@
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T11:29:46.696Z"
+    "generatedAt": "2025-11-17T13:54:09.686Z"
   }
 }

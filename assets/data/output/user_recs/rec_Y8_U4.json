@@ -41,31 +41,31 @@
       {
         "id": "video.021",
         "title": "Process Operator (Chemicals)_Chemical Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Process Operator (Chemicals) looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.030",
         "title": "Forensic Scientist_Chemical Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Forensic Scientist looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.041",
         "title": "Electrician_Physical Sciences_video",
-        "whyThis": "This video is related to the Physical Sciences you are learning.",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.042",
         "title": "Robotics Technician_Physical Sciences_video",
-        "whyThis": "This video is related to the Physical Sciences you are learning.",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.061",
         "title": "Environmental Compliance Officer_Earth & Space Sciences_video",
-        "whyThis": "This video is related to the Earth & Space Sciences you are learning.",
+        "whyThis": "This video is about Earth & Space Sciences, the science area you are working on at school.",
         "confidence": "medium"
       }
     ],
@@ -73,7 +73,7 @@
       {
         "id": "career.030",
         "title": "Forensic Scientist",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like planning & conducting. We relaxed the rules to show this career to you now.",
+        "whyThis": "Forensic Scientist uses the Chemical Sciences and Physical Sciences you’ve already been learning. To move towards Forensic Scientist you still need inquiry skills like planning & conducting. At your year level it’s a good time to start exploring what Forensic Scientist involves. We slightly relaxed the rules so you can see Forensic Scientist now and understand what to work towards.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.22",
@@ -87,7 +87,7 @@
       {
         "id": "career.040",
         "title": "Waste Management Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like planning & conducting. We relaxed the rules to show this career to you now.",
+        "whyThis": "Waste Management Technician uses the Chemical Sciences and Physical Sciences you’ve already been learning. To move towards Waste Management Technician you still need inquiry skills like planning & conducting. At your year level it’s a good time to start exploring what Waste Management Technician involves. We slightly relaxed the rules so you can see Waste Management Technician now and understand what to work towards.",
         "confidence": "medium",
         "evidence": [
           "baseScore=0.22",
@@ -101,7 +101,7 @@
       {
         "id": "career.021",
         "title": "Process Operator (Chemicals)",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like planning & conducting. We relaxed the rules to show this career to you now.",
+        "whyThis": "Process Operator (Chemicals) uses the Chemical Sciences and Physical Sciences you’ve already been learning. To move towards Process Operator (Chemicals) you still need inquiry skills like planning & conducting. At your year level it’s a good time to start exploring what Process Operator (Chemicals) involves. We slightly relaxed the rules so you can see Process Operator (Chemicals) now and understand what to work towards.",
         "confidence": "low",
         "evidence": [
           "baseScore=0.22",
@@ -115,6 +115,6 @@
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T11:29:46.676Z"
+    "generatedAt": "2025-11-17T13:54:09.658Z"
   }
 }

@@ -41,31 +41,31 @@
       {
         "id": "video.001",
         "title": "Marine Biologist_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.002",
         "title": "Wildlife Carer_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.021",
         "title": "Process Operator (Chemicals)_Chemical Sciences_video",
-        "whyThis": "This video is related to the Chemical Sciences you are learning.",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.022",
         "title": "Water Treatment Technician_Chemical Sciences_video",
-        "whyThis": "This video is related to the Chemical Sciences you are learning.",
+        "whyThis": "This video is about Chemical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.041",
         "title": "Electrician_Physical Sciences_video",
-        "whyThis": "This video is related to the Physical Sciences you are learning.",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       }
     ],
@@ -73,7 +73,7 @@
       {
         "id": "career.065",
         "title": "IT Support Specialist",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like questioning & predicting, planning & conducting. We relaxed the rules to show this career to you now.",
+        "whyThis": "IT Support Specialist uses the Physical Sciences you’ve already been learning. To move towards IT Support Specialist you still need inquiry skills like questioning & predicting, planning & conducting. IT Support Specialist is more of a future goal for you over the next few years. We slightly relaxed the rules so you can see IT Support Specialist now and understand what to work towards.",
         "confidence": "low",
         "evidence": [
           "baseScore=0.18",
@@ -87,7 +87,7 @@
       {
         "id": "career.064",
         "title": "Network Administrator (Assoc)",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like questioning & predicting, planning & conducting. We relaxed the rules to show this career to you now.",
+        "whyThis": "Network Administrator (Assoc) uses the Physical Sciences you’ve already been learning. To move towards Network Administrator (Assoc) you still need inquiry skills like questioning & predicting, planning & conducting. Network Administrator (Assoc) is more of a future goal for you over the next few years. We slightly relaxed the rules so you can see Network Administrator (Assoc) now and understand what to work towards.",
         "confidence": "low",
         "evidence": [
           "baseScore=0.18",
@@ -101,7 +101,7 @@
       {
         "id": "career.063",
         "title": "Data Center Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like questioning & predicting, planning & conducting. We relaxed the rules to show this career to you now.",
+        "whyThis": "Data Center Technician uses the Physical Sciences you’ve already been learning. To move towards Data Center Technician you still need inquiry skills like questioning & predicting, planning & conducting. Data Center Technician is more of a future goal for you over the next few years. We slightly relaxed the rules so you can see Data Center Technician now and understand what to work towards.",
         "confidence": "low",
         "evidence": [
           "baseScore=0.18",
@@ -115,6 +115,6 @@
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T11:29:46.636Z"
+    "generatedAt": "2025-11-17T13:54:09.591Z"
   }
 }

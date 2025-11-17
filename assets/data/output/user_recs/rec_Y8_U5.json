@@ -42,31 +42,31 @@
       {
         "id": "video.021",
         "title": "Process Operator (Chemicals)_Chemical Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Process Operator (Chemicals) looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.022",
         "title": "Water Treatment Technician_Chemical Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Water Treatment Technician looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.001",
         "title": "Marine Biologist_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.002",
         "title": "Wildlife Carer_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.041",
         "title": "Electrician_Physical Sciences_video",
-        "whyThis": "This video is related to the Physical Sciences you are learning.",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       }
     ],
@@ -74,7 +74,7 @@
       {
         "id": "career.021",
         "title": "Process Operator (Chemicals)",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like evaluating. We relaxed the rules to show this career to you now.",
+        "whyThis": "Process Operator (Chemicals) uses the Chemical Sciences and Physical Sciences you’ve already been learning. To move towards Process Operator (Chemicals) you still need inquiry skills like evaluating. At your year level it’s a good time to start exploring what Process Operator (Chemicals) involves. We slightly relaxed the rules so you can see Process Operator (Chemicals) now and understand what to work towards.",
         "confidence": "low",
         "evidence": [
           "baseScore=0.22",
@@ -88,7 +88,7 @@
       {
         "id": "career.022",
         "title": "Water Treatment Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like evaluating. We relaxed the rules to show this career to you now.",
+        "whyThis": "Water Treatment Technician uses the Chemical Sciences and Physical Sciences you’ve already been learning. To move towards Water Treatment Technician you still need inquiry skills like evaluating. At your year level it’s a good time to start exploring what Water Treatment Technician involves. We slightly relaxed the rules so you can see Water Treatment Technician now and understand what to work towards.",
         "confidence": "low",
         "evidence": [
           "baseScore=0.22",
@@ -102,7 +102,7 @@
       {
         "id": "career.023",
         "title": "Pharmaceutical Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning. You still need inquiry skills like evaluating. We relaxed the rules to show this career to you now.",
+        "whyThis": "Pharmaceutical Technician uses the Chemical Sciences and Physical Sciences you’ve already been learning. To move towards Pharmaceutical Technician you still need inquiry skills like evaluating. At your year level it’s a good time to start exploring what Pharmaceutical Technician involves. We slightly relaxed the rules so you can see Pharmaceutical Technician now and understand what to work towards.",
         "confidence": "low",
         "evidence": [
           "baseScore=0.22",
@@ -116,6 +116,6 @@
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T11:29:46.680Z"
+    "generatedAt": "2025-11-17T13:54:09.663Z"
   }
 }

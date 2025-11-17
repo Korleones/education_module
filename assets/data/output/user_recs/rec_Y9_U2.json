@@ -41,31 +41,31 @@
       {
         "id": "video.078",
         "title": "Oceanographic Technician_Earth & Space Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Oceanographic Technician looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.079",
         "title": "Marine Conservation Officer_Earth & Space Sciences_video",
-        "whyThis": "This video is about the career we just recommended to you.",
+        "whyThis": "This video shows what Marine Conservation Officer looks like in real life.",
         "confidence": "high"
       },
       {
         "id": "video.001",
         "title": "Marine Biologist_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.002",
         "title": "Wildlife Carer_Biological Sciences_video",
-        "whyThis": "This video is related to the Biological Sciences you are learning.",
+        "whyThis": "This video is about Biological Sciences, the science area you are working on at school.",
         "confidence": "medium"
       },
       {
         "id": "video.041",
         "title": "Electrician_Physical Sciences_video",
-        "whyThis": "This video is related to the Physical Sciences you are learning.",
+        "whyThis": "This video is about Physical Sciences, the science area you are working on at school.",
         "confidence": "medium"
       }
     ],
@@ -73,7 +73,7 @@
       {
         "id": "career.085",
         "title": "Arborist (Science-focused)",
-        "whyThis": "This career is connected to the science areas you’ve been learning.",
+        "whyThis": "Arborist (Science-focused) uses the Earth & Space Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Arborist (Science-focused) involves.",
         "confidence": "high",
         "evidence": [
           "baseScore=0.52",
@@ -87,7 +87,7 @@
       {
         "id": "career.084",
         "title": "Marine Conservation Officer",
-        "whyThis": "This career is connected to the science areas you’ve been learning.",
+        "whyThis": "Marine Conservation Officer uses the Earth & Space Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Marine Conservation Officer involves.",
         "confidence": "high",
         "evidence": [
           "baseScore=0.52",
@@ -101,7 +101,7 @@
       {
         "id": "career.083",
         "title": "Oceanographic Technician",
-        "whyThis": "This career is connected to the science areas you’ve been learning.",
+        "whyThis": "Oceanographic Technician uses the Earth & Space Sciences you’ve already been learning. At your year level it’s a good time to start exploring what Oceanographic Technician involves.",
         "confidence": "high",
         "evidence": [
           "baseScore=0.52",
@@ -115,6 +115,6 @@
     ]
   },
   "meta": {
-    "generatedAt": "2025-11-17T11:29:46.687Z"
+    "generatedAt": "2025-11-17T13:54:09.673Z"
   }
 }
