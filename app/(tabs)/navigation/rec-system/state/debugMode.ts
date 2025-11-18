@@ -1,4 +1,4 @@
-// 这是一个全局的调试开关，最简单可以这样实现
+// This is a global debug switch; the simplest way to implement it is like this.
 let debugMode = false;
 
 export function isDebugMode() {

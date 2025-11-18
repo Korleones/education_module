@@ -2,9 +2,9 @@ import Raw from '../../../../../assets/data/Skills and Knowledge years 3-10.json
 import type { SkillsKnowledgeModel, KnowledgeNode } from '../types/models';
 
 
-// 说明：你的原始JSON里“装所有节点”的键名如果不是 disciplines，改下面这行映射
+// Note: If the key name for "Contain all nodes" in your original JSON is not "disciplines", change the mapping to the following line.
 const model = Raw as unknown as SkillsKnowledgeModel;
-const nodes: KnowledgeNode[] = (model as any).disciplines ?? []; // 如名称不同，改成真实键名
+const nodes: KnowledgeNode[] = (model as any).disciplines ?? []; // If the names are different, change them to the actual key names.
 
 const byId = new Map<string, KnowledgeNode>(nodes.map(n => [n.id, n]));
 

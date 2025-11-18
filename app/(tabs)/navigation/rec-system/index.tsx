@@ -16,10 +16,10 @@ import { DebugPanel } from './components/DebugPanel';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 
-// 和 Select a Student 使用的 key 保持一致
+// Use the same key as “Select a Student”
 const STORAGE_KEY = 'selected_student';
 
-// 本文件内部用的加载函数
+// Local loading function used inside this file
 async function loadSelectedStudent(): Promise<any | null> {
   try {
     const jsonValue = await AsyncStorage.getItem(STORAGE_KEY);
@@ -30,16 +30,16 @@ async function loadSelectedStudent(): Promise<any | null> {
   }
 }
 
-// ⭐ 推荐系统页面
+// ⭐ Recommendation System Page
 export default function RecSystemPage() {
   const [selectedStudent, setSelectedStudent] = useState<any | null>(null);
   const isFocused = useIsFocused();
 
-  // 如果有选中的学生，就用它的 user_id / id；否则用默认 Y3_U1
+  // If a student is selected, use its user_id / id; otherwise default to Y3_U1
   const userId = selectedStudent?.user_id ?? selectedStudent?.id ?? 'Y3_U1';
   const completedNodeId = 'EARTH.Y3.AC9S3U02';
 
-  // 每次页面获得焦点时，重新从 storage 读取当前学生
+  // Reload current selected student from storage whenever page gains focus
   useEffect(() => {
     if (!isFocused) return;
 
@@ -59,7 +59,7 @@ export default function RecSystemPage() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      {/* 悬浮在最上面的 Back 按钮 */}
+      {/* Floating Back button at the top */}
       <TouchableOpacity
         style={styles.backButton}
         onPress={() => router.push('/navigation')}
@@ -68,9 +68,9 @@ export default function RecSystemPage() {
         <Text style={styles.backText}>Back</Text>
       </TouchableOpacity>
 
-      {/* ✅ 下面这一层整体下移，避免和 Back 重叠 */}
+      {/* Move the whole layer downward to avoid overlapping with Back button */}
       <View style={{ flex: 1, paddingTop: 80 }}>
-        {/* 顶部：标题 + 学生信息 + 右上角 Debug 开关 */}
+        {/* Top section: title + student info + top-right Debug toggle */}
         <View style={{ paddingHorizontal: 16, paddingBottom: 8 }}>
           <View
             style={{
@@ -79,7 +79,7 @@ export default function RecSystemPage() {
               alignItems: 'flex-start',
             }}
           >
-            {/* 左侧：标题 + 当前学生 */}
+            {/* Left: title + current student */}
             <View style={{ flexShrink: 1, paddingRight: 12 }}>
               <Text style={{ fontSize: 22, fontWeight: '800' }}>
                 Skill Completed ✅
@@ -97,12 +97,12 @@ export default function RecSystemPage() {
               )}
             </View>
 
-            {/* 右上角 Debug Mode 开关 */}
+            {/* Top-right Debug Mode switch */}
             <DebugPanel userId={userId} completedNodeId={completedNodeId} />
           </View>
         </View>
 
-        {/* 推荐结果列表 */}
+        {/* Recommendation result list */}
         <RecommendationPanel
           userId={userId}
           completedNodeId={completedNodeId}
@@ -118,7 +118,7 @@ export default function RecSystemPage() {
 const styles = StyleSheet.create({
   backButton: {
     position: 'absolute',
-    top: 20, // 靠近顶部安全区
+    top: 20, // Close to top safe area
     left: 16,
     flexDirection: 'row',
     alignItems: 'center',
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.15,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
-    elevation: 3, // Android 阴影
+    elevation: 3, // Android shadow
     zIndex: 10,
   },
   backText: {
@@ -140,7 +140,3 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
 });
-
-
-
-

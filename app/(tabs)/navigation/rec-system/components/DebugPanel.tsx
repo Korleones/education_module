@@ -12,7 +12,7 @@ import { getUserRawRecs } from '../repo/userRecsRepo';
 
 type Props = {
   userId?: string;
-  completedNodeId?: string; // 保留字段，方便以后扩展
+  completedNodeId?: string; // Reserved fields for future expansion.
 };
 
 export const DebugPanel: React.FC<Props> = ({ userId }) => {
@@ -20,7 +20,7 @@ export const DebugPanel: React.FC<Props> = ({ userId }) => {
   const [rawJson, setRawJson] = React.useState<any | null>(null);
   const [showJson, setShowJson] = React.useState(false);
 
-  // Debug 打开或学生切换时加载 JSON
+  // Load JSON when Debug is enabled or when switching students.
   React.useEffect(() => {
     if (!debug || !userId) {
       setRawJson(null);
@@ -33,7 +33,7 @@ export const DebugPanel: React.FC<Props> = ({ userId }) => {
   const toggleDebug = (val: boolean) => {
     setDebugMode(val);
     setDebug(val);
-    // 关闭 Debug 时顺便收起 JSON
+    // When close Debug, also hide the JSON.
     if (!val) setShowJson(false);
   };
 
@@ -44,7 +44,7 @@ export const DebugPanel: React.FC<Props> = ({ userId }) => {
         alignItems: 'flex-end',
       }}
     >
-      {/* 顶部开关行 */}
+      {/* top switch row */}
       <View
         style={{
           flexDirection: 'row',
@@ -56,15 +56,15 @@ export const DebugPanel: React.FC<Props> = ({ userId }) => {
         <Switch value={debug} onValueChange={toggleDebug} />
       </View>
 
-      {/* Debug 打开时显示卡片 */}
+      {/* Displaying a card when Debug is opened */}
       {debug && (
         <View
           style={{
             marginTop: 6,
-            alignSelf: 'stretch', // 占满整行
+            alignSelf: 'stretch', // Fill the entire line
           }}
         >
-          {/* 卡片外框 */}
+          {/* card frame */}
           <View
             style={{
               backgroundColor: '#ffffff',
@@ -80,7 +80,7 @@ export const DebugPanel: React.FC<Props> = ({ userId }) => {
               borderColor: '#e5e7eb',
             }}
           >
-            {/* 标题 + Show/Hide JSON 按钮 */}
+            {/* Title + Show/Hide JSON button */}
             <View
               style={{
                 flexDirection: 'row',
@@ -133,7 +133,7 @@ export const DebugPanel: React.FC<Props> = ({ userId }) => {
               </Pressable>
             </View>
 
-            {/* 展开的 JSON 内容 */}
+            {/* Expanded JSON content */}
             {showJson && (
               <View
                 style={{
