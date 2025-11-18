@@ -1,5 +1,5 @@
 // src/rec-system/generate_user_recs.ts
-// 批量为所有 mock 用户“更新”推荐结果，只修改已经存在的 json 文件（不再新建）
+// Batch update recommendation results for all mock users, only modifying existing json files (no new files created)
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -9,7 +9,7 @@ import {
   type RecResult,
 } from './recSys';
 
-// 输出目录：项目根 -> assets/data/output/user_recs
+// Output directory: project root -> assets/data/output/user_recs
 const OUT_DIR = path.resolve(__dirname, '../../assets/data/output/user_recs');
 
 function ensureOutDir() {
@@ -18,7 +18,7 @@ function ensureOutDir() {
   }
 }
 
-// 把用户 id 变成安全的文件名
+// Convert user id into a safe file name
 function toFileName(userId: string): string {
   const safe = userId.replace(/[^a-zA-Z0-9_-]/g, '_');
   return `rec_${safe}.json`;
@@ -27,7 +27,7 @@ function toFileName(userId: string): string {
 function main() {
   ensureOutDir();
 
-  // 这里 MOCK_USERS 就是 mock_users_progress.json 里的 40 个用户
+  // Here MOCK_USERS are the 40 users from mock_users_progress.json
   const users = MOCK_USERS.slice(0, 40);
 
   console.log(`准备为 ${users.length} 个用户更新推荐结果（只修改已有 json）...`);
@@ -43,7 +43,7 @@ function main() {
       return;
     }
 
-    // 读取原来的文件，只更新 recommendations 和 meta.generatedAt
+    // Read original file, only update recommendations and meta.generatedAt
     const oldRaw = fs.readFileSync(filePath, 'utf8');
     let oldJson: any;
     try {

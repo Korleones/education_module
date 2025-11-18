@@ -1,14 +1,14 @@
 // src/rec-system/recSys.ts
-// Rule-based 推荐系统的 TypeScript 版本
-// 前端可以直接 import 调用，无需 Python 后端
+// Rule-based recommendation system – TypeScript version
+// The frontend can import and call this directly, no Python backend required
 
-// ========== 0. 引入静态 JSON（路径按项目实际结构修改） ==========
+// ========== 0. Load static JSON (paths should match the actual project structure) ==========
 import mockUsersRaw from '../../assets/data/mock_users_progress.json';
 import gamesRaw from '../../assets/data/curriculum_games.json';
 import careersRaw from '../../assets/data/STEM Careers.json';
 import videosRaw from '../../assets/data/discipline_videos.json';
 
-// ========== 1. 类型定义 ==========
+// ========== 1. Type definitions ==========
 export type InquirySkills = Record<string, number>;
 export type Knowledge = Record<string, number>;
 
@@ -83,13 +83,13 @@ export interface RecResult {
   };
 }
 
-// ========== 2. 全局配置 ==========
-const TOPK = 3;                      // units 和 careers 都取前 3 个
-const ONLY_NEXT_LEVEL_UNITS = true;  // 只推荐“下一等级”的活动
+// ========== 2. Global configuration ==========
+const TOPK = 3;                      // take the top 3 for both units and careers
+const ONLY_NEXT_LEVEL_UNITS = true;  // only recommend activities at the “next level”
 const HIDE_CAREERS_ON_COLDSTART = false;
 const MAX_DIFFICULTY = 3;
 
-// ========== 3. 工具函数 ==========
+// ========== 3. Utility functions ==========
 function parseDifficulty(raw: any): number {
   if (typeof raw === 'number') {
     return Math.trunc(raw);
@@ -144,7 +144,7 @@ function isColdStart(user: UserProfile): boolean {
   return knSum === 0 && skSum === 0;
 }
 
-// 简单字符串 hash，用来做 per-user 抖动
+// Simple string hash, used for per-user jitter
 function hashStringToInt(str: string): number {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
@@ -153,7 +153,7 @@ function hashStringToInt(str: string): number {
   return hash;
 }
 
-// 根据年级为 Unit 加一点加成/惩罚
+// Add a small bonus/penalty to a Unit based on the user’s grade
 function gradeBoostForUnit(user: UserProfile, unit: Unit): number {
   const ug = user.grade;
   if (ug == null) return 0;
@@ -166,13 +166,13 @@ function gradeBoostForUnit(user: UserProfile, unit: Unit): number {
   if (yg == null) return 0;
 
   const dist = Math.abs(ug - yg);
-  if (dist <= 0.5) return 0.3;      // 正好是该年级 → 强加成
-  if (dist <= 1.5) return 0.15;     // 相邻年级 → 轻微加成
-  if (dist <= 2.5) return 0.05;     // 稍远 → 很小加成
-  return -0.05;                     // 太远 → 略微减分
+  if (dist <= 0.5) return 0.3;      // exactly this grade → strong bonus
+  if (dist <= 1.5) return 0.15;     // adjacent grades → slight bonus
+  if (dist <= 2.5) return 0.05;     // further away → tiny bonus
+  return -0.05;                     // too far → small penalty
 }
 
-// 从 career 的 required_knowledge 中推一个典型年级
+// Infer a typical grade for a career from its required_knowledge
 function extractCareerMainGrade(career: Career): number | null {
   const req = career.required_knowledge || [];
   const years: number[] = [];
@@ -186,7 +186,7 @@ function extractCareerMainGrade(career: Career): number | null {
   return Math.round(avg);
 }
 
-// 根据用户年级与职业典型年级距离，给 career 一个加成/惩罚
+// Add a bonus/penalty to a career based on the distance between user grade and career grade
 function gradeBoostForCareer(user: UserProfile, career: Career): number {
   const ug = user.grade;
   if (ug == null) return 0;
@@ -194,13 +194,13 @@ function gradeBoostForCareer(user: UserProfile, career: Career): number {
   if (cg == null) return 0;
 
   const dist = Math.abs(ug - cg);
-  if (dist <= 0.5) return 0.25;     // 非常适配当前年级
-  if (dist <= 1.5) return 0.15;     // 邻近年级
-  if (dist <= 2.5) return 0.05;     // 稍远年级
-  return -0.1;                      // 太远，略微惩罚
+  if (dist <= 0.5) return 0.25;     // very suitable for this grade
+  if (dist <= 1.5) return 0.15;     // nearby grades
+  if (dist <= 2.5) return 0.05;     // slightly further grades
+  return -0.1;                      // too far, small penalty
 }
 
-// 利用 career_interests 对职业加成
+// Use career_interests to add a bonus to careers
 function interestBoostForCareer(user: UserProfile, career: Career): number {
   const interests = (user.career_interests || []).map((s) =>
     String(s || '').toLowerCase(),
@@ -211,14 +211,14 @@ function interestBoostForCareer(user: UserProfile, career: Career): number {
   const id = (career.id || '').toLowerCase();
   const discipline = (career.discipline || '').toLowerCase();
 
-  // 强匹配：兴趣里直接提到职业名或 ID
+  // Strong match: interest directly mentions the career name or ID
   const strong = interests.some((term) => {
     if (!term) return false;
     return title.includes(term) || id === term;
   });
   if (strong) return 0.3;
 
-  // 中等匹配：兴趣和 discipline 有重叠（例如 "biology" vs "Biological Sciences"）
+  // Medium match: overlap between interest and discipline (e.g. "biology" vs "Biological Sciences")
   const medium = interests.some((term) => {
     if (!term || !discipline) return false;
     return discipline.includes(term) || term.includes(discipline);
@@ -228,7 +228,7 @@ function interestBoostForCareer(user: UserProfile, career: Career): number {
   return 0;
 }
 
-// 从职业的 required_knowledge / discipline 总结出学科名称
+// Summarise subject names from a career’s required_knowledge / discipline
 function subjectSummaryFromCareer(career: Career): string {
   const subjs = new Set<string>();
 
@@ -247,7 +247,7 @@ function subjectSummaryFromCareer(career: Career): string {
   return `${arr[0]}, ${arr[1]} and other areas of science`;
 }
 
-// ========== 4. 从 JSON 构造用户 / 游戏 / 视频 / 职业 ==========
+// ========== 4. Build users / games / videos / careers from JSON ==========
 function loadUsersFromJson(raw: any): UserProfile[] {
   const arr: any[] = Array.isArray(raw)
     ? raw
@@ -373,7 +373,7 @@ function loadCareersFromJson(raw: any): Career[] {
   return careers;
 }
 
-// ========== 5. 用户辅助 & 单元选择 ==========
+// ========== 5. User helpers & unit selection ==========
 function filterUnits(units: Unit[]): Unit[] {
   return units.filter((u) => {
     const diff = parseDifficulty(u.difficulty);
@@ -413,7 +413,7 @@ function pickNextLevelUnits(units: Unit[], user: UserProfile): Unit[] {
   return Object.values(best).map((v) => v.unit);
 }
 
-// ========== 6. 打分 & whyThis ==========
+// ========== 6. Scoring & whyThis ==========
 function scoreUnit(unit: Unit, user: UserProfile): { raw: number; signals: string[] } {
   let raw = 0;
   for (const kn of unit.knowledge_nodes || []) {
@@ -424,7 +424,7 @@ function scoreUnit(unit: Unit, user: UserProfile): { raw: number; signals: strin
     raw += w * gap;
   }
 
-  // 根据年级做一点偏置
+  // Apply a small bias based on the user’s grade
   raw += gradeBoostForUnit(user, unit);
 
   if (parseDifficulty(unit.difficulty) === 3) {
@@ -521,7 +521,7 @@ function scoreCareer(
     score = base * 0.3;
   }
 
-  // 很弱的匹配视为 0，知识上几乎没覆盖
+  // Very weak matches are treated as 0, meaning almost no knowledge coverage
   if (score < 0.1) score = 0;
 
   unmetNodes.sort((a, b) => b.w - a.w);
@@ -546,7 +546,7 @@ function buildWhyForCareer(
   const title = career.title || career.id;
   const subjSummary = subjectSummaryFromCareer(career);
 
-  // ① 和具体学科挂钩
+  // (1) Link to specific subject areas
   if (scored.covered > 0) {
     parts.push(
       `${title} uses the ${subjSummary} you’ve already been learning.`
@@ -557,7 +557,7 @@ function buildWhyForCareer(
     );
   }
 
-  // ② 兴趣信息（career_interests）
+  // (2) Use interest information (career_interests)
   if (user.career_interests && user.career_interests.length > 0) {
     const interestsLower = user.career_interests.map((x) => x.toLowerCase());
     const hitDiscipline =
@@ -578,7 +578,7 @@ function buildWhyForCareer(
     }
   }
 
-  // ③ inquiry skills 缺口（具体点写）
+  // (3) Gaps in inquiry skills (describe them concretely)
   const niceSkillNames: Record<string, string> = {
     QP: 'questioning & predicting',
     PC: 'planning & conducting',
@@ -596,7 +596,7 @@ function buildWhyForCareer(
     );
   }
 
-  // ④ 知识缺口，带具体学科
+  // (4) Knowledge gaps, with specific subject areas
   if (!scored.threshold_pass && scored.unmet_nodes.length > 0) {
     const top = scored.unmet_nodes[0];
     parts.push(
@@ -604,7 +604,7 @@ function buildWhyForCareer(
     );
   }
 
-  // ⑤ 年级相关的说明
+  // (5) Explanations related to the user’s grade
   if (user.grade != null) {
     if (user.grade <= 6) {
       parts.push(
@@ -621,7 +621,7 @@ function buildWhyForCareer(
     }
   }
 
-  // ⑥ 放宽规则也写清楚
+  // (6) Clearly explain when rules are relaxed
   if (!scored.gate_pass || !scored.threshold_pass) {
     parts.push(
       `We slightly relaxed the rules so you can see ${title} now and understand what to work towards.`
@@ -631,7 +631,7 @@ function buildWhyForCareer(
   return parts.join(' ');
 }
 
-// ========== 7. 视频匹配（TOP5，多样性控制） ==========
+// ========== 7. Video matching (TOP5 with diversity control) ==========
 function buildWhyForVideo(
   v: Video,
   user: UserProfile,
@@ -718,7 +718,7 @@ function selectVideosForUser(
   const usedIds = new Set<string>();
   const disciplineCount = new Map<string, number>();
 
-  // 第一轮：限制同一 discipline 最多 2 个
+  // First pass: limit to at most 2 videos per discipline
   for (const item of scoredVideos) {
     if (picked.length >= limit) break;
 
@@ -742,7 +742,7 @@ function selectVideosForUser(
     disciplineCount.set(disc, count + 1);
   }
 
-  // 第二轮兜底：不限制 discipline，补足到 limit
+  // Second pass (fallback): ignore discipline limits and fill up to the limit
   if (picked.length < limit) {
     for (const item of scoredVideos) {
       if (picked.length >= limit) break;
@@ -766,13 +766,13 @@ function selectVideosForUser(
   return picked;
 }
 
-// ========== 8. 一次性加载静态数据 ==========
+// ========== 8. Load static data once ==========
 export const MOCK_USERS: UserProfile[] = loadUsersFromJson(mockUsersRaw as any);
 const GAMES: Unit[] = loadGamesAsUnitsFromJson(gamesRaw as any);
 const CAREERS: Career[] = loadCareersFromJson(careersRaw as any);
 const VIDEOS: Video[] = loadVideosFromJson(videosRaw as any);
 
-// ========== 9. 主推荐函数 ==========
+// ========== 9. Main recommendation function ==========
 export function getRecommendationsForProfile(user: UserProfile): RecResult {
   // --- units ---
   const filteredUnits = filterUnits(GAMES);
@@ -803,7 +803,7 @@ export function getRecommendationsForProfile(user: UserProfile): RecResult {
     };
   });
 
-  // --- careers ---（利用年级 + 兴趣 + 抖动，且至少尝试补满 TOPK 个）
+  // --- careers --- (use grade + interests + jitter, and at least try to fill up to TOPK)
   let careersTop: CareerRecItem[] = [];
   if (!(isColdStart(user) && HIDE_CAREERS_ON_COLDSTART)) {
     const scored = CAREERS.map((c) => {
@@ -839,7 +839,7 @@ export function getRecommendationsForProfile(user: UserProfile): RecResult {
         ? positive
         : scored;
 
-    // 先按 finalScore 排序
+    // First sort by finalScore
     effective.sort((a, b) => {
       if (b.finalScore !== a.finalScore) {
         return b.finalScore - a.finalScore;
@@ -852,7 +852,7 @@ export function getRecommendationsForProfile(user: UserProfile): RecResult {
     const picked: CareerRecItem[] = [];
     const usedDisciplines = new Set<string>();
 
-    // 第一轮：尽量保证 discipline 多样性（同一学科先拿 1 个）
+    // First pass: try to ensure discipline diversity (take at most 1 per discipline first)
     for (const item of effective) {
       if (picked.length >= TOPK) break;
 
@@ -879,7 +879,7 @@ export function getRecommendationsForProfile(user: UserProfile): RecResult {
       }
     }
 
-    // 第二轮兜底：如果 discipline 种类少于 TOPK，再从高分里补满到 TOPK，不再限制学科
+    // Second pass (fallback): if there are fewer disciplines than TOPK, fill up from high scores without discipline limits
     if (picked.length < TOPK) {
       for (const item of effective) {
         if (picked.length >= TOPK) break;
@@ -910,7 +910,7 @@ export function getRecommendationsForProfile(user: UserProfile): RecResult {
     careersTop = picked;
   }
 
-  // --- videos ---（每个用户 5 个）
+  // --- videos --- (5 per user)
   const videosOut = selectVideosForUser(user, VIDEOS, careersTop, 5);
 
   const result: RecResult = {
@@ -934,7 +934,7 @@ export function getRecommendationsForProfile(user: UserProfile): RecResult {
   return result;
 }
 
-// ========== 10. 方便用 mock 用户 ID 调用 ==========
+// ========== 10. Helper to call using a mock user ID ==========
 export function getRecommendationsForUserId(userId: string): RecResult {
   const user = MOCK_USERS.find((u) => u.id === userId);
   if (!user) {
