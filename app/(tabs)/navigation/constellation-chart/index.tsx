@@ -7,9 +7,10 @@ import React, {
 } from "react";
 import { useFocusEffect } from "@react-navigation/native";
 import ForceGraph2D from "react-force-graph-2d";
-import careersData from "../../../../assets/data/careers_with_skills_knowledge_263.json";
+import careersData from "../../../../assets/data/careers_with_recs.json";
 import * as d3 from "d3";
 import { loadSelectedStudent } from "../../../../utils/storage";
+import {router, useNavigation} from "expo-router";
 
 // ========= Type Definitions =========
 
@@ -73,11 +74,11 @@ type MissingSkill = {
 
 type MissingKnowledge = {
   code: string;
-  current: number; // exact 这门课（这个 AC9SxUyy）的 level（没上过就是 0）
+  current: number; // The level of the exact course (this AC9SxUyy) (if you haven't attended it, it is 0).
   target: number;
   delta: number;
-  bestYear: number; // 在这个 unit 上的最高 S 年级
-  bestLevel: number; // 在这个 unit 上的最高 level
+  bestYear: number; // The highest s grade in this unit
+  bestLevel: number; // The highest level on this unit
 };
 
 type CareerFitInfo = {
@@ -192,7 +193,7 @@ const computeCareerFit = (career: Career, student: Student): CareerFitInfo => {
       code: shortCode,
     });
 
-    // 记录 exact 这门课的 mastery（如果同 code 出现多次，就取最高）
+    //Record the mastery of the exact course (if the same code appears many times, take the highest)
     if (exactKnowledgeMap[shortCode] == null) {
       exactKnowledgeMap[shortCode] = kp.level;
     } else {
@@ -214,7 +215,7 @@ const computeCareerFit = (career: Career, student: Student): CareerFitInfo => {
       const requiredYear = req.year;
       const requiredUnit = req.unit;
 
-      // 1) 匹配度计算：用同 unit 下的最高 year+level
+      // 1) calculation of matching degree: use the highest year+level under the same unit.
       const sameUnit = studentUnits.filter((u) => u.unit === requiredUnit);
 
       let bestYear = 0;
@@ -231,36 +232,36 @@ const computeCareerFit = (career: Career, student: Student): CareerFitInfo => {
 
       let yearFactor = 0;
       if (bestYear > 0) {
-        const maxDiff = 7; // S3..S10 差距最大 7
+        const maxDiff = 7; // S3..S10 Maximum gap 7
         const yearDiff = Math.max(0, requiredYear - bestYear);
-        yearFactor = Math.max(0, 1 - yearDiff / maxDiff); // 年级越接近越高
+        yearFactor = Math.max(0, 1 - yearDiff / maxDiff); // The closer the grade is, the higher it is.
       }
 
       const levelFactor = bestLevel / 3; // 0,1/3,2/3,1
       const fraction = yearFactor * levelFactor;
       knowledgeFractions.push(fraction);
 
-      // 2) missing 列表展示：exact 课程 code 的掌握度
-      const currentExactLevel = exactKnowledgeMap[code] ?? 0; // 只看这门课
+      // 2) missing List display: the mastery of code in exact course
+      const currentExactLevel = exactKnowledgeMap[code] ?? 0; // Just look at this course
       const targetMastery = 3;
       const delta = Math.max(0, targetMastery - currentExactLevel);
 
-      // --- 新逻辑：只有在「没有达到或超过要求的 S 年级」的情况下才算 missing ---
+      // Missing is only considered if "the required grade S is not met or exceeded" ---
       let isMissing = false;
 
       if (bestYear === 0) {
-        // 完全没在这个 unit 上学过
+        // I have never studied in this unit at all
         isMissing = true;
       } else if (bestYear < requiredYear) {
-        // 在这个 unit 轨道上，但 S 年级还没到要求（比如要求 S9，他只有 S4）
+        // On this unit track, but the S grade has not yet reached the requirements (for example, it requires S9, and he only has S4).
         isMissing = true;
       } else if (bestYear === requiredYear) {
-        // 年级刚好等于要求，看 mastery 是否达到3
+        //  The grade is just equal to the requirement, see if mastery reaches 3.
         if (currentExactLevel < targetMastery) {
           isMissing = true;
         }
       } else if (bestYear > requiredYear) {
-        // 学生在这个 unit 的 S 年级已经超出要求（比如要求 S9，他有 S10）→ 不 missing
+        // The student has exceeded the requirements in the S grade of this unit (for example, if he asks for S9, he has S10)→ Not missing.
         isMissing = false;
       }
 
@@ -447,7 +448,7 @@ const CareerGraph: React.FC = () => {
     <div style={{ position: "relative" }}>
       {/* Back Button */}
 <div
-  onClick={() => (window.location.href = "/navigation")}  // 跳回 navigation
+  onClick={() => (window.location.href = "/navigation")}  // jump back to navigation
   style={{
     position: "absolute",
     top: 20,
@@ -751,7 +752,13 @@ const CareerGraph: React.FC = () => {
           <button
             onClick={() => {
               // TODO: navigate to pathway screen or open detail
-              console.log("View pathway for:", selectedNode.id);
+              console.log("View pathway for:", selectedNode);
+               router.push({
+                pathname: "navigation/scrollable-steps",
+                params: {
+                  careersData: JSON.stringify(selectedNode), // Must be serialized
+                },
+              });
             }}
             style={{
               marginTop: 16,
@@ -867,7 +874,7 @@ const CareerGraph: React.FC = () => {
           const fit = fitMap[node.id];
           const fitLevel: FitLevel | undefined = fit?.level;
 
-          // Base radius by fit level — 更夸张一点
+          // Base radius by fit level 
           let baseRadius = 5;
           if (fitLevel === "high") baseRadius = 18;
           else if (fitLevel === "medium") baseRadius = 11;
@@ -915,7 +922,7 @@ const CareerGraph: React.FC = () => {
             categoryColorMap[node.category] || "#999999";
           ctx.fill();
 
-          // 高匹配再加一圈描边，更夸张一点
+          // High matching plus a stroke, a little more exaggerated.
           if (fitLevel === "high") {
             ctx.lineWidth = 2;
             ctx.strokeStyle = "rgba(22,163,74,0.9)";
