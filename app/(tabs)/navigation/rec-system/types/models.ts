@@ -1,4 +1,4 @@
-export type StrandAbbr = 'QP' | 'PC' | 'PAD' | 'EVAL' | 'COMM'; // Inquiry 技能缩写
+export type StrandAbbr = 'QP' | 'PC' | 'PAD' | 'EVAL' | 'COMM'; // Inquiry (skill abbreviation)
 
 export interface InquirySkillLevels {
   QP: number; PC: number; PAD: number; EVAL: number; COMM: number;
@@ -7,14 +7,14 @@ export interface InquirySkillLevels {
 export interface KnowledgeNode {
   id: string;           // e.g., "BIO.Y3.AC9S3U01"
   year: number;         // 3..10
-  discipline: string;   // 学科名
+  discipline: string;   // Subject name
   code: string;         // "AC9S3U01"
   title: string;
   description?: string;
-  levels: { level: 1 | 2 | 3; outcomes: string[] }[]; // 年内三级
-  progression_to?: string;     // 下一学年节点ID
-  similar_to?: string[];       // 相似节点
-  reinforced_by?: string[];    // 强化哪些 Inquiry 技能，如 "INQ.Y3.PAD"
+  levels: { level: 1 | 2 | 3; outcomes: string[] }[]; // Level 3 during the year
+  progression_to?: string;     // Next academic year node ID
+  similar_to?: string[];       // Similar nodes
+  reinforced_by?: string[];    // Which Inquiry skills, such as "INQ.Y3.PAD", should be strengthened?
 }
 
 export interface SkillsKnowledgeModelMeta {
@@ -24,21 +24,21 @@ export interface SkillsKnowledgeModelMeta {
 
 export interface SkillsKnowledgeModel {
   meta: SkillsKnowledgeModelMeta;
-  disciplines: KnowledgeNode[]; // 这里用“disciplines”承接整个节点表（根据真实JSON键名）
+  disciplines: KnowledgeNode[]; // Here, "disciplines" is used to encompass the entire node table (based on the actual JSON key names).
 }
 
-// ── 学生进度 ──
+// ── student progress ──
 export interface UserProgress {
   user_id: string;
-  year: number; // 学生年级
+  year: number; // Student grade
   skills_levels: InquirySkillLevels;
   knowledge_progress: { node: string; level: 1 | 2 | 3 }[];
   career_interests: string[]; // e.g., ["career.050"]
 }
 
-// ── 职业模型 ──
+// ── career model ──
 export interface CareerRequiredNode {
-  node: string;        // 对应知识节点ID
+  node: string;        // Corresponding knowledge node ID
   min_level: 1 | 2 | 3;
   weight: number;      // 0..1
 }
@@ -50,7 +50,7 @@ export interface Career {
   min_skill_levels: InquirySkillLevels;
   required_knowledge: CareerRequiredNode[];
   logic: 'AND';
-  threshold: number; // sum(weighted) 的达标阈值
+  threshold: number; // The threshold for sum(weighted)
 }
 
 export interface CareersCatalogMeta {
@@ -64,7 +64,7 @@ export interface CareersCatalog {
   careers: Career[];
 }
 
-// ── 推荐 DTO ──
+// ── Recommended DTO ──
 export type RecKind = 'knowledge' | 'skill_strand' | 'career_gap' | 'unit' | 'video' | 'career';
 
 export interface RecommendationItem {
@@ -73,6 +73,6 @@ export interface RecommendationItem {
   title: string;
   reason: string;
   confidence: number; // 0..1
-  payload?: any; // 证据/缺口详情
+  payload?: any; // Evidence/Gap Details
 }
 

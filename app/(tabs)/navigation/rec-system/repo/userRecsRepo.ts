@@ -1,8 +1,7 @@
 // app/(tabs)/navigation/rec-system/repo/userRecsRepo.ts
 import type { RecommendationItem } from '../types/models';
 
-// ===== 40 个学生 JSON 全量导入 =====
-// 路径按你确认的为准：../../../../../assets/data/output/user_recs/rec_Y*_U*.json
+// ===== Import all JSON files of 40 students =====
 
 // Y3
 import rec_Y3_U1 from '../../../../../assets/data/output/user_recs/rec_Y3_U1.json';
@@ -60,7 +59,7 @@ import rec_Y10_U3 from '../../../../../assets/data/output/user_recs/rec_Y10_U3.j
 import rec_Y10_U4 from '../../../../../assets/data/output/user_recs/rec_Y10_U4.json';
 import rec_Y10_U5 from '../../../../../assets/data/output/user_recs/rec_Y10_U5.json';
 
-// ===== userId -> 原始 JSON 映射表 =====
+// ===== userId -> Raw JSON Map =====
 
 const RAW_MAP: Record<string, any> = {
   // Y3
@@ -120,7 +119,7 @@ const RAW_MAP: Record<string, any> = {
   Y10_U5: rec_Y10_U5,
 };
 
-// 置信度字符串 -> 数值
+// Confidence score string -> numeric
 function confidenceToScore(conf: string | undefined): number {
   switch (conf) {
     case 'high':
@@ -135,8 +134,8 @@ function confidenceToScore(conf: string | undefined): number {
 }
 
 /**
- * 从文件推荐结果映射成统一的 RecommendationItem[]
- * 若该 userId 没有文件，则返回 []
+ * The document recommendation results are mapped to a unified RecommendationItem[].
+ * If the userId does not exist in a file, return [].
  */
 export function getUserFileNextSteps(userId: string): RecommendationItem[] {
   const raw = RAW_MAP[userId];

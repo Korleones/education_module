@@ -30,7 +30,7 @@ export function getRuleNextSteps(userId: string, completedNodeId: string) {
   const user = UsersRepo.get(userId); if (!user) return [];
   const items: RecommendationItem[] = [];
 
-  // A. 知识推进：progression_to
+  // A. Knowledge Advancement: progress_to
   for (const n of SkillsRepo.getNextProgression(completedNodeId)) {
     items.push({
       id: n.id, kind: 'knowledge', title: n.title,
@@ -39,7 +39,7 @@ export function getRuleNextSteps(userId: string, completedNodeId: string) {
     });
   }
 
-  // B. 相似补全：similar_to（若未达标）
+  // B. Similarity completion: similar_to (if not met)
   for (const n of SkillsRepo.getSimilar(completedNodeId)) {
     const learned = user.knowledge_progress.find(k => k.node === n.id)?.level ?? 0;
     if (learned < 2) {
@@ -51,7 +51,7 @@ export function getRuleNextSteps(userId: string, completedNodeId: string) {
     }
   }
 
-  // C. 强化 Inquiry 技能：reinforced_by
+  // C. Enhanced Inquiry skill: reinforced_by
   for (const r of SkillsRepo.getReinforcedBy(completedNodeId)) {
     const abbr = r.split('.').pop() as StrandAbbr; // e.g., "PAD"
     const cur = user.skills_levels[abbr];
@@ -63,7 +63,7 @@ export function getRuleNextSteps(userId: string, completedNodeId: string) {
     });
   }
 
-  // D. 职业差距：针对兴趣职业给出缺口最大的必修节点
+  // D. Career Gap: Identify the required modules with the greatest gaps in career aspirations.
   const interests = user.career_interests ?? [];
   for (const c of CareersRepo.list().filter(x => interests.includes(x.id))) {
     const skillOK = meetsMinSkills(user, c);
@@ -88,7 +88,7 @@ export function getRuleNextSteps(userId: string, completedNodeId: string) {
     }
   }
 
-  // 去重+排序
+  // Deduplication + Sort
   const seen = new Set<string>(), out: RecommendationItem[] = [];
   for (const it of items) if (!seen.has(it.id)) { seen.add(it.id); out.push(it); }
   return out.sort((a, b) => b.confidence - a.confidence);

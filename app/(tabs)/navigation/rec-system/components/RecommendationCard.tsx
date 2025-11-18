@@ -4,10 +4,10 @@ import type { RecommendationItem } from '../types/models';
 
 interface Props {
   item: RecommendationItem;
-  onPress?: (item: RecommendationItem) => void; // 允许外面传 onPress（可选）
+  onPress?: (item: RecommendationItem) => void; // Allow external transmission via onPress (optional)
 }
 
-// 根据数值映射到 high / medium / low
+// Based on numerical values, map to high / medium / low.
 const getConfidenceLabel = (c?: number) => {
   if (c == null) return '—';
   if (c >= 0.85) return 'high';
@@ -19,9 +19,9 @@ export const RecommendationCard: React.FC<Props> = ({ item, onPress }) => {
   const [showReason, setShowReason] = React.useState(false);
 
   return (
-    // 整个卡片可点击（如果上层传了 onPress）
+    // The entire card is clickable (if onPress is passed from the upper layer).
     <Pressable onPress={() => onPress?.(item)} style={styles.card}>
-      {/* 标题 + Why This 按钮 */}
+      {/* Title + Why This Button */}
       <View style={styles.topRow}>
         <Text style={styles.title}>{item.title}</Text>
 

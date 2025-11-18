@@ -7,11 +7,11 @@ export type CompareHit = { id: string; kind: string };
 export interface CompareResult {
   precision: number;
   recall: number;
-  missing: CompareHit[];    // 期望有但实际没有 → FN
-  unexpected: CompareHit[]; // 实际有但期望没有 → FP
+  missing: CompareHit[];    // Expected but not actually there → FN
+  unexpected: CompareHit[]; // It actually exists but is not expected to exist → FP
 }
 
-// 比较两组推荐结果
+// Comparing the two sets of recommendation results
 export function compareRecommendations(
   actual: RecommendationItem[],
   expected: RecommendationItem[]
@@ -35,7 +35,7 @@ export function compareRecommendations(
     }
   }
 
-  const tp = expected.length - missing.length; // 真阳性
+  const tp = expected.length - missing.length; // true positive
   const precision = actual.length > 0 ? tp / actual.length : 0;
   const recall = expected.length > 0 ? tp / expected.length : 0;
 
@@ -47,13 +47,13 @@ export function compareWithExpected(
   completedNodeId: string,
   actual: RecommendationItem[],
 ): CompareResult | undefined {
-  // 这里的返回值在类型上是 ExpectedCase，我们先拿到原始结果
+  // The return value here is of type ExpectedCase; let's first get the original result.
   const raw = getExpectedFor(userId, completedNodeId) as any;
   if (!raw) return undefined;
 
-  // 尝试从 raw 中提取真正的推荐列表：
-  // 1. 如果本身就是数组，就直接用
-  // 2. 如果是对象，就尝试用 raw.expected / raw.items 之类的字段
+// Try extracting the actual recommendation list from raw:
+// 1. If it's an array, use it directly.
+// 2. If it's an object, try using fields like raw.expected / raw.items.
   const expected: RecommendationItem[] =
     Array.isArray(raw)
       ? raw

@@ -13,10 +13,10 @@ export interface ExpectedCase {
   expected: ExpectedItem[];
 }
 
-// 直接把 JSON 当成数组用
+// Use JSON directly as an array
 const cases = raw as ExpectedCase[];
 
-/** 根据 userId + completedNodeId 找到对应的期望推荐 */
+/** Find the corresponding expected recommendation based on userId + completedNodeId. */
 export function getExpectedFor(
   userId: string,
   completedNodeId: string

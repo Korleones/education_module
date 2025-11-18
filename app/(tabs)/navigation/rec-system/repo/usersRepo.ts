@@ -1,7 +1,7 @@
 import Raw from '../../../../../assets/data/mock_users_progress.json';
 import type { UserProgress } from '../types/models';
 
-// 这里假设结构为 { "users": [...] }
+// Here, we assume the structure is { "users": [...] }
 const root = Raw as { users: UserProgress[] };
 const users: UserProgress[] = root.users ?? [];
 const map = new Map(users.map(u => [u.user_id, u]));

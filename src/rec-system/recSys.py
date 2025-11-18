@@ -5,7 +5,7 @@ from pathlib import Path
 from datetime import datetime
 from typing import Any, Dict, List, Tuple, Set
 
-# 0. 路径设置（按你项目的目录）
+# 0. Path settings (adjust to your project structure)
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR     = PROJECT_ROOT / "assets" / "data"
 
@@ -17,14 +17,14 @@ P_VIDEOS    = DATA_DIR / "discipline_videos.json"
 P_KN_MODEL  = DATA_DIR / "Skills and Knowledge years 3-10.json"  
 
 
-# 1. 全局配置
-TOPK                      = 3   # 原来是 5，现在改成 3：units 和 careers 都只取前 3 个
+# 1. Global config
+TOPK                      = 3   # Originally 5, now 3: only take top 3 units and careers
 ONLY_NEXT_LEVEL_UNITS     = True
 HIDE_CAREERS_ON_COLDSTART = False
 MAX_DIFFICULTY            = 3
 
 
-# 2. 小工具
+# 2. Small utilities
 def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -78,7 +78,7 @@ def confidence_from_score(score: float) -> str:
         return "low"
 
 
-# 3. 读取用户
+# 3. Load users
 def load_users() -> List[Dict[str, Any]]:
     raw = load_json(P_USERS)
     arr = raw["users"] if isinstance(raw, dict) and "users" in raw else raw
@@ -112,7 +112,7 @@ def load_users() -> List[Dict[str, Any]]:
 
 
 
-# 4. 读取课程/游戏：curriculum_games.json
+# 4. Load curriculum/games: curriculum_games.json
 def load_games_as_units() -> List[Dict[str, Any]]:
     raw = load_json(P_GAMES)
     games = raw["games"] if isinstance(raw, dict) and "games" in raw else raw
@@ -135,7 +135,7 @@ def load_games_as_units() -> List[Dict[str, Any]]:
     return units
 
 
-# 5. 读取视频：discipline_videos.json（不混进课程里，单独推荐）
+# 5. Load videos: discipline_videos.json (kept separate from units, recommended independently)
 def load_videos() -> List[Dict[str, Any]]:
     raw = load_json(P_VIDEOS)
     if isinstance(raw, dict) and "videos" in raw:
@@ -163,16 +163,16 @@ def load_videos() -> List[Dict[str, Any]]:
     return videos
 
 
-# 6. 读取职业：现在只用 STEM Careers.json
+# 6. Load careers: now only use STEM Careers.json
 def load_careers() -> List[Dict[str, Any]]:
     """
-    现在统一从 STEM Careers.json 里读取职业信息，
-    不再使用 careers_with_skills_knowledge_263.json。
-    为了兼容 score_career 的逻辑，仍然尝试从 STEM Careers.json 中
-    读取 min_skill_levels / required_knowledge / threshold / discipline 等字段，
-    如果缺失则使用默认值。
+    We now read career information solely from STEM Careers.json,
+    and no longer use careers_with_skills_knowledge_263.json.
+    To stay compatible with the score_career logic, we still try
+    to read min_skill_levels / required_knowledge / threshold / discipline
+    from STEM Careers.json; if any are missing, default values are used.
     """
-    raw = load_json(P_CAREERS_2)  # 只用 STEM Careers.json
+    raw = load_json(P_CAREERS_2)  # Only use STEM Careers.json
     arr = raw["careers"] if isinstance(raw, dict) and "careers" in raw else raw
 
     careers: List[Dict[str, Any]] = []
@@ -188,7 +188,7 @@ def load_careers() -> List[Dict[str, Any]]:
     return careers
 
 
-# 7. 用户辅助 & 单元选择
+# 7. User helpers & unit selection
 def is_cold_start(user: Dict[str, Any]) -> bool:
     return (sum(user.get("knowledge", {}).values()) == 0) and (sum(user.get("inquiry_skills", {}).values()) == 0)
 
@@ -224,7 +224,7 @@ def pick_next_level_units(units_in: List[Dict[str, Any]], user: Dict[str, Any]) 
     return [u for _, u in best.values()]
 
 
-# 8. 打分 & whyThis
+# 8. Scoring & whyThis
 def score_unit(unit: Dict[str, Any], user: Dict[str, Any]) -> Dict[str, Any]:
     raw = 0.0
     for kn in unit.get("knowledge_nodes", []):
@@ -320,7 +320,7 @@ def build_why_for_career(user: Dict[str, Any], career: Dict[str, Any], scored: D
     return " ".join(parts)
 
 
-# 9. 视频匹配（关键改动）
+# 9. Video matching (key changes)
 def select_videos_for_user(
     user: Dict[str, Any],
     videos: List[Dict[str, Any]],
@@ -328,17 +328,17 @@ def select_videos_for_user(
     limit: int = 2,
 ) -> List[Dict[str, Any]]:
     """
-    不改你的视频文件，就按两个信号来挑：
-    1) 学生的学科 → BIO / CHEM / PHYS / EARTH 映射到视频里的 discipline 字段
-    2) 推荐出来的职业的 id → 匹配视频里的 career_id
-    优先职业匹配，其次学科匹配
+    Without changing your video files, pick using two signals:
+    1) Student’s subjects → BIO / CHEM / PHYS / EARTH mapped to the video 'discipline' field
+    2) IDs of the recommended careers → matched against the video's 'career_id'
+    Career match is prioritised, subject match is secondary.
     """
-    # 1. 学生学过哪些学科
+    # 1. Disciplines the student has learned
     user_disciplines: Set[str] = set()
     for node in (user.get("knowledge") or {}).keys():
         user_disciplines.add(subject_label_from_node(node))
 
-    # 2. 推荐出来的 career id
+    # 2. IDs of recommended careers
     career_ids: Set[str] = set()
     for c in picked_careers:
         if c.get("id"):
@@ -346,7 +346,7 @@ def select_videos_for_user(
 
     picked: List[Dict[str, Any]] = []
 
-    # 先按 career_id 精确匹配
+    # First, match by career_id exactly
     for v in videos:
         if len(picked) >= limit:
             break
@@ -358,7 +358,7 @@ def select_videos_for_user(
                 "confidence": "high",
             })
 
-    # 再按学科匹配
+    # Then, match by discipline
     for v in videos:
         if len(picked) >= limit:
             break
@@ -374,7 +374,7 @@ def select_videos_for_user(
     return picked
 
 
-# 10. 主推荐函数
+# 10. Main recommendation function
 def get_recommendations_for_user(
     user: Dict[str, Any],
     units_games: List[Dict[str, Any]],
@@ -425,7 +425,7 @@ def get_recommendations_for_user(
             })
         careers_out = sorted(careers_out, key=lambda x: x["confidence"], reverse=True)[:TOPK]
 
-    # --- videos (新加的匹配逻辑) ---
+    # --- videos (new matching logic) ---
     videos_out = select_videos_for_user(user, videos, careers_out, limit=2)
 
     return {
@@ -447,7 +447,7 @@ def get_recommendations_for_user(
     }
 
 
-# 11. 入口
+# 11. Entry point
 if __name__ == "__main__":
     users   = load_users()
     games   = load_games_as_units()
@@ -457,7 +457,7 @@ if __name__ == "__main__":
     print("total users:", len(users))
     print("sample user ids:", [u["id"] for u in users][:10])
 
-    target_id = users[0]["id"]   # 测试用户
+    target_id = users[0]["id"]   # test user
     user = next(u for u in users if u["id"] == target_id)
 
     result = get_recommendations_for_user(user, games, careers, videos)

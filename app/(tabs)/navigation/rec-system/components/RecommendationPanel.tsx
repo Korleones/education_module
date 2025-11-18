@@ -44,7 +44,7 @@ export const RecommendationPanel: React.FC<Props> = ({
     };
   }, [userId, completedNodeId]);
 
-  // 分组：units / videos / careers / others
+  // Groups: units / videos / careers / others
   const units = items.filter((it) => it.kind === 'unit');
   const videos = items.filter((it) => it.kind === 'video');
   const careers = items.filter((it) => it.kind === 'career');
@@ -116,12 +116,12 @@ export const RecommendationPanel: React.FC<Props> = ({
 
   return (
     <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 24 }}>
-      {/* 按照 Units / Videos / Careers 顺序分块显示 */}
+      {/* Displayed in blocks according to the order of Units / Videos / Careers */}
       {renderSection('Game & Units', units)}
       {renderSection('Videos', videos)}
       {renderSection('Careers', careers)}
 
-      {/* 其它类型（比如原来的 knowledge / career_gap），可以放在最后一个区块里 */}
+      {/* Other types (such as the original knowledge/career_gap) can be placed in the last block. */}
       {renderSection('Other Suggestions', others)}
     </ScrollView>
   );
