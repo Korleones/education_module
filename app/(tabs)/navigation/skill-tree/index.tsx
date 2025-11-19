@@ -43,6 +43,7 @@ import { Ionicons } from '@expo/vector-icons';
 export default function SkillTreePage() {
   //loading status
   const [loading, setLoading] = useState(true);
+
   //discipline nodes
   const [disciplineNodes, setDisciplineNodes] = useState<DisciplineTreeNode[]>([]);
   const [skillNodes, setSkillNodes] = useState<SkillTreeNodeWithData[]>([]);
@@ -78,17 +79,34 @@ export default function SkillTreePage() {
   };
 
   useEffect(() => {
-    if (Platform.OS === 'web') {
+    if (Platform.OS !== 'web') return;
+
+    if (!modalVisible) {
       window.addEventListener("wheel", handleWheelZoom, { passive: true });
-      return () => window.removeEventListener("wheel", handleWheelZoom);
+    } else {
+      window.removeEventListener("wheel", handleWheelZoom);
     }
-  }, []);
-  // when back to the skilltree, reload the data
-useFocusEffect(
-  React.useCallback(() => {
-    initializeData();  // 每次页面重新获得焦点时刷新学生 + 节点
-  }, [])
-);
+
+    return () => {
+      window.removeEventListener("wheel", handleWheelZoom);
+    };
+  }, [modalVisible]);
+
+  
+
+  useFocusEffect(
+    React.useCallback(() => {
+      setScale(0.6);
+      setPanX(20);
+      setPanY(50);
+
+      lastPanX.current = 20;
+      lastPanY.current = 50;
+
+      initializeData();
+    }, [])
+  );
+
 
   useEffect(() => {
     initializeData();
@@ -96,10 +114,8 @@ useFocusEffect(
 
   const initializeData = async () => {
     try {
-      //get the skill json
       const data = skillsData;
 
-      //get the current student
       const currentUser = await loadSelectedStudent();
       if (!currentUser) {
         console.error('No student selected');
@@ -108,20 +124,18 @@ useFocusEffect(
       }
       setUserData(currentUser);
 
-      //generate the common skills node 5x8 = 40,and put them in skillnodes array.
+      // skills
       const generatedSkillNodes = generateSkillNodes();
       setAllSkills(generatedSkillNodes);
 
-
-      //generate all the deciplines nodes
+      // disciplines
       const disciplinesWithType: DisciplineNode[] = data.disciplines.map(d => ({
         ...d,
         type: 'discipline'
       }));
       setAllDisciplines(disciplinesWithType);
 
-
-      //draw all the nodes
+      // layout
       const positions = calculateLayout(disciplinesWithType, generatedSkillNodes);
 
       const disciplineTree: DisciplineTreeNode[] = disciplinesWithType.map(d => {
@@ -155,6 +169,16 @@ useFocusEffect(
 
       setDisciplineNodes(disciplineTree);
       setSkillNodes(skillTree);
+
+      // 🔥 居中树（已修复）
+      centerTree(
+        disciplineTree,
+        skillTree,
+        setPanX,
+        setPanY,
+        lastPanX,
+        lastPanY
+      );
 
     } catch (error) {
       console.error('Error loading data:', error);
@@ -224,6 +248,9 @@ useFocusEffect(
     if (updatedNode) setSelectedNode(updatedNode);
   };
 
+  // --------------------------------------------------
+  // ⭐ 平移（拖拽画布）
+  // --------------------------------------------------
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
@@ -251,17 +278,15 @@ useFocusEffect(
   const allTreeNodes: TreeNode[] = [...disciplineNodes, ...skillNodes];
 
   return (
-
-    
     <View style={styles.container}>
+
       <TouchableOpacity
         style={styles.backButton}
         onPress={() => router.push('/navigation')}
       >
         <Ionicons name="chevron-back" size={22} color="#333" />
         <Text style={styles.backText}>Back</Text>
-      </TouchableOpacity> 
-
+      </TouchableOpacity>
 
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Complete Skill Tree</Text>
@@ -330,6 +355,60 @@ useFocusEffect(
   );
 }
 
+
+// =========================================================================================
+// ⭐⭐⭐⭐⭐ 核心：自动居中需要的工具函数（已完全修复）
+// =========================================================================================
+
+/** 获取树的坐标边界 */
+const getTreeBounds = (nodes: TreeNode[]) => {
+  const xs = nodes.map(n => n.position.x);
+  const ys = nodes.map(n => n.position.y);
+
+  return {
+    minX: Math.min(...xs),
+    maxX: Math.max(...xs),
+    minY: Math.min(...ys),
+    maxY: Math.max(...ys),
+  };
+};
+
+/** 居中树 */
+const centerTree = (
+  disciplineTree: DisciplineTreeNode[],
+  skillTree: SkillTreeNodeWithData[],
+  setPanX: (v: number) => void,
+  setPanY: (v: number) => void,
+  lastPanX: React.MutableRefObject<number>,
+  lastPanY: React.MutableRefObject<number>
+) => {
+  const all = [...disciplineTree, ...skillTree];
+  if (all.length === 0) return;
+
+  const { minX, maxX, minY, maxY } = getTreeBounds(all);
+
+  const treeCenterX = (minX + maxX) / 2;
+  const treeCenterY = (minY + maxY) / 2;
+
+  const screenCenterX =
+    Platform.OS === "web" ? window.innerWidth / 2 : 200;
+  const screenCenterY =
+    Platform.OS === "web" ? window.innerHeight / 2 : 300;
+
+  const initialPanX = screenCenterX - treeCenterX;
+  const initialPanY = screenCenterY - treeCenterY;
+
+  setPanX(initialPanX);
+  setPanY(initialPanY);
+
+  lastPanX.current = initialPanX;
+  lastPanY.current = initialPanY;
+};
+
+
+// =========================================================================================
+
+
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#FAFAFA' },
   loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
@@ -354,9 +433,9 @@ const styles = StyleSheet.create({
   statItem: { alignItems: 'center' },
   statValue: { fontSize: 24, fontWeight: 'bold' },
   statLabel: { fontSize: 11, color: '#666' },
-   backButton: {
+  backButton: {
     position: 'absolute',
-    top: 20, // Close to top safe area
+    top: 20,
     left: 16,
     flexDirection: 'row',
     alignItems: 'center',
@@ -368,7 +447,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.15,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
-    elevation: 3, // Android shadow
+    elevation: 3,
     zIndex: 10,
   },
   backText: {
