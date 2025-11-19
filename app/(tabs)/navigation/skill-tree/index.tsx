@@ -170,7 +170,6 @@ export default function SkillTreePage() {
       setDisciplineNodes(disciplineTree);
       setSkillNodes(skillTree);
 
-      // 🔥 居中树（已修复）
       centerTree(
         disciplineTree,
         skillTree,
@@ -251,20 +250,43 @@ export default function SkillTreePage() {
   // --------------------------------------------------
   // ⭐ 平移（拖拽画布）
   // --------------------------------------------------
-  const panResponder = useRef(
-    PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponder: () => true,
-      onPanResponderGrant: () => {
-        lastPanX.current = panX;
-        lastPanY.current = panY;
-      },
-      onPanResponderMove: (e, g) => {
-        setPanX(lastPanX.current + g.dx);
-        setPanY(lastPanY.current + g.dy);
-      }
-    })
-  ).current;
+  const panRefX = useRef(panX);
+const panRefY = useRef(panY);
+
+useEffect(() => {
+  panRefX.current = panX;
+  panRefY.current = panY;
+}, [panX, panY]);
+
+const startPanX = useRef(0);
+const startPanY = useRef(0);
+
+const panResponder = useRef(
+  PanResponder.create({
+    onStartShouldSetPanResponder: () => true,
+    onMoveShouldSetPanResponder: () => true,
+
+    onPanResponderGrant: () => {
+      // 手指按下时，记录当前最新的 pan 位置
+      startPanX.current = panRefX.current;
+      startPanY.current = panRefY.current;
+    },
+
+    onPanResponderMove: (e, g) => {
+      // ref 中实时跟踪位置
+      const nextX = startPanX.current + g.dx;
+      const nextY = startPanY.current + g.dy;
+
+      // 更新 state（用于渲染）
+      setPanX(nextX);
+      setPanY(nextY);
+
+      // ref 也更新（保持真实值）
+      panRefX.current = nextX;
+      panRefY.current = nextY;
+    }
+  })
+).current;
 
   if (loading) {
     return (
@@ -410,7 +432,7 @@ const centerTree = (
 
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#FAFAFA' },
+  container: { flex: 1, backgroundColor: '#f7cfcfff' },
   loadingContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   loadingText: { marginTop: 16, fontSize: 16, color: '#666' },
   header: {
