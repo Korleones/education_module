@@ -41,10 +41,10 @@ import { Ionicons } from '@expo/vector-icons';
 
 
 export default function SkillTreePage() {
-  //loading status
+  // Loading status
   const [loading, setLoading] = useState(true);
 
-  //discipline nodes
+  // Discipline nodes
   const [disciplineNodes, setDisciplineNodes] = useState<DisciplineTreeNode[]>([]);
   const [skillNodes, setSkillNodes] = useState<SkillTreeNodeWithData[]>([]);
 
@@ -124,18 +124,18 @@ export default function SkillTreePage() {
       }
       setUserData(currentUser);
 
-      // skills
+      // Load skills
       const generatedSkillNodes = generateSkillNodes();
       setAllSkills(generatedSkillNodes);
 
-      // disciplines
+      // Load disciplines and assign type
       const disciplinesWithType: DisciplineNode[] = data.disciplines.map(d => ({
         ...d,
         type: 'discipline'
       }));
       setAllDisciplines(disciplinesWithType);
 
-      // layout
+      // Layout calculation
       const positions = calculateLayout(disciplinesWithType, generatedSkillNodes);
 
       const disciplineTree: DisciplineTreeNode[] = disciplinesWithType.map(d => {
@@ -248,45 +248,45 @@ export default function SkillTreePage() {
   };
 
   // --------------------------------------------------
-  // ⭐ 平移（拖拽画布）
+  // ⭐ Canvas panning (dragging)
   // --------------------------------------------------
   const panRefX = useRef(panX);
-const panRefY = useRef(panY);
+  const panRefY = useRef(panY);
 
-useEffect(() => {
-  panRefX.current = panX;
-  panRefY.current = panY;
-}, [panX, panY]);
+  useEffect(() => {
+    panRefX.current = panX;
+    panRefY.current = panY;
+  }, [panX, panY]);
 
-const startPanX = useRef(0);
-const startPanY = useRef(0);
+  const startPanX = useRef(0);
+  const startPanY = useRef(0);
 
-const panResponder = useRef(
-  PanResponder.create({
-    onStartShouldSetPanResponder: () => true,
-    onMoveShouldSetPanResponder: () => true,
+  const panResponder = useRef(
+    PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: () => true,
 
-    onPanResponderGrant: () => {
-      // 手指按下时，记录当前最新的 pan 位置
-      startPanX.current = panRefX.current;
-      startPanY.current = panRefY.current;
-    },
+      onPanResponderGrant: () => {
+        // When finger touches screen, record the latest pan values
+        startPanX.current = panRefX.current;
+        startPanY.current = panRefY.current;
+      },
 
-    onPanResponderMove: (e, g) => {
-      // ref 中实时跟踪位置
-      const nextX = startPanX.current + g.dx;
-      const nextY = startPanY.current + g.dy;
+      onPanResponderMove: (e, g) => {
+        // Calculate next position
+        const nextX = startPanX.current + g.dx;
+        const nextY = startPanY.current + g.dy;
 
-      // 更新 state（用于渲染）
-      setPanX(nextX);
-      setPanY(nextY);
+        // Update state for rendering
+        setPanX(nextX);
+        setPanY(nextY);
 
-      // ref 也更新（保持真实值）
-      panRefX.current = nextX;
-      panRefY.current = nextY;
-    }
-  })
-).current;
+        // Update ref (actual value)
+        panRefX.current = nextX;
+        panRefY.current = nextY;
+      }
+    })
+  ).current;
 
   if (loading) {
     return (
@@ -378,11 +378,7 @@ const panResponder = useRef(
 }
 
 
-// =========================================================================================
-// ⭐⭐⭐⭐⭐ 核心：自动居中需要的工具函数（已完全修复）
-// =========================================================================================
-
-/** 获取树的坐标边界 */
+/** Get tree bounds */
 const getTreeBounds = (nodes: TreeNode[]) => {
   const xs = nodes.map(n => n.position.x);
   const ys = nodes.map(n => n.position.y);
@@ -395,7 +391,7 @@ const getTreeBounds = (nodes: TreeNode[]) => {
   };
 };
 
-/** 居中树 */
+/** Center tree on screen */
 const centerTree = (
   disciplineTree: DisciplineTreeNode[],
   skillTree: SkillTreeNodeWithData[],

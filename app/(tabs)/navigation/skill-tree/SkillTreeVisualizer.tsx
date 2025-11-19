@@ -32,7 +32,7 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
 }) => {
   const { width, height } = Dimensions.get('window');
 
-  // 计算所有连接
+  // Calculate all connections
   const connections = useMemo(() => {
     const positionsMap = new Map<string, { x: number; y: number }>();
     
@@ -42,7 +42,7 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
     return getAllConnections(allDisciplines, allSkills, positionsMap);
   }, [disciplineNodes, skillNodes, allDisciplines, allSkills]);
 
-  // 渲染连接线
+  // Render connection lines
   const renderConnections = () => {
     const allNodes = [...disciplineNodes, ...skillNodes];
     
@@ -62,7 +62,7 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
       const x2 = targetNode.position.x - Math.cos(angle) * nodeRadius;
       const y2 = targetNode.position.y - Math.sin(angle) * nodeRadius;
       
-      // 根据连接类型设置样式
+      // Styling rules based on connection type
       let strokeColor = '#CCCCCC';
       let strokeWidth = 2;
       let strokeDasharray = '5,5';
@@ -70,21 +70,21 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
       let markerEnd = 'url(#arrowDefault)';
       
       if (conn.type === 'progression') {
-        // 学科进阶关系：蓝色实线
+        // Discipline progression relation: blue solid line
         strokeColor = targetNode.status === 'earned' ? '#4CAF50' : '#2196F3';
         strokeWidth = targetNode.status === 'earned' ? 3 : 2.5;
         strokeDasharray = '0';
         opacity = 0.6;
         markerEnd = targetNode.status === 'earned' ? 'url(#arrowCompleted)' : 'url(#arrowProgression)';
       } else if (conn.type === 'reinforcement') {
-        // 技能强化关系：橙色虚线
+        // Skill reinforcement relation: orange dashed line
         strokeColor = '#FF9800';
         strokeWidth = 1.5;
         strokeDasharray = '4,4';
         opacity = 0.4;
         markerEnd = 'url(#arrowReinforcement)';
       } else if (conn.type === 'skill-chain') {
-        // 技能链：紫色实线
+        // Skill chain: purple solid line
         strokeColor = '#9C27B0';
         strokeWidth = 2;
         strokeDasharray = '0';
@@ -109,18 +109,18 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
     });
   };
 
-  // 渲染学科节点
+  // Render discipline node
   const renderDisciplineNode = (node: DisciplineTreeNode) => {
     const nodeColor = getNodeColor(node.status);
     const abbreviation = getDisciplineAbbreviation(node.discipline);
     const yearStr = `Y${node.year}`;
     const isLocked = node.status === 'locked';
-    const isInProgress = node.status === 'in-progress';
+       const isInProgress = node.status === 'in-progress';
     const isEarned = node.status === 'earned';
 
     return (
       <G key={node.id}>
-        {/* 进行中的外环 */}
+        {/* Outer ring when in progress */}
         {isInProgress && (
           <Circle
             cx={node.position.x}
@@ -133,16 +133,16 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
           />
         )}
 
-        {/* 阴影 */}
+        {/* Shadow */}
         <Circle
           cx={node.position.x}
           cy={node.position.y + 2}
           r={25}
-          fill="rgba(0, 0, 0, 0.15)"
+          fill="rgba(0, 0, 0, 0.15}"
           opacity={isLocked ? 0.3 : 0.5}
         />
 
-        {/* 主节点 */}
+        {/* Main node */}
         <Circle
           cx={node.position.x}
           cy={node.position.y}
@@ -154,7 +154,7 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
           onPress={() => onNodePress({ ...node, nodeType: 'discipline' })}
         />
 
-        {/* 进度环 */}
+        {/* Progress ring */}
         {isInProgress && node.currentLevel && (
           <Circle
             cx={node.position.x}
@@ -169,7 +169,7 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
           />
         )}
 
-        {/* 状态图标 */}
+        {/* Status icons */}
         {isEarned && (
           <SvgText
             x={node.position.x}
@@ -197,6 +197,7 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
           </SvgText>
         )}
 
+        {/* Abbreviation + Year */}
         {(node.status === 'available' || node.status === 'in-progress') && (
           <>
             <SvgText
@@ -223,7 +224,7 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
           </>
         )}
 
-        {/* 标题 */}
+        {/* Title */}
         <SvgText
           x={node.position.x}
           y={node.position.y + 42}
@@ -232,12 +233,10 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
           textAnchor="middle"
           fontWeight="500"
         >
-          {node.title.length > 12
-            ? node.title.substring(0, 12) + '...'
-            : node.title}
+          {node.title.length > 12 ? node.title.substring(0, 12) + '...' : node.title}
         </SvgText>
 
-        {/* 等级显示 */}
+        {/* Level display */}
         {node.currentLevel && (
           <SvgText
             x={node.position.x}
@@ -254,7 +253,7 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
     );
   };
 
-  // 渲染技能节点
+  // Render skill node
   const renderSkillNode = (node: SkillTreeNodeWithData) => {
     const nodeColor = getNodeColor(node.status);
     const { abbr, icon } = getSkillInfo(node.skillCode);
@@ -263,7 +262,7 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
 
     return (
       <G key={node.id}>
-        {/* 阴影 */}
+        {/* Shadow */}
         <Rect
           x={node.position.x - 22}
           y={node.position.y - 18 + 2}
@@ -274,7 +273,7 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
           opacity={isLocked ? 0.3 : 0.5}
         />
 
-        {/* 主节点 - 圆角矩形 */}
+        {/* Main rounded-rectangle node */}
         <Rect
           x={node.position.x - 22}
           y={node.position.y - 18}
@@ -288,7 +287,7 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
           onPress={() => onNodePress({ ...node, nodeType: 'skill' })}
         />
 
-        {/* 技能图标和缩写 */}
+        {/* Skill icon + abbreviation */}
         <SvgText
           x={node.position.x}
           y={node.position.y - 4}
@@ -313,7 +312,7 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
           {abbr} L{node.level}
         </SvgText>
 
-        {/* 完成标记 */}
+        {/* Earned marker */}
         {isEarned && (
           <Circle
             cx={node.position.x + 16}
@@ -332,7 +331,7 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
     <View style={styles.container}>
       <Svg width={width} height={height - 100} style={styles.svg}>
         <Defs>
-          {/* 箭头标记 */}
+          {/* Arrow markers */}
           <Marker
             id="arrowCompleted"
             markerWidth="8"
@@ -395,18 +394,18 @@ export const SkillTreeVisualizer: React.FC<SkillTreeVisualizerProps> = ({
         </Defs>
 
         <G transform={`translate(${panX}, ${panY}) scale(${scale})`}>
-          {/* 渲染连接线 */}
+          {/* Render connection lines */}
           {renderConnections()}
 
-          {/* 渲染技能节点（左侧）*/}
+          {/* Render skill nodes (left side) */}
           {skillNodes.map(node => renderSkillNode(node))}
 
-          {/* 渲染学科节点（右侧）*/}
+          {/* Render discipline nodes (right side) */}
           {disciplineNodes.map(node => renderDisciplineNode(node))}
         </G>
       </Svg>
 
-      {/* 图例 */}
+      {/* Legend */}
       <View style={styles.legend}>
         <Text style={styles.legendTitle}>Legend</Text>
         <View style={styles.legendRow}>
