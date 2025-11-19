@@ -38,6 +38,8 @@ import skillsData from '../../../../assets/data/Skills and Knowledge years 3-10.
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
+
+
 export default function SkillTreePage() {
   //loading status
   const [loading, setLoading] = useState(true);
@@ -81,7 +83,7 @@ export default function SkillTreePage() {
       return () => window.removeEventListener("wheel", handleWheelZoom);
     }
   }, []);
-  // --------------------------------------------------
+  // when back to the skilltree, reload the data
 useFocusEffect(
   React.useCallback(() => {
     initializeData();  // 每次页面重新获得焦点时刷新学生 + 节点
@@ -94,27 +96,32 @@ useFocusEffect(
 
   const initializeData = async () => {
     try {
-      const data = skillsData as unknown as SkillsData;
+      //get the skill json
+      const data = skillsData;
 
+      //get the current student
       const currentUser = await loadSelectedStudent();
       if (!currentUser) {
         console.error('No student selected');
         setLoading(false);
         return;
       }
-
       setUserData(currentUser);
 
+      //generate the common skills node 5x8 = 40,and put them in skillnodes array.
       const generatedSkillNodes = generateSkillNodes();
       setAllSkills(generatedSkillNodes);
 
+
+      //generate all the deciplines nodes
       const disciplinesWithType: DisciplineNode[] = data.disciplines.map(d => ({
         ...d,
         type: 'discipline'
       }));
-
       setAllDisciplines(disciplinesWithType);
 
+
+      //draw all the nodes
       const positions = calculateLayout(disciplinesWithType, generatedSkillNodes);
 
       const disciplineTree: DisciplineTreeNode[] = disciplinesWithType.map(d => {

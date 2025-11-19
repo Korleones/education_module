@@ -3,293 +3,210 @@ import {
   SkillNode, 
   NodeStatus, 
   UserData, 
-  SkillLevel, 
+  SkillLevel 
 } from './types';
 
-/** 
- * Skill code → meta info 
- * Used to generate skill nodes and display consistent labels.
- */
+/* ---------------------------------------------------------
+   Skill code map
+--------------------------------------------------------- */
 const SKILL_CODE_MAP: Record<string, { code: keyof SkillLevel; name: string }> = {
-  'QP': { code: 'QP', name: 'Questioning & Predicting' },
-  'PC': { code: 'PC', name: 'Planning & Conducting' },
-  'PAD': { code: 'PAD', name: 'Processing & Analysing Data' },
-  'EVAL': { code: 'EVAL', name: 'Evaluating' },
-  'COMM': { code: 'COMM', name: 'Communicating' }
+  QP: { code: 'QP', name: 'Questioning & Predicting' },
+  PC: { code: 'PC', name: 'Planning & Conducting' },
+  PAD: { code: 'PAD', name: 'Processing & Analysing Data' },
+  EVAL: { code: 'EVAL', name: 'Evaluating' },
+  COMM: { code: 'COMM', name: 'Communicating' }
 };
 
-/**
- * Maps each year (3–10) to its corresponding skill level (1–8).
- */
 const YEAR_TO_LEVEL: Record<number, number> = {
   3: 1, 4: 2, 5: 3, 6: 4, 7: 5, 8: 6, 9: 7, 10: 8
 };
 
-/**
- * Generate all 40 skill nodes  
- * (5 skill strands × 8 levels)
- */
+/* ---------------------------------------------------------
+   Generate all skill nodes
+--------------------------------------------------------- */
 export function generateSkillNodes(): SkillNode[] {
   const skillNodes: SkillNode[] = [];
-  
+
   Object.entries(SKILL_CODE_MAP).forEach(([code, info]) => {
     for (let level = 1; level <= 8; level++) {
-      const year = Object.keys(YEAR_TO_LEVEL).find(
-        y => YEAR_TO_LEVEL[parseInt(y)] === level
+      const year = Number(
+        Object.keys(YEAR_TO_LEVEL).find(
+          y => YEAR_TO_LEVEL[parseInt(y)] === level
+        )
       );
-      
+
       skillNodes.push({
-        id: `INQ.Y${parseInt(year!)}.${code}`,
+        id: `INQ.Y${year}.${code}`,
         type: 'skill',
         skillCode: code,
         skillName: info.name,
-        level: level,
-        year: parseInt(year!),
+        level,
+        year,
         title: `${info.name} - Level ${level}`,
         description: `${info.name} skill for Year ${year} (Level ${level})`
       });
     }
   });
-  
+
   return skillNodes;
 }
 
-/**
- * Determine the status of a skill node for a given user  
- * Status depends on the user's skill_levels.
- */
+/* ---------------------------------------------------------
+   Skill node status (unchanged)
+--------------------------------------------------------- */
 export function calculateSkillNodeStatus(
   skillNode: SkillNode,
   userData: UserData
 ): { status: NodeStatus; currentLevel?: number } {
+
   const { skillCode, level } = skillNode;
-  const userSkillLevel = userData.skills_levels[skillCode as keyof SkillLevel];
-  
-  // Earned if the user has reached or exceeded the required level
-  if (userSkillLevel >= level) {
-    return { status: 'earned', currentLevel: level };
-  }
-  
-  // Available if level 1 OR previous level is earned
-  if (level === 1 || userSkillLevel >= level - 1) {
-    return { status: 'available' };
-  }
-  
-  // Otherwise locked
+  const userSkill = userData.skills_levels[skillCode as keyof SkillLevel];
+
+  if (userSkill >= level) return { status: 'earned', currentLevel: level };
+  if (level === 1 || userSkill >= level - 1) return { status: 'available' };
   return { status: 'locked' };
 }
 
-/**
- * Determine the status of a discipline node
- * Status depends on:
- *   - user's knowledge_progress
- *   - prerequisite discipline nodes
- *   - supporting skill levels
- */
+/* ---------------------------------------------------------
+   FULL DISCIPLINE LOGIC — FINAL VERSION
+--------------------------------------------------------- */
 export function calculateDisciplineNodeStatus(
   node: DisciplineNode,
   userData: UserData,
   allDisciplineNodes: DisciplineNode[],
   allSkillNodes: SkillNode[]
 ): { status: NodeStatus; currentLevel?: number } {
-  const { knowledge_progress } = userData;
-  
-  // 1. Check whether the user has direct progress on this discipline node
-  const nodeProgress = knowledge_progress.find(p => p.node === node.id);
-  
-  if (nodeProgress) {
-    if (nodeProgress.level >= 3) {
-      return { status: 'earned', currentLevel: 3 };
-    } else {
-      return { status: 'in-progress', currentLevel: nodeProgress.level };
-    }
-  }
-  
-  // 2. Check whether all prerequisites are completed
-  const allPrerequisitesCompleted = checkAllPrerequisites(
-    node,
-    userData,
-    allDisciplineNodes,
-    allSkillNodes
+
+  const studentYear = userData.year;
+  const nodeYear = Number((node as any).year);
+
+  const sameDisciplineNodes = allDisciplineNodes.filter(
+    n => n.discipline === node.discipline
   );
-  
-  if (allPrerequisitesCompleted) {
-    return { status: 'available' };
+
+  const learnedProgress = userData.knowledge_progress
+    .map(p => ({
+      progress: p,
+      node: sameDisciplineNodes.find(n => n.id === p.node)
+    }))
+    .filter(x => x.node)
+    .map(x => ({
+      year: Number((x.node as any).year),
+      level: x.progress.level,
+      id: x.node!.id
+    }));
+
+  /* ======================================================
+     Case A: 学生从未学过该学科 → 当前年级 in-progress
+  ====================================================== */
+  if (learnedProgress.length === 0) {
+    if (nodeYear < studentYear) return { status: 'earned', currentLevel: 3 };
+    if (nodeYear === studentYear) return { status: 'in-progress', currentLevel: 1 };
+    return { status: 'locked' };
   }
-  
-  // 3. If prerequisites not met → locked
+
+  /* ======================================================
+     Case B: 学生学过该学科 → 找最新 year
+  ====================================================== */
+  const maxYearRec = learnedProgress.reduce((a, b) =>
+    a.year > b.year ? a : b
+  );
+
+  const latestYear = maxYearRec.year;
+  const isLatestNode = maxYearRec.id === node.id;
+
+  if (nodeYear < latestYear) return { status: 'earned', currentLevel: 3 };
+  if (isLatestNode) return { status: 'in-progress', currentLevel: maxYearRec.level };
+
   return { status: 'locked' };
 }
 
-/**
- * Check if ALL prerequisites of a discipline node are satisfied:
- *   - required skill levels (reinforced_by)
- *   - previous-year discipline node
- *   - any node that links to this one via progression_to
- */
-function checkAllPrerequisites(
-  node: DisciplineNode,
-  userData: UserData,
-  allDisciplineNodes: DisciplineNode[],
-  allSkillNodes: SkillNode[]
-): boolean {
-  
-  /**  
-   * 1. Check reinforced_by →  
-   * Required skill levels such as: `INQ.Y5.QP`
-   */
-  for (const reinforcedBy of node.reinforced_by) {
-    const parts = reinforcedBy.split('.');
-    if (parts.length >= 3) {
-      const yearStr = parts[1];  // e.g., 'Y3'
-      const skillCode = parts[2];
-      
-      const year = parseInt(yearStr.replace('Y', ''));
-      const requiredLevel = YEAR_TO_LEVEL[year];
-      
-      const userSkillLevel = userData.skills_levels[skillCode as keyof SkillLevel];
-      
-      if (userSkillLevel < requiredLevel) return false;
-    }
+/* ---------------------------------------------------------
+   Layout – unchanged (your earlier version)
+--------------------------------------------------------- */
+
+function hashString(str: string): number {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash * 31 + str.charCodeAt(i)) | 0;
   }
-  
-  /**
-   * 2. Check previous year discipline node in same strand  
-   * Must be earned (level 3)
-   */
-  const prevYearNode = allDisciplineNodes.find(n => 
-    n.discipline === node.discipline && 
-    n.year === node.year - 1
-  );
-  
-  if (prevYearNode) {
-    const prevNodeProgress = userData.knowledge_progress.find(p => p.node === prevYearNode.id);
-    if (!prevNodeProgress || prevNodeProgress.level < 3) return false;
-  }
-  
-  /**
-   * 3. Check other discipline nodes that connect via progression_to
-   */
-  const prerequisiteNodes = allDisciplineNodes.filter(n => n.progression_to === node.id);
-  
-  for (const prereq of prerequisiteNodes) {
-    const prereqProgress = userData.knowledge_progress.find(p => p.node === prereq.id);
-    if (!prereqProgress || prereqProgress.level < 3) return false;
-  }
-  
-  return true;
+  return hash;
 }
 
-/**
- * Compute XY layout positions for all nodes
- * Includes both discipline nodes and skill nodes
- */
 export function calculateLayout(
   disciplineNodes: DisciplineNode[],
   skillNodes: SkillNode[]
 ): Map<string, { x: number; y: number }> {
+
   const positions = new Map<string, { x: number; y: number }>();
-  
-  // Layout constants
-  const DISCIPLINE_START_X = 400;
-  const SKILL_START_X = 100;
-  const HORIZONTAL_SPACING = 180;
-  const VERTICAL_SPACING = 150;
-  const START_Y = 100;
-  
+
+  const DISCIPLINE_START_X = 300;
+  const HORIZONTAL_SPACING = 450;
+  const VERTICAL_SPACING = 170;
+  const START_Y = 120;
+
   const disciplineOrder = [
     'Biological Sciences',
     'Chemical Sciences',
     'Earth & Space Sciences',
     'Physical Sciences'
   ];
-  
-  const skillOrder = ['QP', 'PC', 'PAD', 'EVAL', 'COMM'];
-  
-  /** Skill nodes (left column) */
-  skillNodes.forEach((skillNode) => {
-    const skillIndex = skillOrder.indexOf(skillNode.skillCode);
-    const x = SKILL_START_X;
-    const y = START_Y + (skillNode.level - 1) * VERTICAL_SPACING + skillIndex * 35;
-    
-    positions.set(skillNode.id, { x, y });
-  });
-  
-  /** Discipline nodes (right grid) */
-  disciplineNodes.forEach((node) => {
-    const disciplineIndex = disciplineOrder.indexOf(node.discipline);
-    const yearIndex = node.year - 3;
-    
-    const x = DISCIPLINE_START_X + yearIndex * HORIZONTAL_SPACING;
-    const y = START_Y + disciplineIndex * VERTICAL_SPACING;
-    
+
+  disciplineNodes.forEach(node => {
+    const col = disciplineOrder.indexOf(node.discipline);
+    const row = node.year - 3;
+
+    const x = DISCIPLINE_START_X + col * HORIZONTAL_SPACING;
+    const y = START_Y + row * VERTICAL_SPACING;
+
     positions.set(node.id, { x, y });
   });
-  
+
+  function resolveOverlap(x: number, y: number) {
+    let fx = x;
+    let fy = y;
+
+    for (const p of positions.values()) {
+      const dx = p.x - fx;
+      const dy = p.y - fy;
+
+      if (Math.sqrt(dx * dx + dy * dy) < 110) {
+        fy -= 140;
+      }
+    }
+
+    return { x: fx, y: Math.max(fy, 60) };
+  }
+
+  skillNodes.forEach(skill => {
+    const targets = disciplineNodes.filter(d => d.reinforced_by.includes(skill.id));
+
+    if (targets.length === 0) {
+      positions.set(skill.id, resolveOverlap(120, START_Y + skill.level * 150));
+      return;
+    }
+
+    let avgX = 0, avgY = 0;
+    targets.forEach(t => {
+      const p = positions.get(t.id)!;
+      avgX += p.x;
+      avgY += p.y;
+    });
+    avgX /= targets.length;
+    avgY /= targets.length;
+
+    const sx = avgX + (Math.random() < 0.5 ? -120 : 120);
+    const sy = avgY + (Math.random() * 40 - 20);
+
+    positions.set(skill.id, resolveOverlap(sx, sy));
+  });
+
   return positions;
 }
 
-/**
- * Map status → color used in drawing nodes
- */
-export function getNodeColor(status: NodeStatus): string {
-  const statusColors = {
-    locked: '#9E9E9E',
-    available: '#2196F3',
-    'in-progress': '#FF9800',
-    earned: '#4CAF50'
-  };
-  
-  return statusColors[status];
-}
-
-/**
- * Get color for discipline strands
- */
-export function getDisciplineColor(discipline: string): string {
-  const colors: Record<string, string> = {
-    'Biological Sciences': '#4CAF50',
-    'Chemical Sciences': '#9C27B0',
-    'Earth & Space Sciences': '#FF9800',
-    'Physical Sciences': '#2196F3'
-  };
-  
-  return colors[discipline] || '#999999';
-}
-
-/**
- * Get short abbreviation for a discipline
- */
-export function getDisciplineAbbreviation(discipline: string): string {
-  const abbreviations: Record<string, string> = {
-    'Biological Sciences': 'BIO',
-    'Chemical Sciences': 'CHEM',
-    'Earth & Space Sciences': 'EARTH',
-    'Physical Sciences': 'PHYS'
-  };
-  
-  return abbreviations[discipline] || 'UNK';
-}
-
-/**
- * Get (abbr + icon) for a skill strand
- */
-export function getSkillInfo(skillCode: string): { abbr: string; icon: string } {
-  const skillInfo: Record<string, { abbr: string; icon: string }> = {
-    'QP': { abbr: 'QP', icon: '❓' },
-    'PC': { abbr: 'PC', icon: '📋' },
-    'PAD': { abbr: 'PAD', icon: '📊' },
-    'EVAL': { abbr: 'EVAL', icon: '✅' },
-    'COMM': { abbr: 'COMM', icon: '💬' }
-  };
-  
-  return skillInfo[skillCode] || { abbr: skillCode, icon: '⭐' };
-}
-
-/**
- * Updates a user's skill or discipline progress  
- * Then returns the updated userData.
- */
+/* ---------------------------------------------------------
+   Update user progress
+--------------------------------------------------------- */
 export function updateNodeStatusAndRecalculate(
   nodeId: string,
   newStatus: NodeStatus,
@@ -298,113 +215,103 @@ export function updateNodeStatusAndRecalculate(
   allDisciplineNodes: DisciplineNode[],
   allSkillNodes: SkillNode[]
 ): UserData {
-  const updatedUserData = { ...userData };
-  
-  const isDisciplineNode = nodeId.includes('AC9S'); // discipline node IDs
-  
-  /** Discipline node update logic */
-  if (isDisciplineNode) {
-    const progressIndex = updatedUserData.knowledge_progress.findIndex(p => p.node === nodeId);
-    
-    if (newStatus === 'earned') {
-      if (progressIndex >= 0) {
-        updatedUserData.knowledge_progress[progressIndex] = { node: nodeId, level: 3 };
-      } else {
-        updatedUserData.knowledge_progress.push({ node: nodeId, level: 3 });
-      }
-    } 
-    else if (newStatus === 'in-progress') {
-      if (progressIndex >= 0) {
-        updatedUserData.knowledge_progress[progressIndex] = { node: nodeId, level: newLevel };
-      } else {
-        updatedUserData.knowledge_progress.push({ node: nodeId, level: newLevel });
-      }
-    } 
-    else if (newStatus === 'locked' || newStatus === 'available') {
-      if (progressIndex >= 0) {
-        updatedUserData.knowledge_progress.splice(progressIndex, 1);
-      }
+
+  const updated = {
+    ...userData,
+    skills_levels: { ...userData.skills_levels },
+    knowledge_progress: [...userData.knowledge_progress]
+  };
+
+  const disciplineNode = allDisciplineNodes.find(d => d.id === nodeId);
+  const isDiscipline = !!disciplineNode;
+
+  if (isDiscipline) {
+    const idx = updated.knowledge_progress.findIndex(p => p.node === nodeId);
+
+    if (newStatus === 'earned' || newStatus === 'in-progress') {
+      const lev = newStatus === 'earned' ? 3 : newLevel;
+      if (idx >= 0) updated.knowledge_progress[idx] = { node: nodeId, level: lev };
+      else updated.knowledge_progress.push({ node: nodeId, level: lev });
+    } else if (idx >= 0) {
+      updated.knowledge_progress.splice(idx, 1);
     }
-  } 
-  
-  /** Skill node update logic */
-  else {
-    const skillNode = allSkillNodes.find(n => n.id === nodeId);
-    if (skillNode) {
-      const skillCode = skillNode.skillCode as keyof SkillLevel;
-      
-      if (newStatus === 'earned') {
-        updatedUserData.skills_levels[skillCode] = skillNode.level;
-      } 
-      else if (newStatus === 'available') {
-        updatedUserData.skills_levels[skillCode] = skillNode.level - 1;
-      } 
-      else if (newStatus === 'locked') {
-        updatedUserData.skills_levels[skillCode] = Math.max(0, skillNode.level - 2);
-      }
-    }
+  } else {
+    const skillNode = allSkillNodes.find(s => s.id === nodeId);
+    if (!skillNode) return updated;
+
+    const code = skillNode.skillCode as keyof SkillLevel;
+
+    if (newStatus === 'earned') updated.skills_levels[code] = skillNode.level;
+    else if (newStatus === 'available') updated.skills_levels[code] = skillNode.level - 1;
+    else if (newStatus === 'locked') updated.skills_levels[code] = Math.max(0, skillNode.level - 2);
   }
-  
-  return updatedUserData;
+
+  return updated;
 }
 
-/**
- * Build all connections for visualization:
- *   - discipline progression (discipline → discipline)
- *   - skill reinforcement (skill → discipline)
- *   - skill chains (skill level N → level N+1)
- */
+/* ---------------------------------------------------------
+   Build connections
+--------------------------------------------------------- */
 export function getAllConnections(
   disciplineNodes: DisciplineNode[],
   skillNodes: SkillNode[],
   positions: Map<string, { x: number; y: number }>
-): Array<{ from: string; to: string; type: 'progression' | 'reinforcement' | 'skill-chain' }> {
-  
-  const connections: Array<{ from: string; to: string; type: 'progression' | 'reinforcement' | 'skill-chain' }> = [];
-  
-  /** 1. Discipline → progression_to */
-  disciplineNodes.forEach(node => {
-    if (node.progression_to && positions.has(node.progression_to)) {
-      connections.push({
-        from: node.id,
-        to: node.progression_to,
-        type: 'progression'
-      });
+) {
+  const edges: Array<{ from: string; to: string; type: 'progression' | 'reinforcement' }> = [];
+
+  disciplineNodes.forEach(n => {
+    if (n.progression_to && positions.has(n.progression_to)) {
+      edges.push({ from: n.id, to: n.progression_to, type: 'progression' });
     }
   });
-  
-  /** 2. Skill → reinforce → discipline */
-  disciplineNodes.forEach(node => {
-    node.reinforced_by.forEach(skillId => {
-      if (positions.has(skillId)) {
-        connections.push({
-          from: skillId,
-          to: node.id,
-          type: 'reinforcement'
-        });
+
+  disciplineNodes.forEach(n => {
+    n.reinforced_by.forEach(s => {
+      if (positions.has(s)) {
+        edges.push({ from: s, to: n.id, type: 'reinforcement' });
       }
     });
   });
-  
-  /** 3. Skill chains (level 1 → 2 → 3 → …) */
-  const skillsByCode = new Map<string, SkillNode[]>();
-  skillNodes.forEach(node => {
-    if (!skillsByCode.has(node.skillCode)) {
-      skillsByCode.set(node.skillCode, []);
-    }
-    skillsByCode.get(node.skillCode)!.push(node);
-  });
-  
-  skillsByCode.forEach(nodes => {
-    const sorted = nodes.sort((a, b) => a.level - b.level);
-    for (let i = 0; i < sorted.length - 1; i++) {
-      connections.push({
-        from: sorted[i].id,
-        to: sorted[i + 1].id,
-        type: 'skill-chain'
-      });
-    }
-  });
-  
-  return connections;
+
+  return edges;
+}
+
+/* ---------------------------------------------------------
+   Colors
+--------------------------------------------------------- */
+export function getNodeColor(status: NodeStatus) {
+  return {
+    locked: '#9E9E9E',
+    available: '#2196F3',
+    'in-progress': '#FF9800',
+    earned: '#4CAF50'
+  }[status];
+}
+
+export function getDisciplineColor(name: string) {
+  return {
+    'Biological Sciences': '#4CAF50',
+    'Chemical Sciences': '#9C27B0',
+    'Earth & Space Sciences': '#FF9800',
+    'Physical Sciences': '#2196F3'
+  }[name] || '#999';
+}
+
+export function getDisciplineAbbreviation(name: string) {
+  return {
+    'Biological Sciences': 'BIO',
+    'Chemical Sciences': 'CHEM',
+    'Earth & Space Sciences': 'EARTH',
+    'Physical Sciences': 'PHYS'
+  }[name] || 'UNK';
+}
+
+export function getSkillInfo(code: string) {
+  return {
+    QP: { abbr: 'QP', icon: '❓' },
+    PC: { abbr: 'PC', icon: '📋' },
+    PAD: { abbr: 'PAD', icon: '📊' },
+    EVAL: { abbr: 'EVAL', icon: '✅' },
+    COMM: { abbr: 'COMM', icon: '💬' }
+  }[code] || { abbr: code, icon: '⭐' };
 }
