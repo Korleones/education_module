@@ -1,0 +1,23 @@
+# .dockerignore
+
+# 1. Dependencies (Crucial for speed)
+# node_modules are installed inside the container, so they are ignored here
+node_modules
+
+# 2. Expo Cache and Temporary Files
+# .expo contains local cache and configuration specific to your development environment
+.expo
+
+# 3. Version Control (Crucial for security and size)
+# Git history is not needed inside the running container
+.git
+.gitignore
+
+# 4. Docker Configuration Files (Not needed in the final image)
+# The build and compose instructions themselves are not required for the runtime
+Dockerfile
+docker-compose.yml
+
+# 5. Local Secrets (CRITICAL for security)
+# If you use a local environment file, ensure it is NOT copied into the image
+.env

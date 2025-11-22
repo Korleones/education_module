@@ -1,0 +1,23 @@
+# docker-compose.yml
+
+version: '3.8' # Using a standard Docker Compose version
+
+services:
+  # Define your main application service
+  almond-app:
+    # Build the image using the Dockerfile in the current directory
+    build: .
+    
+    # Map the container port (8081) to the host machine port (8081)
+    # This allows users to access the app via http://localhost:8081
+    ports:
+      - "8081:8081"
+      
+    # If your Expo app requires specific environment variables (secrets), 
+    # ensure they are managed via a .env file that is NOT checked into Git.
+    # Uncomment the line below if you use a .env file in the same directory:
+    # env_file:
+    #   - .env
+      
+    # Restart the container if it stops unexpectedly
+    restart: always
