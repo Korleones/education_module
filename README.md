@@ -1,5 +1,10 @@
 # 🚀 Arludo STEM Learning & Career Exploration Platform
 
+Contact:Di Kan
+Email: dikan@duck.com
+Mobile:0421517985
+
+
 ## A Comprehensive System for Curated Science Progression and Career Guidance
 
 This document outlines the core modules of the Arludo STEM Learning and Career Exploration Platform, built using **React Native (Expo)** and **TypeScript**. The platform transforms abstract career goals into **concrete, personalized, and actionable learning pathways** aligned with the Australian Curriculum v9 (AC9).
@@ -158,6 +163,9 @@ Jest/TypeScript test files serve as an auxiliary tool, primarily focused on rapi
 * **End-to-End/Integration Tests (`recSys.e2e.test.ts`, `skillTree.e2e.js`):**
     * Used to verify that critical user flows (e.g., navigation from the homepage to the skill tree, or clicking a node to open the `NodeDetailModal`) do not crash.
     * Perform rendering and basic interaction tests on important UI components (e.g., `RecommendationCard.test.jsx`, `SkillTreeVisualizer.tsx`).
+    * 
+
+    
 
 ---
 
