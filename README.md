@@ -123,8 +123,42 @@ The system relies on the following local JSON data sources:
 
 ---
 
-## 6. 💻 Core Source Code (Interfaces & Logic)
-
-The following TypeScript interfaces and function excerpts define the critical data structures and algorithms used in the system, with **English comments** as requested.
 
 
+
+## 📝 Project Testing Strategy: Manual Verification as Primary, Automated Tests as Auxiliary
+
+Given that the core functionalities of this project—the **Skill Tree Status Calculation** and the **Recommendation System Algorithm**—are built upon complex **educational rules and business logic**, our primary quality assurance strategy relies on **manual testing and verification**.
+
+### 1. 🔍 Manual Verification (Primary QA)
+
+We use manual, targeted testing to validate the accuracy of complex algorithms, educational integrity, and the overall user experience.
+
+* **Skill Tree Status Validation:**
+    * **Manually modify** the user's skill levels (`skills_levels`) and knowledge progress (`knowledge_progress`) via the `NodeDetailModal`.
+    * **Verify in real-time** that the system correctly performs the automatic recalculation and updates node statuses (`Locked`, `Available`, `In Progress`, `Earned`) according to the `Status Calculation Logic`.
+    * Validate that the locking logic based on **`Progression Relationships`** (prerequisite node must be Lv.3) and **`Reinforced Skills`** (required inquiry skill levels) works as intended.
+
+* **Trajectory Panel Verification (Gap Analysis):**
+    * Manually select a career and verify that the **`Automated Gap Analysis`** result accurately reflects the gap between the student's current level and the career's requirements.
+
+* **Recommendation System Validation (Rule Validation):**
+    * Use **Debug Mode** to inspect the raw scores and signals within `CareerRecItem.evidence`.
+    * Verify that the `scoreCareer` and `scoreUnit` logic (e.g., **`Threshold with relaxation`**, **`Interest boost`**, and **`Grade boost`**) operates according to the defined rules.
+    * Confirm that the natural language **`whyThis`** explanation for recommendations aligns with the underlying rules and signals.
+
+### 2. 🧪 Automated Testing (Auxiliary QA)
+
+Jest/TypeScript test files serve as an auxiliary tool, primarily focused on rapid regression testing for key pure functions and UI components.
+
+* **Unit Tests (`recSys.unit.test.ts`):**
+    * Ensure that the core algorithmic pure functions (e.g., `scoreCareer`, `pickNextLevelUnits`) return expected scores and statuses for specific data inputs.
+    * Guarantee that the **core calculation parts** of complex business rules (e.g., Next-Level Selection, Skill Gate Check) are reliable.
+
+* **End-to-End/Integration Tests (`recSys.e2e.test.ts`, `skillTree.e2e.js`):**
+    * Used to verify that critical user flows (e.g., navigation from the homepage to the skill tree, or clicking a node to open the `NodeDetailModal`) do not crash.
+    * Perform rendering and basic interaction tests on important UI components (e.g., `RecommendationCard.test.jsx`, `SkillTreeVisualizer.tsx`).
+
+---
+
+**Conclusion:** Manual testing is essential for verifying the **"educational validity"** and **"user experience,"** while automated testing provides fast, reliable assurance for **"algorithmic computational correctness."** The two strategies are mutually supportive.
