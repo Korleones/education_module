@@ -1,9 +1,4 @@
-# 🚀 Arludo STEM Learning & Career Exploration Platform
-
-Contact:Di Kan
-Email: dikan@duck.com
-Mobile:0421517985
-
+# 🚀SmTEM Learning & Career Exploration Platform
 
 ## A Comprehensive System for Curated Science Progression and Career Guidance
 
