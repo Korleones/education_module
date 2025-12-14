@@ -2,7 +2,7 @@
 
 ## A Comprehensive System for Curated Science Progression and Career Guidance
 
-This document outlines the core modules of the Arludo STEM Learning and Career Exploration Platform, built using **React Native (Expo)** and **TypeScript**. The platform transforms abstract career goals into **concrete, personalized, and actionable learning pathways** aligned with the Australian Curriculum v9 (AC9).
+This document outlines the core modules of the STEM Learning and Career Exploration Platform, built using **React Native (Expo)** and **TypeScript**. The platform transforms abstract career goals into **concrete, personalized, and actionable learning pathways** 
 
 ---
 
