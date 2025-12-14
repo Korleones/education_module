@@ -1,4 +1,4 @@
-# 🚀SmTEM Learning & Career Exploration Platform
+# 🚀STEM Learning & Career Exploration Platform
 
 ## A Comprehensive System for Curated Science Progression and Career Guidance
 
